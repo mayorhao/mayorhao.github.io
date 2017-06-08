@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="infoQ,翻译,Angular,组件,框架," />
 
 
 
@@ -93,15 +93,23 @@
 
 
 
-<meta name="description" content="Calm down and Coding on">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MayorHao的秘密小屋">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Angular组件通信源文章:Getting Components to Communicate in Angular 本文要点 Angular应用是基于组件的，可以在组件之间传递数据。 可以通过@Input()向子组件传递数据。 可以通过@Output()捕获由子组件传来的数据。 可以使用像ngrx的外部数据存储来组织大型应用  组件是组成Angular应用的基石，在angular应用中，每个可">
+<meta name="keywords" content="infoQ,翻译,Angular,组件,框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【翻译】Angular组件通信">
+<meta property="og:url" content="http://yoursite.com/2016/12/22/angularTranslate/index.html">
 <meta property="og:site_name" content="MayorHao的秘密小屋">
-<meta property="og:description" content="Calm down and Coding on">
+<meta property="og:description" content="Angular组件通信源文章:Getting Components to Communicate in Angular 本文要点 Angular应用是基于组件的，可以在组件之间传递数据。 可以通过@Input()向子组件传递数据。 可以通过@Output()捕获由子组件传来的数据。 可以使用像ngrx的外部数据存储来组织大型应用  组件是组成Angular应用的基石，在angular应用中，每个可">
+<meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/3Picture1.jpg">
+<meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/2Picture2.jpg">
+<meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture3.jpg">
+<meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture4.jpg">
+<meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/0F3A4898.jpg">
+<meta property="og:updated_time" content="2017-06-08T09:10:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MayorHao的秘密小屋">
-<meta name="twitter:description" content="Calm down and Coding on">
+<meta name="twitter:title" content="【翻译】Angular组件通信">
+<meta name="twitter:description" content="Angular组件通信源文章:Getting Components to Communicate in Angular 本文要点 Angular应用是基于组件的，可以在组件之间传递数据。 可以通过@Input()向子组件传递数据。 可以通过@Output()捕获由子组件传来的数据。 可以使用像ngrx的外部数据存储来组织大型应用  组件是组成Angular应用的基石，在angular应用中，每个可">
+<meta name="twitter:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/3Picture1.jpg">
 
 
 
@@ -129,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/22/angularTranslate/"/>
 
 
 
 
 
-  <title>MayorHao的秘密小屋</title>
+  <title>【翻译】Angular组件通信 | MayorHao的秘密小屋</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,9 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,129 +262,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://b-ssl.duitang.com/uploads/item/201505/04/20150504091326_YeGX2.thumb.700_0.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/08/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T14:50:39+08:00">
-                2017-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -404,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/22/angularTranslate/" itemprop="url">【翻译】Angular组件通信</a></h1>
+          <h1 class="post-title" itemprop="name headline">【翻译】Angular组件通信</h1>
         
 
         <div class="post-meta">
@@ -475,9 +359,7 @@
       
 
       
-        
-          
-            <h1 id="Angular组件通信"><a href="#Angular组件通信" class="headerlink" title="Angular组件通信"></a>Angular组件通信</h1><p>源文章:<a href="https://www.infoq.com/articles/angular-component-communication" target="_blank" rel="external">Getting Components to Communicate in Angular</a></p>
+        <h1 id="Angular组件通信"><a href="#Angular组件通信" class="headerlink" title="Angular组件通信"></a>Angular组件通信</h1><p>源文章:<a href="https://www.infoq.com/articles/angular-component-communication" target="_blank" rel="external">Getting Components to Communicate in Angular</a></p>
 <h3 id="本文要点"><a href="#本文要点" class="headerlink" title="本文要点"></a>本文要点</h3><ul>
 <li>Angular应用是基于组件的，可以在组件之间传递数据。</li>
 <li>可以通过<code>@Input()</code>向子组件传递数据。</li>
@@ -526,467 +408,84 @@
 <h3 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h3><p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/0F3A4898.jpg" alt="图5"></p>
 <p><strong>Sergio Cruz</strong>是Code School的程序开发人员和讲师，他专注于关于JavaScript的一切。最近，他教授了Code School的React课程，<a href="https://www.codeschool.com/courses/powering-up-with-react" target="_blank" rel="external">(开启React之路(Powering up With React)</a>”。当他不在Code School敲代码时，你会发现他会在ng-conf和OSCON这样的会议上作关于JavaScript的演讲。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/闭包与科利华/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://b-ssl.duitang.com/uploads/item/201505/04/20150504091326_YeGX2.thumb.700_0.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/11/闭包与科利华/" itemprop="url">理解闭包与柯里化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T03:55:29+08:00">
-                2016-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/infoQ/" rel="tag"># infoQ</a>
           
-
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
           
-            
+            <a href="/tags/Angular/" rel="tag"># Angular</a>
           
-
+            <a href="/tags/组件/" rel="tag"># 组件</a>
           
+            <a href="/tags/框架/" rel="tag"># 框架</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p></p><p><br>javascript拥有简洁的表达，使你可以专心于算法攻略。就好像黑白机上的闯关游戏，你拾取了宝剑，只需要不停地点<strong>A</strong>就可以了。你唯一要思考的就是如何不停地跳躲Boss的大招。</p><p></p>
-<p></p><p>javascript成为浏览器的唯一语言，并且成为世界标准许多年，是有非常重要的理由的。《JavaScript: The Good Parts》做出了非常清晰地解释。</p><p></p>
-<p><blockquote><br>    <p> JavaScript:The World’s Most Misunderstood Programming Language</p><br></blockquote></p>
-<p></p><p>然而，想要掌握javascript的正确编写方式并不容易。尤其是当你从教科书开始的时候，大部分给你的信息都是面向对象的东西：<strong><code>new</code></strong>， <strong><code>prototype</code></strong>，<strong><code>class</code></strong>，<strong><code>extend</code></strong>，…<br>    </p><p></p>
-<p></p><p>这些都不是正确编写javascript的方式，当然你可以这么做，但是你会恨上javascript，这样编写的感觉会让你觉得你在写java却不能拥有java一样的计算速度。</p><p></p>
-<p></p><p>想要喜欢上javascript并且享受programming的快感，你需要放下一切对面向对象的理解，走进函数和求值的世界。你的所有代码只有<strong><code>function</code></strong>，这是简单的并且灵活的。<br><br></p><p></p>
-<p><hr></p>
-<p></p><h1>什么是函数？</h1><p></p>
-<p></p><p><br>如同数学界，函数<strong><code>function</code></strong>即代表了求值。然而，从另一个角度来讲，函数<strong><code>function</code></strong>也是值：</p><p></p>
-<pre><code>g = f(x)</code></pre>
-<p>我们认为g是一个值，来自f函数的计算，输入是x。然而，我们可以把值g作为一个函数，输入y，再次进行求值：</p>
-<pre><code>v = g(y)</code></pre>
-<p>把函数<strong><code>function</code></strong>赋予值的定位，可以使计算充满了灵活：</p>
-<pre><code>v = f(x)(y) = k(f, x, y)</code></pre>
-<p><br></p>
-<hr>
-<h1>什么是柯里化Currying？</h1>
-<p><br><strong><code>f(x)(y)</code></strong>就是柯里化：使用函数f，输入x，计算，获得一个新的函数，再次输入y，计算，获取结果。<strong><code>f(x)(y)(z)(a)(b)(c)</code></strong>，你完全可以写这样的函数。每次进行一次计算时，都返回一个新的函数。当然，你也可以写成这样的方式<strong><code>g(x, y, z, a, b, c)</code></strong>。</p>
-<pre><code>function f (x) {
-  return function (y) {
-    return function (z) {
-      return function (a) {
-        return function (b) {
-          return function (c) {
-              console.log(x  + y + z + a + b + c);
-          };
-        };
-      };
-    };
-  };
-}</code></pre>
-<p>计算6个数字相加为什么要费这么大的周折？原因在于可以获得拥有内部记忆的函数: <strong><code>g = f(1)</code></strong>可以获得一个新的函数<strong><code>g</code></strong>。可以使用<strong><code>g</code></strong>编写多种不同的求值组合，而使第一个输入始终是<strong><code>1</code></strong>:</p>
-<pre><code>g(2)(3)(4)(5)(6);
-g(3)(3)(4)(5)(6);
-g(9)(9)(1)(2)(3);</code></pre>
-<p><br></p>
-<hr>
-<h1>什么是闭包Closure？</h1>
-<p><br>上边的函数就是闭包，确切的说，利用柯里化机制的函数<strong><code>function</code></strong>就是闭包函数。通过柯里化，获取一个拥有记忆功能的函数，简化后续的多种计算操作，这就是闭包。</p>
-<pre><code>function move(start) {
-  var pos = start;
-  return function () {
-    console.log('Move to ' + (pos += 2) + '.');
-  }
-}
-
-var move_next = move(6); 
-move_next();  // Move to 8. 
-move_next();  // Move to 10.</code></pre>
-<p><br></p>
-<hr>
-<h1>进阶：记忆</h1>
-<p><br>下面我们来看一下经典的缓存函数。开始有两个输入参数，一个是数组<strong><code>sets</code></strong>，一个是求值函数<strong><code>f</code></strong>：</p>
-<pre><code>function memorize(sets, f) {
-    var cache = {}; 
-    return function (x) { 
-        console.log('cache: %j', cache);
-        return x in cache
-               ? cache[x]
-               : cache[x] = f(sets[x]);
-    }
-}</code></pre>
-<p>首先，我们在<strong><code>memorize</code></strong>的内部空间放置了一个记忆单元：<strong><code>cache</code></strong>，是一个<strong><code>Object</code></strong>类型，这样我们就可以用来存储任何我们想要的数据。<strong><code>Object</code></strong>类型可以看做是简化并且统一版的C语言中的<strong><code>struct</code></strong>：不需要考虑链接，不需要考虑类型，解释器会为你完成。</p>
-<p>接下来，我们运用柯里化返回一个函数。这个函数有一个输入参数，指定了<strong><code>sets</code></strong>数组中的第几项进行计算。我们首先使用<strong><code>console.log</code></strong>打印当时内部空间的记忆单元<strong><code>cache</code></strong>的值，然后判断输入参数是不是在<strong><code>cache</code></strong>的键中。如果已经存在，直接返回记忆的内容，如果没有存在，使用函数<strong><code>f</code></strong>对输入参数<strong><code>sets[x]</code></strong>求值，然后把结果记忆到内部空间的记忆单元：<strong><code>cache</code></strong>中。</p>
-<p>通过记忆，每次使用求值函数<strong><code>f</code></strong>计算后，都将结果保存在<strong><code>cache</code></strong>中，这样可以极大的降低重复计算：</p>
-<pre><code>var g = memorize([1000, 2000, 3000], function (x) { return x * x; });
-g(0);  // cache: {}，计算1000*1000
-g(0);  // cache: {"0":1000000}，来自记忆
-g(0);  // cache: {"0":1000000}，来自记忆
-g(0);  // cache: {"0":1000000}，来自记忆
-g(1);  // cache: {"0":1000000}，计算2000*2000
-g(1);  // cache: {"0":1000000, "1":4000000}，来自记忆
-g(1);  // cache: {"0":1000000, "1":4000000}，来自记忆</code></pre>
-<p><br></p>
-<hr>
-<h1>进阶：让函数循环起来</h1>
-<p><br>我们已经看到了柯里化(闭包)的好处和妙处，同时这些也都是函数<strong><code>function</code></strong>概念帮助我们完成了一系列繁琐的工作。下面我们将把函数<strong><code>function</code></strong>运用到循环中，进一步了解函数的好处和妙处。</p>
-<pre><code>function map(sets, f) {
-  var i = 0, len = sets.length, result = [], val;  
-  while (i &lt; len) {
-    val = f(sets[i]);
-    result.push(val);
-    ++i;
-  }
-  return result;
-}</code></pre>
-<p>函数<strong><code>map</code></strong>使用两个输入参数：一个数组<strong><code>sets</code></strong>，一个求值函数<strong><code>f</code></strong>。</p>
-<p>首先，我们计算数组<strong><code>sets</code></strong>的长度，设定一个位置符<strong><code>i</code></strong>。然后对<strong><code>sets</code></strong>进行循环的操作，把其中的<strong><code>sets[i]</code></strong>进行求值，然后压入<strong><code>result</code></strong>中，最后将<strong><code>result</code></strong>返回。</p>
-<p>通过这样的设定，我们使函数<strong><code>f</code></strong>在循环中运转。我们还可以进一步，再放入一个条件函数，只有条件成功的时候才进行求值：</p>
-<pre><code>function map(sets, condf, f) {
-  var i = 0, len = sets.length, result = [], val, set;  
-  while (i &lt; len) {
-    set = sets[i];
-    if (condf(set)) {
-      val = f(set);
-      result.push(val);
-    }
-    ++i;
-  }
-  return result;
-}</code></pre>
-<p>上边我们刚刚讨论了柯里化，所以把这个函数改一改，变成柯里化：</p>
-<pre><code>function map(sets, f) {
-  return function (condf) {
-    var i = 0, len = sets.length, result = [], val, set;  
-    while (i &lt; len) {
-      set = sets[i];
-      if (condf(set)) {
-        val = f(set);
-        result.push(val);
-      }
-      ++i;
-    }
-    return result;
-  }
-}</code></pre>
-<p>现在，函数<strong><code>map</code></strong>在循环中进一步增加了灵活性，我们可以这样方便的使用：</p>
-<pre><code>var mymap = map([1,2,3,4,5,6], function (set) { return set + 1; });
-mymap(function (set) { return set % 2 === 0 });  // 偶数
-mymap(function (set) { return set &gt; 9 });  // 大于9
-
-// 如果你熟悉Ecmascript 6，那么代码会非常有趣
-var mymap = map([1,2,3,4,5,6], set =&gt; set + 1);
-mymap(set =&gt; set % 2 === 0);  // 偶数
-mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/07/generator/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://b-ssl.duitang.com/uploads/item/201505/04/20150504091326_YeGX2.thumb.700_0.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/07/generator/" itemprop="url">Generator从陌生到熟悉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-07T08:55:29+08:00">
-                2016-11-07
-              </time>
+              <a href="/2016/11/11/闭包与科利华/" rel="next" title="理解闭包与柯里化">
+                <i class="fa fa-chevron-left"></i> 理解闭包与柯里化
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/06/08/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="关于Generator"><a href="#关于Generator" class="headerlink" title="关于Generator"></a>关于Generator</h3><ol>
-<li>声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> Generator=<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意到那个<code>*</code>号</p>
-<ol>
-<li>生成器对象<br>generator不能像普通函数一样直接调用，调用会生成generator对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gen=Generator();</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>gen本身也是可以迭代的，可以用for-of 来迭代，在代码中我们已经试了，迭代出每次yield切出的值</p>
-<ol>
-<li>方法</li>
-</ol>
-<ul>
-<li>generator.next(value)<br>返回一个状态对象，大概像这样：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    value:any,</div><div class="line">    done:Boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>value 是yeild切出的值，done是指generator完成的状态，一旦触发最后一个yield，状态done变为true，或者reurn语句或者抛出错误。<br>next方法还可以接受参数，作用是，有大神的<a href="http://huli.logdown.com/posts/292331-javascript-es6-generator-foundation" target="_blank" rel="external">Generator基礎</a>总结的：</p>
-<blockquote>
-<ol>
-<li>yield其實是兩個動作的合體：丟東西出去-&gt;等東西進來</li>
-<li>每次next()都會跑到yield丟東西出來的那個步驟<br>还是拿代码说明一下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">get_adder</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> total = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"before yield"</span>);</div><div class="line">    total+=<span class="keyword">yield</span> total;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"after yield, total:"</span>+total);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> adder = get_adder();</div><div class="line"><span class="built_in">console</span>.log(adder.next().value);</div><div class="line"><span class="built_in">console</span>.log(adder.next(<span class="number">100</span>).value);</div><div class="line"><span class="comment">//输出：</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0  在这里终端，切出value，yield开始等待值</span></div><div class="line"><span class="comment">// after yield ,total:100 第二个next ，传入100</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0 切出第二个value值</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>从上面代码可以看到</p>
-<ul>
-<li><p>generator.throw(error)</p>
-<p>  抛出错误</p>
-</li>
-<li><p>generator[@@literator] </p>
-<p>  暂时看不懂。</p>
-</li>
-</ul>
-<h3 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h3><p> 如何用for-of 生成迭代器</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -994,6 +493,10 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1013,8 +516,17 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://b-ssl.duitang.com/uploads/item/201505/04/20150504091326_YeGX2.thumb.700_0.jpeg"
@@ -1076,6 +588,22 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Angular组件通信"><span class="nav-number">1.</span> <span class="nav-text">Angular组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文要点"><span class="nav-number">1.0.1.</span> <span class="nav-text">本文要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向组件传递数据"><span class="nav-number">1.0.2.</span> <span class="nav-text">向组件传递数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法解析"><span class="nav-number">1.0.3.</span> <span class="nav-text">语法解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概念梳理"><span class="nav-number">1.0.4.</span> <span class="nav-text">概念梳理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获子组件事件"><span class="nav-number">1.0.5.</span> <span class="nav-text">捕获子组件事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获父组件事件"><span class="nav-number">1.0.6.</span> <span class="nav-text">捕获父组件事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另一种获取数据的方式"><span class="nav-number">1.0.7.</span> <span class="nav-text">另一种获取数据的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速回顾Angular组件通信"><span class="nav-number">1.0.8.</span> <span class="nav-text">快速回顾Angular组件通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何继续学习"><span class="nav-number">1.0.9.</span> <span class="nav-text">如何继续学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于作者"><span class="nav-number">1.0.10.</span> <span class="nav-text">关于作者</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1178,10 +706,10 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
