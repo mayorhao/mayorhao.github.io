@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/06/08/hello-world/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/06/08/generator/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-06-08T06:50:39.000Z">
+<meta property="og:description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
+<meta property="og:updated_time" content="2017-06-08T07:10:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/08/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/08/generator/"/>
 
 
 
@@ -256,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/generator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T14:50:39+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T15:09:47+08:00">
                 2017-06-08
               </time>
             
@@ -320,15 +320,41 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="关于Generator"><a href="#关于Generator" class="headerlink" title="关于Generator"></a>关于Generator</h3><ol>
+<li>声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> Generator=<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意到那个<code>*</code>号</p>
+<ol>
+<li>生成器对象<br>generator不能像普通函数一样直接调用，调用会生成generator对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gen=Generator();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>gen本身也是可以迭代的，可以用for-of 来迭代，在代码中我们已经试了，迭代出每次yield切出的值</p>
+<ol>
+<li>方法</li>
+</ol>
+<ul>
+<li>generator.next(value)<br>返回一个状态对象，大概像这样：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    value:any,</div><div class="line">    done:Boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>value 是yeild切出的值，done是指generator完成的状态，一旦触发最后一个yield，状态done变为true，或者reurn语句或者抛出错误。<br>next方法还可以接受参数，作用是，有大神的<a href="http://huli.logdown.com/posts/292331-javascript-es6-generator-foundation" target="_blank" rel="external">Generator基礎</a>总结的：</p>
+<blockquote>
+<ol>
+<li>yield其實是兩個動作的合體：丟東西出去-&gt;等東西進來</li>
+<li>每次next()都會跑到yield丟東西出來的那個步驟<br>还是拿代码说明一下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">get_adder</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> total = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"before yield"</span>);</div><div class="line">    total+=<span class="keyword">yield</span> total;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"after yield, total:"</span>+total);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> adder = get_adder();</div><div class="line"><span class="built_in">console</span>.log(adder.next().value);</div><div class="line"><span class="built_in">console</span>.log(adder.next(<span class="number">100</span>).value);</div><div class="line"><span class="comment">//输出：</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0  在这里终端，切出value，yield开始等待值</span></div><div class="line"><span class="comment">// after yield ,total:100 第二个next ，传入100</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0 切出第二个value值</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>从上面代码可以看到</p>
+<ul>
+<li><p>generator.throw(error)</p>
+<p>  抛出错误</p>
+</li>
+<li><p>generator[@@literator] </p>
+<p>  暂时看不懂。</p>
+</li>
+</ul>
+<h3 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h3><p> 如何用for-of 生成迭代器</p>
 
       
     </div>
@@ -365,15 +391,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/08/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/08/generator/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Generator"><span class="nav-number">1.</span> <span class="nav-text">关于Generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展："><span class="nav-number">2.</span> <span class="nav-text">拓展：</span></a></li></ol></div>
             
 
           </div>
