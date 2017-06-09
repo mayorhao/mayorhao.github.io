@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git,笔记," />
+  <meta name="keywords" content="教程,webpack,loader,plugin," />
 
 
 
@@ -93,17 +93,26 @@
 
 
 
-<meta name="description" content="git如何替换远程仓库我们经常会遇到这样的场景，在github上新起了一个项目。想将本地仓库推送上去，但是该仓库已经关联了别的远程仓库。这时，我么只需要:1git init //重新初始化git仓库 然后，可以选择用：1git remote set-url origin [url] 当然，我们也可以先把删除掉与原仓库的关联12git remote rm origingit remote add o">
-<meta name="keywords" content="git,笔记">
+<meta name="description" content="本文由官方Tutorial Getting Started整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。  WELCOME这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：  如何安装webpack 如何使用webpack 如何使用loader 如何使用开发环境服务器  安装WEBPACK首先你需要安装有node，然后执行 npm install webpack">
+<meta name="keywords" content="教程,webpack,loader,plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git如何替换远程仓库">
-<meta property="og:url" content="http://yoursite.com/2017/06/08/git-new-remote/index.html">
+<meta property="og:title" content="【翻译】webpack入门">
+<meta property="og:url" content="http://yoursite.com/2016/06/07/webpack入门/index.html">
 <meta property="og:site_name" content="MayorHao的秘密小屋">
-<meta property="og:description" content="git如何替换远程仓库我们经常会遇到这样的场景，在github上新起了一个项目。想将本地仓库推送上去，但是该仓库已经关联了别的远程仓库。这时，我么只需要:1git init //重新初始化git仓库 然后，可以选择用：1git remote set-url origin [url] 当然，我们也可以先把删除掉与原仓库的关联12git remote rm origingit remote add o">
-<meta property="og:updated_time" content="2017-06-08T10:05:05.000Z">
+<meta property="og:description" content="本文由官方Tutorial Getting Started整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。  WELCOME这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：  如何安装webpack 如何使用webpack 如何使用loader 如何使用开发环境服务器  安装WEBPACK首先你需要安装有node，然后执行 npm install webpack">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e3e6f0.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e40ae6.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e616f3.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/18/562468f9a72c0.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e3951d.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/18/5624697c01675.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e4b155.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/10/17/562313105e09d.png">
+<meta property="og:updated_time" content="2017-06-09T08:09:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git如何替换远程仓库">
-<meta name="twitter:description" content="git如何替换远程仓库我们经常会遇到这样的场景，在github上新起了一个项目。想将本地仓库推送上去，但是该仓库已经关联了别的远程仓库。这时，我么只需要:1git init //重新初始化git仓库 然后，可以选择用：1git remote set-url origin [url] 当然，我们也可以先把删除掉与原仓库的关联12git remote rm origingit remote add o">
+<meta name="twitter:title" content="【翻译】webpack入门">
+<meta name="twitter:description" content="本文由官方Tutorial Getting Started整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。  WELCOME这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：  如何安装webpack 如何使用webpack 如何使用loader 如何使用开发环境服务器  安装WEBPACK首先你需要安装有node，然后执行 npm install webpack">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2015/10/17/5623130e3e6f0.png">
 
 
 
@@ -131,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/08/git-new-remote/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/07/webpack入门/"/>
 
 
 
 
 
-  <title>git如何替换远程仓库 | MayorHao的秘密小屋</title>
+  <title>【翻译】webpack入门 | MayorHao的秘密小屋</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/git-new-remote/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/07/webpack入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -284,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git如何替换远程仓库</h1>
+          <h1 class="post-title" itemprop="name headline">【翻译】webpack入门</h1>
         
 
         <div class="post-meta">
@@ -296,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T17:41:24+08:00">
-                2017-06-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-07T01:30:29+08:00">
+                2016-06-07
               </time>
             
 
@@ -319,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
                   </a>
                 </span>
 
@@ -353,9 +362,65 @@
       
 
       
-        <h3 id="git如何替换远程仓库"><a href="#git如何替换远程仓库" class="headerlink" title="git如何替换远程仓库"></a>git如何替换远程仓库</h3><p>我们经常会遇到这样的场景，在github上新起了一个项目。想将本地仓库推送上去，但是该仓库已经关联了别的远程仓库。这时，我么只需要:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init //重新初始化git仓库</div></pre></td></tr></table></figure></p>
-<p>然后，可以选择用：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin [url]</div></pre></td></tr></table></figure></p>
-<p>当然，我们也可以先把删除掉与原仓库的关联<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div><div class="line">git remote add origin [url]</div></pre></td></tr></table></figure></p>
+        <p>本文由官方Tutorial <a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">Getting Started</a>整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。</p>
+<hr>
+<h1 id="WELCOME"><a href="#WELCOME" class="headerlink" title="WELCOME"></a>WELCOME</h1><p>这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：</p>
+<ul>
+<li>如何安装webpack</li>
+<li>如何使用webpack</li>
+<li>如何使用loader</li>
+<li>如何使用开发环境服务器</li>
+</ul>
+<h1 id="安装WEBPACK"><a href="#安装WEBPACK" class="headerlink" title="安装WEBPACK"></a>安装WEBPACK</h1><p>首先你需要安装有node，然后执行</p>
+<p><code>npm install webpack -g</code></p>
+<blockquote>
+<p>这会使webpack命令生效</p>
+</blockquote>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我们从一个空文件夹开始，首先创建以下文件</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3e6f0.png" alt="image"></p>
+<p>然后在该文件夹根目录下执行以下命令：</p>
+<pre><code>webpack ./entry.js bundle.js
+</code></pre><p>这会编译你的<code>entry.js</code>文件并生成<code>bundle.js</code>。倘若成功，将有以下信息输出：</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e40ae6.png" alt="image"></p>
+<p>用浏览器打开<code>index.html</code>，会出现<code>It works.</code></p>
+<h1 id="再添加一个文件"><a href="#再添加一个文件" class="headerlink" title="再添加一个文件"></a>再添加一个文件</h1><p>接下来，我们会为一个新文件添加如下代码。</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e616f3.png" alt="image"></p>
+<p>再执行以下命令</p>
+<pre><code>webpack ./entry.js bundle.js
+</code></pre><p>刷新浏览器，此时你会看到文字变为”It works from content.js.”</p>
+<blockquote>
+<p>webpack会分析你入口文件对于其他文件的依赖，这些文件（通常称为模块）也会被包含在<code>bundle.js</code>中。</p>
+</blockquote>
+<h1 id="第一个LOADER"><a href="#第一个LOADER" class="headerlink" title="第一个LOADER"></a>第一个LOADER</h1><p>我们希望为我们的应用添加css文件。webpack原生仅支持JavaScript，所以我们需要<code>css-loader</code>来处理css文件，我们也需要<code>style-loader</code>来应用这些样式。</p>
+<p>运行<code>npm install css-loader style-loader</code>来安装这些loader（此处使用局部安装而非全局安装），这会在你的目录下生成<code>node_modules</code>文件夹。</p>
+<p>需要改动的文件如下：</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/18/562468f9a72c0.png" alt="image"></p>
+<p>再次编译并刷新浏览器你会看到应用的背景变为黄色。</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3951d.png" alt="image"></p>
+<h1 id="绑定LOADER"><a href="#绑定LOADER" class="headerlink" title="绑定LOADER"></a>绑定LOADER</h1><p>我们不希望总是敲下如此冗长的<code>require(&quot;!style!css!./style.css&quot;);</code>，所以我们可以绑定文件的扩展名以简化写法为<code>require(&quot;./style.css&quot;)</code>。</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/18/5624697c01675.png" alt="image"></p>
+<p>执行以下的编译命令：</p>
+<pre><code>webpack ./entry.js bundle.js --module-bind &quot;css=style!css&quot;
+</code></pre><p>你将看到同样的结果。</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>我们希望将配置选项写入配置文件中。</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e4b155.png" alt="image"></p>
+<p>此后，仅需执行：</p>
+<pre><code>webpack
+</code></pre><p>来编译</p>
+<p><img src="https://ooo.0o0.ooo/2015/10/17/562313105e09d.png" alt="image"></p>
+<blockquote>
+<p><code>webpack</code>命令总会尝试载入当前目录的<code>webpack.config.js</code>文件</p>
+</blockquote>
+<h1 id="更友好地输出"><a href="#更友好地输出" class="headerlink" title="更友好地输出"></a>更友好地输出</h1><p>随着项目的增长，编译过程可能会越来越长，所以我们可以展示一些进度条以及增加配色来实现更友好地输出。我们可以通过以下命令达到目的：</p>
+<pre><code>webpack --progress --colors
+</code></pre><h1 id="监视模式"><a href="#监视模式" class="headerlink" title="监视模式"></a>监视模式</h1><p>当我们不希望在文件改动后手动执行编译操作时</p>
+<pre><code>webpack --progress --colors --watch
+</code></pre><h1 id="开发服务器"><a href="#开发服务器" class="headerlink" title="开发服务器"></a>开发服务器</h1><p>提供开发服务器是非常好的一项服务，可以替换<code>python -m SimpleHTTPServer</code>启用HTTP静态服务器</p>
+<p>通过以下命令全局安装</p>
+<pre><code>npm install webpack-dev-server -g
+</code></pre><p>启动服务器</p>
+<pre><code>webpack-dev-server --progress --colors
+</code></pre><p>这会绑定一个小型express服务器到<code>localhost:8080</code>，来为你的静态资源及bundle（自动编译）服务。通过访问<code>http://localhost:8080/webpack-dev-server/bundle</code>，bundle每次重编译后浏览器页面都会自动更新。</p>
 
       
     </div>
@@ -385,9 +450,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/教程/" rel="tag"># 教程</a>
           
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/loader/" rel="tag"># loader</a>
+          
+            <a href="/tags/plugin/" rel="tag"># plugin</a>
           
         </div>
       
@@ -400,18 +469,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/08/hello-world/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/09/结婚/" rel="prev" title="关于结婚">
-                关于结婚 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/11/判断值相等/" rel="prev" title="说说 JS 相等性判断">
+                说说 JS 相等性判断 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git如何替换远程仓库"><span class="nav-number">1.</span> <span class="nav-text">git如何替换远程仓库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WELCOME"><span class="nav-number">1.</span> <span class="nav-text">WELCOME</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装WEBPACK"><span class="nav-number">2.</span> <span class="nav-text">安装WEBPACK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#再添加一个文件"><span class="nav-number">4.</span> <span class="nav-text">再添加一个文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个LOADER"><span class="nav-number">5.</span> <span class="nav-text">第一个LOADER</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定LOADER"><span class="nav-number">6.</span> <span class="nav-text">绑定LOADER</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置文件"><span class="nav-number">7.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更友好地输出"><span class="nav-number">8.</span> <span class="nav-text">更友好地输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监视模式"><span class="nav-number">9.</span> <span class="nav-text">监视模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发服务器"><span class="nav-number">10.</span> <span class="nav-text">开发服务器</span></a></li></ol></div>
             
 
           </div>
