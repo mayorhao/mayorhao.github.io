@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ES6,generator,读书," />
+  <meta name="keywords" content="函数式编程,javaScript,ES6," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
-<meta name="keywords" content="ES6,generator,读书">
+<meta name="description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
+<meta name="keywords" content="函数式编程,javaScript,ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Generator从陌生到熟悉">
-<meta property="og:url" content="http://yoursite.com/2016/11/07/generator/index.html">
+<meta property="og:title" content="JavaScript的函数柯里化">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/index.html">
 <meta property="og:site_name" content="MayorHao的秘密小屋">
-<meta property="og:description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
-<meta property="og:updated_time" content="2017-06-08T09:10:39.000Z">
+<meta property="og:description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
+<meta property="og:updated_time" content="2017-06-09T03:35:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Generator从陌生到熟悉">
-<meta name="twitter:description" content="关于Generator 声明123456function* Generator()&amp;#123;    //code here&amp;#125;const Generator=function*()&amp;#123;    //code here&amp;#125;   注意到那个*号  生成器对象generator不能像普通函数一样直接调用，调用会生成generator对象1const gen=Generator()">
+<meta name="twitter:title" content="JavaScript的函数柯里化">
+<meta name="twitter:description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/07/generator/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/"/>
 
 
 
 
 
-  <title>Generator从陌生到熟悉 | MayorHao的秘密小屋</title>
+  <title>JavaScript的函数柯里化 | MayorHao的秘密小屋</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/07/generator/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Generator从陌生到熟悉</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript的函数柯里化</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-07T08:55:29+08:00">
-                2016-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
+                2016-09-07
               </time>
             
 
@@ -319,8 +319,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -353,41 +353,16 @@
       
 
       
-        <h3 id="关于Generator"><a href="#关于Generator" class="headerlink" title="关于Generator"></a>关于Generator</h3><ol>
-<li>声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> Generator=<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意到那个<code>*</code>号</p>
-<ol>
-<li>生成器对象<br>generator不能像普通函数一样直接调用，调用会生成generator对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gen=Generator();</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>gen本身也是可以迭代的，可以用for-of 来迭代，在代码中我们已经试了，迭代出每次yield切出的值</p>
-<ol>
-<li>方法</li>
-</ol>
-<ul>
-<li>generator.next(value)<br>返回一个状态对象，大概像这样：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    value:any,</div><div class="line">    done:Boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>value 是yeild切出的值，done是指generator完成的状态，一旦触发最后一个yield，状态done变为true，或者reurn语句或者抛出错误。<br>next方法还可以接受参数，作用是，有大神的<a href="http://huli.logdown.com/posts/292331-javascript-es6-generator-foundation" target="_blank" rel="external">Generator基礎</a>总结的：</p>
+        <h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。<br>但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。<br>好了，言归正传。</p>
+<h3 id="来源及概念"><a href="#来源及概念" class="headerlink" title="来源及概念"></a>来源及概念</h3><p>curry化的命名是为了纪念数学家 Haskell Curry（编程语言 Haskell也是以他的名字命名)。<br>它的书面概念是：</p>
 <blockquote>
-<ol>
-<li>yield其實是兩個動作的合體：丟東西出去-&gt;等東西進來</li>
-<li>每次next()都會跑到yield丟東西出來的那個步驟<br>还是拿代码说明一下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">get_adder</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> total = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"before yield"</span>);</div><div class="line">    total+=<span class="keyword">yield</span> total;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"after yield, total:"</span>+total);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> adder = get_adder();</div><div class="line"><span class="built_in">console</span>.log(adder.next().value);</div><div class="line"><span class="built_in">console</span>.log(adder.next(<span class="number">100</span>).value);</div><div class="line"><span class="comment">//输出：</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0  在这里终端，切出value，yield开始等待值</span></div><div class="line"><span class="comment">// after yield ,total:100 第二个next ，传入100</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0 切出第二个value值</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>柯里化通常也称部分求值，其含义是给函数分步传递参数，每次传递参数后部分应用参数，并返回一个更具体的函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数函数，直至返回最后结果。 因此柯里化的过程是逐步传参，逐步缩小函数的适用范&gt;围，逐步求解的过程。<br>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
+<p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
 </blockquote>
-<p>从上面代码可以看到</p>
-<ul>
-<li><p>generator.throw(error)</p>
-<p>  抛出错误</p>
-</li>
-<li><p>generator[@@literator] </p>
-<p>  暂时看不懂。</p>
-</li>
-</ul>
-<h3 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h3><p> 如何用for-of 生成迭代器</p>
+<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
+<h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
+<p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -417,11 +392,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/函数式编程/" rel="tag"># 函数式编程</a>
+          
+            <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+          
             <a href="/tags/ES6/" rel="tag"># ES6</a>
-          
-            <a href="/tags/generator/" rel="tag"># generator</a>
-          
-            <a href="/tags/读书/" rel="tag"># 读书</a>
           
         </div>
       
@@ -434,18 +409,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/07/JavaScript的函数柯里化/" rel="next" title="JavaScript的函数柯里化">
-                <i class="fa fa-chevron-left"></i> JavaScript的函数柯里化
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/11/闭包与科利华/" rel="prev" title="理解闭包与柯里化">
-                理解闭包与柯里化 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/07/generator/" rel="prev" title="Generator从陌生到熟悉">
+                Generator从陌生到熟悉 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Generator"><span class="nav-number">1.</span> <span class="nav-text">关于Generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展："><span class="nav-number">2.</span> <span class="nav-text">拓展：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#来源及概念"><span class="nav-number">2.</span> <span class="nav-text">来源及概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数curry化的作用"><span class="nav-number">3.</span> <span class="nav-text">函数curry化的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数复用，设置默认参数。"><span class="nav-number">3.1.</span> <span class="nav-text">参数复用，设置默认参数。</span></a></li></ol></li></ol></div>
             
 
           </div>

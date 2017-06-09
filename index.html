@@ -422,7 +422,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/08/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/06/08/hello-world/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -471,16 +471,7 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+            
           
         
       
@@ -1120,6 +1111,149 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/07/JavaScript的函数柯里化/" itemprop="url">JavaScript的函数柯里化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
+                2016-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。<br>但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。<br>好了，言归正传。</p>
+<h3 id="来源及概念"><a href="#来源及概念" class="headerlink" title="来源及概念"></a>来源及概念</h3><p>curry化的命名是为了纪念数学家 Haskell Curry（编程语言 Haskell也是以他的名字命名)。<br>它的书面概念是：</p>
+<blockquote>
+<p>柯里化通常也称部分求值，其含义是给函数分步传递参数，每次传递参数后部分应用参数，并返回一个更具体的函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数函数，直至返回最后结果。 因此柯里化的过程是逐步传参，逐步缩小函数的适用范&gt;围，逐步求解的过程。<br>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
+<p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
+<h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
+<p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1165,7 +1299,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1176,7 +1310,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1187,7 +1321,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
