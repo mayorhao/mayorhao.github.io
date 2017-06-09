@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/angularTranslate/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-8-chapter6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/22/angularTranslate/" itemprop="url">【翻译】Angular组件通信</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-4-8-chapter6/" itemprop="url">《HTML&&CSS3入门经典》（6）——表单</a></h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-22T02:01:29+08:00">
-                2016-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -321,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/翻译/" itemprop="url" rel="index">
-                    <span itemprop="name">翻译</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -357,54 +357,91 @@
       
         
           
-            <h1 id="Angular组件通信"><a href="#Angular组件通信" class="headerlink" title="Angular组件通信"></a>Angular组件通信</h1><p>源文章:<a href="https://www.infoq.com/articles/angular-component-communication" target="_blank" rel="external">Getting Components to Communicate in Angular</a></p>
-<h3 id="本文要点"><a href="#本文要点" class="headerlink" title="本文要点"></a>本文要点</h3><ul>
-<li>Angular应用是基于组件的，可以在组件之间传递数据。</li>
-<li>可以通过<code>@Input()</code>向子组件传递数据。</li>
-<li>可以通过<code>@Output()</code>捕获由子组件传来的数据。</li>
-<li>可以使用像ngrx的外部数据存储来组织大型应用</li>
+            <h3 id="1-使用-lt-form-gt-元素创建表单"><a href="#1-使用-lt-form-gt-元素创建表单" class="headerlink" title="1. 使用&lt;form&gt;元素创建表单"></a>1. 使用<code>&lt;form&gt;</code>元素创建表单</h3><ol>
+<li><strong>action</strong>特性：指明表单提交后对数据的处理</li>
+<li><strong>method</strong>特性：表单数据可以通过两种方式发送给服务器，每一种方式对应于一种HTTP方法：<ul>
+<li>get方法，将数据作为URL的一部分发送，默认值</li>
+<li>post方法，将数据隐藏在HTTP头中</li>
 </ul>
-<p>组件是组成Angular应用的基石，在angular应用中，每个可见的元素都是由组件构成的。基于组件的架构的优势在于：很像JavaScript函数，如果一段代码变得过于复杂，或者承担过多的职责，那么你就可以把它拆分掉，这样每段代码都专注于一个功能。<br>也就是说，当我们着手于把组件拆分为更小的组件时，我们需要保证这些组件能够来回的传递数据。即在我们的应用中，合理的组件通信非常必要，通过它可以确保所有数据保持同步。幸运的是，Angular已经为我们提供了实现这个功能的工具。</p>
-<p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/3Picture1.jpg" alt="图片1"></p>
-<p><sup>我们可以在AppComponent下构建我们整个应用，但是该组件会承担过多的功能职责，在基于组件的架构中，公认更好的做法是：将组件拆分，这样每个组件只承担一个职责，<sub></sub></sup></p>
-<h3 id="向组件传递数据"><a href="#向组件传递数据" class="headerlink" title="向组件传递数据"></a>向组件传递数据</h3><p>在Angular中，当父组件需要传递数据给子组件时，我们使用<code>@Input</code>，打个比方，我们正在开发一个应用程序来展示页面上的评论。 AppComponent会负责把评论数组加载进来，我们会把每条评论的数据分发给评论组件。<br>通过<code>@Input</code>,子组件会接收一个评论参数，以下是整个组件的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line"><span class="attr">selector</span>: <span class="string">'comment'</span>,</div><div class="line"><span class="attr">templateUrl</span>: <span class="string">'./comment.component.html'</span>,</div><div class="line"><span class="attr">styleUrls</span>: [<span class="string">'./comment.component.css'</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CommentComponent</span> </span>&#123;</div><div class="line">@Input() comment;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>现在我们可以在别处调用该组件,并传递给它需要的评论数据，代码为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comment</span> [<span class="attr">comment</span>]=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">comment</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h3><p>首先，是组件选择器<code>&lt;comment&gt;&lt;/comment&gt;</code>,如果你之前使用过Angular，这个应该相当熟悉了。</p>
-<p>第二，是属性绑定：<code>[comment]</code>，元素属性两边的方括号刚开始显得有点混乱，事实上，方括号并不是将数据从传递给组件所必需的，但是，如果没有它们，我们只能向组件的<code>@Input</code>传递普通的字符串。方括号告诉Angular这是一个属性绑定，并且传进来的值是动态的，它会将这个动态的数据插入和传入到组件。</p>
-<p>最后，在属性绑定<code>comment</code>之后，我们就能够获取这个属性，这部分告诉Angular去查看<code>this.comment</code>属性，并将它传递给我们的评论组件。</p>
-<h3 id="概念梳理"><a href="#概念梳理" class="headerlink" title="概念梳理"></a>概念梳理</h3><p>要显示我们上图看到的评论列表，我们可以先结合一些Angular的概念，包括<code>*ngFor</code>.假设我们能够把评论数据作为评论组件类的一个属性，以<code>this.comment</code>的形式加载进来。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comment</span></span></div><div class="line">*<span class="attr">ngFor</span>=<span class="string">"let comment of comments"</span></div><div class="line">[<span class="attr">comment</span>]=<span class="string">"comment"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">comment</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>最后的结果如下图所示：</p>
-<p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/2Picture2.jpg" alt="图片2"></p>
-<p><sub>使用评论组件展示的评论列表<sub></sub></sub></p>
-<h3 id="捕获子组件事件"><a href="#捕获子组件事件" class="headerlink" title="捕获子组件事件"></a>捕获子组件事件</h3><p>现在我们知道了如何向评论组件传递数据，但是要从列表中删掉一个组件，继而从列表中移除它时，我们该怎么做呢？这个做起来有些棘手，因为这个数据存在于评论组件的父组件，即AppComponent中。</p>
-<p>一个解决问题的办法是，使用<code>@Output</code>,它可以让子组件触发事件，这个事件可以由父组件利用<code>EventEmitter</code>来捕获。</p>
-<p>使得子组件和父组件通信的第一步，是通过<code>@OutPut</code>装饰器来为我们的组件新添一个类属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line"><span class="attr">selector</span>: <span class="string">'comment'</span>,</div><div class="line"><span class="attr">templateUrl</span>: <span class="string">'./comment.component.html'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CommentComponent</span> </span>&#123;</div><div class="line"></div><div class="line">@Input() private comment;</div><div class="line">@Output() private onDelete = <span class="keyword">new</span> EventEmitter();</div><div class="line"></div><div class="line">deleteComment() &#123;</div><div class="line">    <span class="keyword">this</span>.onDelete.emit(<span class="keyword">this</span>.comment);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在评论组件的模板里，我们可以调用<code>deleteComment()</code>方法。当点击删除按钮时，父组件便能够捕获这些事件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"deleteComment()"</span>&gt;</span>Delete<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="捕获父组件事件"><a href="#捕获父组件事件" class="headerlink" title="捕获父组件事件"></a>捕获父组件事件</h3><p>在AppComponent中，我们需要一个处理删除评论的问题的新方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line"><span class="attr">selector</span>: <span class="string">'app-root'</span>,</div><div class="line"><span class="attr">templateUrl</span>: <span class="string">'./app.component.html'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="comment">/**[code omitted]**/</span></div><div class="line"></div><div class="line">onCommentDelete(comment) &#123;</div><div class="line">    <span class="comment">// logic to remove comment from comments array</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在视图层面，我们只需要告诉Angular,当<code>onDelete</code>事件被触发时，调用<code>onCommentDelete()</code>方法。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comment</span></span></div><div class="line">  *<span class="attr">ngFor</span>=<span class="string">"let comment of comments"</span></div><div class="line">  [<span class="attr">comment</span>]=<span class="string">"comment"</span></div><div class="line">  (<span class="attr">onDelete</span>)=<span class="string">"onCommentDelete($event)"</span>&gt;<span class="tag">&lt;/<span class="name">comment</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>一旦我们的删除功能就绪，我们的应用就如下图所示:</p>
-<p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture3.jpg" alt="图3"></p>
-<p><sub>现在，我们可以删除评论了，感谢Angular的<code>@Output()</code>装饰器<sub></sub></sub></p>
-<h3 id="另一种获取数据的方式"><a href="#另一种获取数据的方式" class="headerlink" title="另一种获取数据的方式"></a>另一种获取数据的方式</h3><p>到目前为止，我们只涉及到包括父/子层次结构的组件通信。虽然这可能满足你的大部分需求，但是随着应用程序规模的增长，继续通过父组件到子组件的模式来传递数据越来越难了。对于大型应用来说，使用“数据存储”(data store)来减少每个组件的工作量往往是有意义的。数据存储(data-stores)作为单个组件的中心数据仓库，当需要时可以被应用程序的某一部分调用。组件不再需要手动将数据传给子链(child-chain)，单个组件都可以订阅数据存储(data store)的一部分，以便只使用他们需要的数据，从而减少父组件和子组件来回传递数据的麻烦。</p>
-<p>如果你熟悉React的话，这正是Redux在解决的问题。在Angular中，我们可以使用另一个库，名字叫<a href="https://github.com/ngrx" target="_blank" rel="external">ngrx</a>，它受到Redux的启发。两个库之间几乎没有什么关键性的区别：类型和观察对象。ngrx库很大程度依赖于TypeScript的生态系统，它相比于react，有着更多公式化的代码(boilerplate)，但同时也使得调试和跟踪bug更为简单。</p>
-<p>当使用ngrx时，我们的状态(state)是一个不可变的数据结构。为了改变状态，我们可以调用名为actions的函数，反过来，这些actions告诉由纯净函数(pure function)组成的reducer，状态的哪一部分应该改变。最后，我们的应用程序将具有下一个版本的状态，所有订阅它的组件将立即收到新的数据。当组件接收到新数据时，它们也会自动重新渲染，使渲染的视图始终与数据库(store)保持同步。</p>
-<p>这对开发意味着什么？</p>
-<p>这是一个非常有意义的概念性问题：完全可能通过一个外部的数据源将数据传递给组件，而不是通过父-子组件的关系传递。这对开发到底意味着什么呢？</p>
-<p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture4.jpg" alt="图4"></p>
-<p><sub>如果我们想在两个不同的地方显示评论数怎么办？依赖于组件层次实现起来会很难，这就是拥有一个使用ngrx的中心数据存储的好处<sub></sub></sub></p>
-<p>在大型应用中，向组件直接传递数据是非常有意义的，因为组件需要处理更多任务，并且增加额外的任务会更复杂，例如跟踪向子组件传递的数据。虽然没有必要把传递数据的重担转移到外部的数据存储(data-stores)，但是当你维护大型Angular应用时，保持清醒理智，是非常有意义的。</p>
-<p>在上面的例子中，一个外部数据存储(store，未画出)正被使用，来传递有关多少个评论可用的信息，告诉侧边栏组件（SideBarComponent）“2个评论可用”，同时，将实际的评论数据传入评论列表组件(CommentList component)。这些数据完全绕过了父组件AppComponent。</p>
-<h3 id="快速回顾Angular组件通信"><a href="#快速回顾Angular组件通信" class="headerlink" title="快速回顾Angular组件通信"></a>快速回顾Angular组件通信</h3><p>通过以上内容，我们基本了解了如何在Angular中进行组件通信，我们学习了如何通过<code>@Input()</code>装饰器来从父组件向子组件传递数据</p>
-<p>我们同样也学习了如何使用<code>@Output()</code>装饰器和EventEmitter来将数据从子组件发回到父组件。</p>
-<p>作为另一种选择，我们学习了在程序规模增长时，使用<code>ngrx</code>来减少基于父-子关系传递数据的麻烦，通过将数据保存在独立的数据存储(data-store)中，我们可以在组件中直接使用数据，而不再需要在多个子组件中传递数据，最终才到达目标组件。这使得维护大型应用更加简单。这些原则同样适用于像React这样的库，React的团队也通过相似的办法解决了同样的问题。</p>
-<p>您可以在<a href="http://https//sergiocruz.github.io/ng-sample-comments/" target="_blank" rel="external">这里</a>看到我们的演示应用。而它的代码在<a href="https://github.com/sergiocruz/ng-sample-comments" target="_blank" rel="external">这里</a>可以看到。</p>
-<h3 id="如何继续学习"><a href="#如何继续学习" class="headerlink" title="如何继续学习"></a>如何继续学习</h3><p>假如你对继续学习Angular非常有兴趣，请务必查看Code School的<a href="https://www.codeschool.com/courses/accelerating-through-angular-2" target="_blank" rel="external">通过Angular加速开发(Accelerating through Angular 2)</a>课程，以及我自己和Gregg Pollack的<a href="https://www.codeschool.com/courses/accelerating-through-angular-2" target="_blank" rel="external">通过组件交互和路由构建Angular2应用(build an Angular 2 app with component interaction &amp; routing)</a>(Code School学员专享)。</p>
-<p>另外，查阅<a href="https://angular.io/docs/ts/latest/cookbook/component-communication.html" target="_blank" rel="external">Angular组件交互文档(Angular’s documentation on Component Interaction)</a>来进一步了解底层机制，以及最新的语法和最佳实践，毕竟Angular正在飞速的发展。</p>
-<p>最后，你可以在官方ngrx github仓库通读<a href="https://angular.io/docs/ts/latest/cookbook/component-communication.html" target="_blank" rel="external">ngrx文档</a>，或者在<a href="https://github.com/sergiocruz/ng-sample-comments/tree/ngrx" target="_blank" rel="external">这里</a>查看我使用ngrx编写的示例应用。</p>
-<h3 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h3><p><img src="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/0F3A4898.jpg" alt="图5"></p>
-<p><strong>Sergio Cruz</strong>是Code School的程序开发人员和讲师，他专注于关于JavaScript的一切。最近，他教授了Code School的React课程，<a href="https://www.codeschool.com/courses/powering-up-with-react" target="_blank" rel="external">(开启React之路(Powering up With React)</a>”。当他不在Code School敲代码时，你会发现他会在ng-conf和OSCON这样的会议上作关于JavaScript的演讲。</p>
+</li>
+<li><strong>id</strong>特性</li>
+<li><strong>name</strong>特性</li>
+<li><strong>enctype</strong>特性：指定浏览器在将数据发送到服务器之前如何对其进行编码。浏览器通常支持三种类型的编码方式：<ol>
+<li>application/x-www-form-urlencoded,是大多数表单使用的标准方法</li>
+<li>multipart/form-data，通常用于访问者需要向服务器上传文件时</li>
+<li>text/plain，以纯文本形式不加修饰地将数据发送至服务器</li>
+</ol>
+</li>
+<li><strong>accept-charset</strong>特性：指定一系列用户能够输入，并且之后服务器可以处理的字符编码</li>
+<li><strong>novalidate</strong>特性：用以指定表单在提交时是否应该进行校验，如果该特性存在，浏览器则不应该在提交前校验表单</li>
+<li><strong>target</strong>特性</li>
+<li><strong>autocomplete</strong>特性：指明浏览器是否应该自动填写表单值</li>
+</ol>
+<h3 id="2-表单控件"><a href="#2-表单控件" class="headerlink" title="2. 表单控件"></a>2. 表单控件</h3><ol>
+<li>文本输入控件<ol>
+<li>单行文本输入控件：<code>&lt;input&gt;</code>元素的type特性值为text</li>
+<li>密码输入控件：<code>&lt;input&gt;</code>元素的type特性值为password</li>
+<li>多行文本输入控件：使用<code>&lt;textarea&gt;</code>元素</li>
+</ol>
+</li>
+<li>新的HTML5输入控件类型与特性<ol>
+<li>使用<strong>placeholder</strong>特性提供示例输入</li>
+<li>使用<strong>autocomplete</strong>特性确保用户隐私与安全</li>
+<li>使用<strong>required</strong>特性确保信息提供</li>
+</ol>
+</li>
+<li>按钮<br>通过三种方式创建按钮：<ul>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>submit、reset或button</strong></li>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>image</strong></li>
+<li>使用<code>&lt;button&gt;</code>元素</li>
+</ul>
+</li>
+<li>复选框<br> 通过<strong>type</strong>特性值为<strong>checkbox</strong>的<code>&lt;input&gt;</code>元素创建。复选框可以单独出现（如是否接受条款与条件），也可以作为复选框组出现（比如希望用户从一个给出的列表中指定其具有的全部技能）</li>
+<li>单选按钮<br> 通过<strong>type</strong>特性值为<strong>radio</strong>的<code>&lt;input&gt;</code>元素创建。<blockquote>
+<p>术语“单选按钮”（radio button)源自于老式收音机（radio）。在一些老式收音机上，在设定好的频道中，一次只能按下一个按钮已选择希望收听的电台，不可以在收音机上同时按下两个按钮，而按下其中一耳光后，另一个则跳起来。</p>
+</blockquote>
+</li>
+<li>选择框<ol>
+<li><code>&lt;select&gt;</code>元素<br> 常用特性：<strong>name、size、multiple</strong><br> 其他特性：<strong>disabled、form、autofocus、required</strong></li>
+<li><code>&lt;option&gt;</code>元素<br> 常用特性：<strong>value、selected、label、disabled</strong></li>
+<li>使用<strong>size</strong>特性创建滚动选择框</li>
+<li>使用<strong>multiple</strong>特性选择多个选项</li>
+<li>使用<code>&lt;optgroup&gt;</code>元素分组选项  </li>
+</ol>
+</li>
+<li>文件选择框<br> 通过<strong>type</strong>特性值为<strong>file</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>隐藏控件<br> 通过<strong>type</strong>特性值为<strong>hidden</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>新的HTML5表单元素<ol>
+<li>使用新的<code>&lt;progress&gt;</code>元素跟踪任务完成度</li>
+<li>使用<code>&lt;meter&gt;</code>元素表示一定范围内标量的测量值</li>
+<li>使用<code>&lt;input&gt;</code>元素及新的<code>&lt;datalist&gt;</code>创建自动完成列表<br> 用CSS代码来清楚<code>&lt;datalist&gt;</code>引入的箭头   <blockquote>
+<pre><code>input::-webkit-calendar-picker-indicator {
+    display: none;
+   -webkit-appearance: none;
+ }
+</code></pre></blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-使用-lt-label-gt-元素为控件创建标签"><a href="#3-使用-lt-label-gt-元素为控件创建标签" class="headerlink" title="3. 使用&lt;label&gt;元素为控件创建标签"></a>3. 使用<code>&lt;label&gt;</code>元素为控件创建标签</h3><p><code>&lt;label&gt;</code>元素带有一个叫做<strong>for</strong>的特性，用于指明该标签关联的表单控件。<strong>for</strong>特性的值应该与对应表单控件的id特性值相同</p>
+<h3 id="4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构"><a href="#4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构" class="headerlink" title="4. 使用&lt;fieldset&gt;及&lt;legend&gt;元素组织表单结构"></a>4. 使用<code>&lt;fieldset&gt;</code>及<code>&lt;legend&gt;</code>元素组织表单结构</h3><ol>
+<li><code>&lt;fieldset&gt;</code>元素在表单控件组周围添加边框，以表示它们是相关联元素</li>
+<li><code>&lt;legend&gt;</code>元素允许你为<code>&lt;fieldset&gt;</code>元素指定标题</li>
+</ol>
+<h3 id="5-焦点"><a href="#5-焦点" class="headerlink" title="5. 焦点"></a>5. 焦点</h3><p>元素可通过四种方式获得焦点：  </p>
+<pre><code>1. 使用定点设备，如鼠标  
+2. 使用键盘，通常使用Tab键在此类元素间导航定位，顺序由**“标签遍历顺序”（tabbing order）**指定，特性值tabindex  
+3. **快捷键（access key）**  
+4. `autofocus`属性  
+</code></pre><h3 id="6-disabled与readonly控件"><a href="#6-disabled与readonly控件" class="headerlink" title="6. disabled与readonly控件"></a>6. disabled与readonly控件</h3><ul>
+<li>readonly特性防止用户更改表单控件自身的值，可通过脚本修改。任何readonly控件的名称与值仍将发送至服务器</li>
+<li>disabled特性会禁用表单控件或<code>&lt;fieldset&gt;</code>元素中的表单控件组，从而使用户无法更改，可用脚本重新激活控件。除非控件被重新激活，否则其名称与值不会被发送至服务器</li>
+</ul>
+<h3 id="7-向服务器发送表单数据"><a href="#7-向服务器发送表单数据" class="headerlink" title="7. 向服务器发送表单数据"></a>7. 向服务器发送表单数据</h3><ol>
+<li>HTTP get</li>
+<li>HTTP post</li>
+</ol>
 
           
         
@@ -448,7 +485,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/17/2015-08-21-resource-learn-git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-6-27-note-javascript-dom-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -467,7 +504,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/17/2015-08-21-resource-learn-git/" itemprop="url">Git 学习资源整理</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-6-27-note-javascript-dom-4/" itemprop="url">《JavaScript DOM 编程艺术》笔记（四）</a></h1>
         
 
         <div class="post-meta">
@@ -479,8 +516,284 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-17T12:55:29+08:00">
-                2016-11-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          《JavaScript DOM 编程艺术》笔记
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/22/2015-6-27-note-javascript-dom-4/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-22-note-learn-jquery-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          jQuery学习笔记
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/22/2015-4-22-note-learn-jquery-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-17-resource-learn-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-17-resource-learn-linux/" itemprop="url">Linux学习资源（持续更新）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -537,10 +850,10 @@
 
       
         
-          Git 学习资源整理
+          Linux学习资源
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/17/2015-08-21-resource-learn-git/">
+            <a class="btn" href="/2015/01/22/2015-4-17-resource-learn-linux/">
               阅读全文 &raquo;
             </a>
           </div>
@@ -586,7 +899,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/闭包与科利华/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-2-note-javascript-dom-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -605,7 +918,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/11/闭包与科利华/" itemprop="url">理解闭包与柯里化</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-5-2-note-javascript-dom-1/" itemprop="url">《JavaScript DOM 编程艺术》笔记（一）</a></h1>
         
 
         <div class="post-meta">
@@ -617,8 +930,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T03:55:29+08:00">
-                2016-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -640,8 +953,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -675,435 +988,10 @@
 
       
         
-          
-            <p></p><p><br>javascript拥有简洁的表达，使你可以专心于算法攻略。就好像黑白机上的闯关游戏，你拾取了宝剑，只需要不停地点<strong>A</strong>就可以了。你唯一要思考的就是如何不停地跳躲Boss的大招。</p><p></p>
-<p></p><p>javascript成为浏览器的唯一语言，并且成为世界标准许多年，是有非常重要的理由的。《JavaScript: The Good Parts》做出了非常清晰地解释。</p><p></p>
-<p><blockquote><br>    <p> JavaScript:The World’s Most Misunderstood Programming Language</p><br></blockquote></p>
-<p></p><p>然而，想要掌握javascript的正确编写方式并不容易。尤其是当你从教科书开始的时候，大部分给你的信息都是面向对象的东西：<strong><code>new</code></strong>， <strong><code>prototype</code></strong>，<strong><code>class</code></strong>，<strong><code>extend</code></strong>，…<br>    </p><p></p>
-<p></p><p>这些都不是正确编写javascript的方式，当然你可以这么做，但是你会恨上javascript，这样编写的感觉会让你觉得你在写java却不能拥有java一样的计算速度。</p><p></p>
-<p></p><p>想要喜欢上javascript并且享受programming的快感，你需要放下一切对面向对象的理解，走进函数和求值的世界。你的所有代码只有<strong><code>function</code></strong>，这是简单的并且灵活的。<br><br></p><p></p>
-<p><hr></p>
-<p></p><h1>什么是函数？</h1><p></p>
-<p></p><p><br>如同数学界，函数<strong><code>function</code></strong>即代表了求值。然而，从另一个角度来讲，函数<strong><code>function</code></strong>也是值：</p><p></p>
-<pre><code>g = f(x)</code></pre>
-<p>我们认为g是一个值，来自f函数的计算，输入是x。然而，我们可以把值g作为一个函数，输入y，再次进行求值：</p>
-<pre><code>v = g(y)</code></pre>
-<p>把函数<strong><code>function</code></strong>赋予值的定位，可以使计算充满了灵活：</p>
-<pre><code>v = f(x)(y) = k(f, x, y)</code></pre>
-<p><br></p>
-<hr>
-<h1>什么是柯里化Currying？</h1>
-<p><br><strong><code>f(x)(y)</code></strong>就是柯里化：使用函数f，输入x，计算，获得一个新的函数，再次输入y，计算，获取结果。<strong><code>f(x)(y)(z)(a)(b)(c)</code></strong>，你完全可以写这样的函数。每次进行一次计算时，都返回一个新的函数。当然，你也可以写成这样的方式<strong><code>g(x, y, z, a, b, c)</code></strong>。</p>
-<pre><code>function f (x) {
-  return function (y) {
-    return function (z) {
-      return function (a) {
-        return function (b) {
-          return function (c) {
-              console.log(x  + y + z + a + b + c);
-          };
-        };
-      };
-    };
-  };
-}</code></pre>
-<p>计算6个数字相加为什么要费这么大的周折？原因在于可以获得拥有内部记忆的函数: <strong><code>g = f(1)</code></strong>可以获得一个新的函数<strong><code>g</code></strong>。可以使用<strong><code>g</code></strong>编写多种不同的求值组合，而使第一个输入始终是<strong><code>1</code></strong>:</p>
-<pre><code>g(2)(3)(4)(5)(6);
-g(3)(3)(4)(5)(6);
-g(9)(9)(1)(2)(3);</code></pre>
-<p><br></p>
-<hr>
-<h1>什么是闭包Closure？</h1>
-<p><br>上边的函数就是闭包，确切的说，利用柯里化机制的函数<strong><code>function</code></strong>就是闭包函数。通过柯里化，获取一个拥有记忆功能的函数，简化后续的多种计算操作，这就是闭包。</p>
-<pre><code>function move(start) {
-  var pos = start;
-  return function () {
-    console.log('Move to ' + (pos += 2) + '.');
-  }
-}
-
-var move_next = move(6); 
-move_next();  // Move to 8. 
-move_next();  // Move to 10.</code></pre>
-<p><br></p>
-<hr>
-<h1>进阶：记忆</h1>
-<p><br>下面我们来看一下经典的缓存函数。开始有两个输入参数，一个是数组<strong><code>sets</code></strong>，一个是求值函数<strong><code>f</code></strong>：</p>
-<pre><code>function memorize(sets, f) {
-    var cache = {}; 
-    return function (x) { 
-        console.log('cache: %j', cache);
-        return x in cache
-               ? cache[x]
-               : cache[x] = f(sets[x]);
-    }
-}</code></pre>
-<p>首先，我们在<strong><code>memorize</code></strong>的内部空间放置了一个记忆单元：<strong><code>cache</code></strong>，是一个<strong><code>Object</code></strong>类型，这样我们就可以用来存储任何我们想要的数据。<strong><code>Object</code></strong>类型可以看做是简化并且统一版的C语言中的<strong><code>struct</code></strong>：不需要考虑链接，不需要考虑类型，解释器会为你完成。</p>
-<p>接下来，我们运用柯里化返回一个函数。这个函数有一个输入参数，指定了<strong><code>sets</code></strong>数组中的第几项进行计算。我们首先使用<strong><code>console.log</code></strong>打印当时内部空间的记忆单元<strong><code>cache</code></strong>的值，然后判断输入参数是不是在<strong><code>cache</code></strong>的键中。如果已经存在，直接返回记忆的内容，如果没有存在，使用函数<strong><code>f</code></strong>对输入参数<strong><code>sets[x]</code></strong>求值，然后把结果记忆到内部空间的记忆单元：<strong><code>cache</code></strong>中。</p>
-<p>通过记忆，每次使用求值函数<strong><code>f</code></strong>计算后，都将结果保存在<strong><code>cache</code></strong>中，这样可以极大的降低重复计算：</p>
-<pre><code>var g = memorize([1000, 2000, 3000], function (x) { return x * x; });
-g(0);  // cache: {}，计算1000*1000
-g(0);  // cache: {"0":1000000}，来自记忆
-g(0);  // cache: {"0":1000000}，来自记忆
-g(0);  // cache: {"0":1000000}，来自记忆
-g(1);  // cache: {"0":1000000}，计算2000*2000
-g(1);  // cache: {"0":1000000, "1":4000000}，来自记忆
-g(1);  // cache: {"0":1000000, "1":4000000}，来自记忆</code></pre>
-<p><br></p>
-<hr>
-<h1>进阶：让函数循环起来</h1>
-<p><br>我们已经看到了柯里化(闭包)的好处和妙处，同时这些也都是函数<strong><code>function</code></strong>概念帮助我们完成了一系列繁琐的工作。下面我们将把函数<strong><code>function</code></strong>运用到循环中，进一步了解函数的好处和妙处。</p>
-<pre><code>function map(sets, f) {
-  var i = 0, len = sets.length, result = [], val;  
-  while (i &lt; len) {
-    val = f(sets[i]);
-    result.push(val);
-    ++i;
-  }
-  return result;
-}</code></pre>
-<p>函数<strong><code>map</code></strong>使用两个输入参数：一个数组<strong><code>sets</code></strong>，一个求值函数<strong><code>f</code></strong>。</p>
-<p>首先，我们计算数组<strong><code>sets</code></strong>的长度，设定一个位置符<strong><code>i</code></strong>。然后对<strong><code>sets</code></strong>进行循环的操作，把其中的<strong><code>sets[i]</code></strong>进行求值，然后压入<strong><code>result</code></strong>中，最后将<strong><code>result</code></strong>返回。</p>
-<p>通过这样的设定，我们使函数<strong><code>f</code></strong>在循环中运转。我们还可以进一步，再放入一个条件函数，只有条件成功的时候才进行求值：</p>
-<pre><code>function map(sets, condf, f) {
-  var i = 0, len = sets.length, result = [], val, set;  
-  while (i &lt; len) {
-    set = sets[i];
-    if (condf(set)) {
-      val = f(set);
-      result.push(val);
-    }
-    ++i;
-  }
-  return result;
-}</code></pre>
-<p>上边我们刚刚讨论了柯里化，所以把这个函数改一改，变成柯里化：</p>
-<pre><code>function map(sets, f) {
-  return function (condf) {
-    var i = 0, len = sets.length, result = [], val, set;  
-    while (i &lt; len) {
-      set = sets[i];
-      if (condf(set)) {
-        val = f(set);
-        result.push(val);
-      }
-      ++i;
-    }
-    return result;
-  }
-}</code></pre>
-<p>现在，函数<strong><code>map</code></strong>在循环中进一步增加了灵活性，我们可以这样方便的使用：</p>
-<pre><code>var mymap = map([1,2,3,4,5,6], function (set) { return set + 1; });
-mymap(function (set) { return set % 2 === 0 });  // 偶数
-mymap(function (set) { return set &gt; 9 });  // 大于9
-
-// 如果你熟悉Ecmascript 6，那么代码会非常有趣
-var mymap = map([1,2,3,4,5,6], set =&gt; set + 1);
-mymap(set =&gt; set % 2 === 0);  // 偶数
-mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/07/generator/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/07/generator/" itemprop="url">Generator从陌生到熟悉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-07T08:55:29+08:00">
-                2016-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="关于Generator"><a href="#关于Generator" class="headerlink" title="关于Generator"></a>关于Generator</h3><ol>
-<li>声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> Generator=<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注意到那个<code>*</code>号</p>
-<ol>
-<li>生成器对象<br>generator不能像普通函数一样直接调用，调用会生成generator对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gen=Generator();</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>gen本身也是可以迭代的，可以用for-of 来迭代，在代码中我们已经试了，迭代出每次yield切出的值</p>
-<ol>
-<li>方法</li>
-</ol>
-<ul>
-<li>generator.next(value)<br>返回一个状态对象，大概像这样：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    value:any,</div><div class="line">    done:Boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>value 是yeild切出的值，done是指generator完成的状态，一旦触发最后一个yield，状态done变为true，或者reurn语句或者抛出错误。<br>next方法还可以接受参数，作用是，有大神的<a href="http://huli.logdown.com/posts/292331-javascript-es6-generator-foundation" target="_blank" rel="external">Generator基礎</a>总结的：</p>
-<blockquote>
-<ol>
-<li>yield其實是兩個動作的合體：丟東西出去-&gt;等東西進來</li>
-<li>每次next()都會跑到yield丟東西出來的那個步驟<br>还是拿代码说明一下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">get_adder</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> total = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"before yield"</span>);</div><div class="line">    total+=<span class="keyword">yield</span> total;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"after yield, total:"</span>+total);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> adder = get_adder();</div><div class="line"><span class="built_in">console</span>.log(adder.next().value);</div><div class="line"><span class="built_in">console</span>.log(adder.next(<span class="number">100</span>).value);</div><div class="line"><span class="comment">//输出：</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0  在这里终端，切出value，yield开始等待值</span></div><div class="line"><span class="comment">// after yield ,total:100 第二个next ，传入100</span></div><div class="line"><span class="comment">// before yield</span></div><div class="line"><span class="comment">// 0 切出第二个value值</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p>从上面代码可以看到</p>
-<ul>
-<li><p>generator.throw(error)</p>
-<p>  抛出错误</p>
-</li>
-<li><p>generator[@@literator] </p>
-<p>  暂时看不懂。</p>
-</li>
-</ul>
-<h3 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h3><p> 如何用for-of 生成迭代器</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/08/2015-09-08-30-days-learn-30-skills/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/08/2015-09-08-30-days-learn-30-skills/" itemprop="url">《30天学习30种新技术》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-08T03:55:29+08:00">
-                2016-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          《30天学习30种新技术》
+          《JavaScript DOM 编程艺术》笔记
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/09/08/2015-09-08-30-days-learn-30-skills/">
+            <a class="btn" href="/2015/01/22/2015-5-2-note-javascript-dom-1/">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1149,7 +1037,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-1-future-of-code-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -1168,7 +1056,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/07/JavaScript的函数柯里化/" itemprop="url">JavaScript的函数柯里化</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1180,8 +1068,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
-                2016-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -1203,8 +1091,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -1238,27 +1126,14 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
 
       
         
-          
-            <h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。<br>但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。<br>好了，言归正传。</p>
-<h3 id="来源及概念"><a href="#来源及概念" class="headerlink" title="来源及概念"></a>来源及概念</h3><p>curry化的命名是为了纪念数学家 Haskell Curry（编程语言 Haskell也是以他的名字命名)。<br>它的书面概念是：</p>
-<blockquote>
-<p>柯里化通常也称部分求值，其含义是给函数分步传递参数，每次传递参数后部分应用参数，并返回一个更具体的函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数函数，直至返回最后结果。 因此柯里化的过程是逐步传参，逐步缩小函数的适用范&gt;围，逐步求解的过程。</p>
-</blockquote>
-<p>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
-<p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
-<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
-<h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
-<p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样，我们可以传入默认参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contenx</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>,<span class="number">2</span>);</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> innerArgs=<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">            <span class="keyword">var</span> finnalArgs=args.concat(innerArgs);</div><div class="line">            <span class="keyword">return</span> fn.apply(context,finalArgs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">#### 提前返回，或者称之为惰性加载函数</div><div class="line">很常见的一个例子，兼容现代浏览器以及IE浏览器的事件添加方法。我们正常情况可能会这样写：</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">el, type, fn, capture</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;, capture);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</div><div class="line">        el.attachEvent(<span class="string">"on"</span> + type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;);</div><div class="line">    &#125; </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>上面的方法有什么问题呢？很显然，我们每次使用addEvent为元素添加事件的时候，(eg. IE6/IE7)都会走一遍<figure class="highlight plain"><figcaption><span>if ...```,其实只要一次判定就可以了，怎么做？–柯里化。改为下面这样子的代码：</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">```javascript</div><div class="line">var addEvent = (function()&#123;</div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.addEventListener(sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;, (capture));</div><div class="line">        &#125;;</div><div class="line">    &#125; else if (window.attachEvent) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.attachEvent(&quot;on&quot; + sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
-<p>初始<figure class="highlight plain"><figcaption><span>if...判定），而剩余的参数应用都是其返回函数实现的，典型的柯里化。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">#### 延迟计算，延迟执行</div><div class="line"></div><div class="line">其实上文中的```bind（）```函数就是典型的延迟执行。那延迟计算的例子：我每周末都要去钓鱼，我想知道我12月份4个周末总共钓了几斤鱼，把一些所谓的模式、概念抛开，我们可能就会下面这样实现：</div><div class="line">```javascript</div><div class="line">var fishWeight = 0;</div><div class="line">var addWeight = function(weight) &#123;</div><div class="line">    fishWeight += weight;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">addWeight(2.3);</div><div class="line">addWeight(6.5);</div><div class="line">addWeight(1.2);</div><div class="line">addWeight(2.5);</div><div class="line"></div><div class="line">console.log(fishWeight);</div></pre></td></tr></table></figure></p>
-<p>柯里化的实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> curryWeight = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _fishWeight = [];</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, _fishWeight);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            _fishWeight = _fishWeight.concat([].slice.call(<span class="built_in">arguments</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> fishWeight = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> addWeight = curryWeight(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i=<span class="number">0</span>; len = <span class="built_in">arguments</span>.length;</div><div class="line">    <span class="keyword">for</span> (i; i&lt;len; i+=<span class="number">1</span>) &#123;</div><div class="line">        fishWeight += <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">addWeight(<span class="number">2.3</span>);</div><div class="line">addWeight(<span class="number">6.5</span>);</div><div class="line">addWeight(<span class="number">1.2</span>);</div><div class="line">addWeight(<span class="number">2.5</span>);</div><div class="line">addWeight();    <span class="comment">//  这里才计算</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fishWeight);    <span class="comment">// 12.5</span></div></pre></td></tr></table></figure>
-<p>到最后才计算一次。</p>
-<p>以上就是curry化的一些个人见解。还会继续补充。</p>
-
-          
+          《代码的未来》读书笔记
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/22/2015-5-1-future-of-code-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1300,7 +1175,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/11/判断值相等/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-6-chapter9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -1319,7 +1194,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/11/判断值相等/" itemprop="url">说说 JS 相等性判断</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-4-6-chapter9/" itemprop="url">《HTML&&CSS3入门经典》（9）——圆角、动画、自定义字体以及CSS3的更多内容</a></h1>
         
 
         <div class="post-meta">
@@ -1331,8 +1206,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-11T12:02:00+08:00">
-                2016-06-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -1354,8 +1229,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -1390,25 +1265,67 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
       
         
           
-            <p>关于 JS 相等性判断，很容易想到严格相等（===）和非严格相等（==），前者在比较前不会进行隐式转换，即若比较的两个值不是相同的类型，比较结果一定是不等的。而后者在进行比较前可能会根据具体情况进行相应的类型转换然后再按照严格比较规则进行比较。</p>
-<p><strong>通常情况下使用严格相等是没有问题的，但存在两个例外。一个是+0和-0的比较，另一个是NaN的比较。</strong></p>
-<p><strong>在严格相等中，+0 === -0 返回 true，NaN === NaN 返回 false</strong>，这与直观判断是不一致的。为了避免这类特殊情况，可以通过 ES6 新特性 <strong>Object.is</strong> 来进行判断。</p>
-<p>Polyfill 也很容易实现，对于+0和-0比较，首先严格相等，再判断倒数是否不相等即可，因为+0/0结果是Infinity，-0/0结果是-Infinity。而对于NaN比较问题，只需要判断二者分别不等于自身即可。（isNaN仅可判断当前数是否是NaN）</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>JavaScript 提供三种不同的比较操作符：严格相等、非严格相等、Object.is。</li>
-<li><p>ES2015标准提供以下四种比较操作符：严格相等、非严格相等、零值相等、同值相等。</p>
+            <ol>
+<li>CSS3的模块化方式</li>
+<li><p>成熟的CSS3模块</p>
+<ol>
+<li><p>更强大的CSS3选择器</p>
 <ul>
-<li>同值相等参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank" rel="external">JavaScript 中相等性判断</a>中 Object.defineProperty 实例，当试图对不可变属性进行修改时可能会发生错误。同值相等由 Object.is 方法提供。</li>
-<li>零值相等和同值相等类似，不过会认为 +0 与 -0 相等。</li>
+<li>特征起始选择器：<code>p[name^=&quot;value&quot;]</code></li>
+<li>特征结束选择器：<code>p[name$=&quot;value&quot;]</code></li>
+<li>特征包含选择器：<code>p[name*=&quot;value&quot;]</code></li>
+<li>根选择器：<code>:root</code></li>
+<li>第n子元素选择器：<code>p:nth-child(n)</code></li>
+<li>倒数第n子元素选择器：<code>p:nth-last-child(n)</code></li>
+<li>第n同类型选择器：<code>p:nth-of-type(n)</code></li>
+<li>倒数第n同类型选择器：<code>p:nth-last-of-type(n)</code></li>
+<li>最后子元素选择器：<code>p:last-child</code></li>
+<li>第一同类型选择器：<code>p:first-of-type</code></li>
+<li>最后同类型选择器：<code>p:last-of-type</code></li>
+<li>唯一子元素选择器：<code>p:only-child</code></li>
+<li>唯一同类型选择器：<code>p:only-of-type</code></li>
+<li>空元素选择器：<code>p:empty</code></li>
+<li>目标选择器：<code>p:target</code></li>
+<li>激活/禁用选择器：<code>input:enabled</code>、<code>input:disabled</code></li>
+<li>选定选择器：<code>input:checked</code></li>
+<li>非选择器：`p:not(“.special”)</li>
+<li>下一兄弟选择器：<code>div~p</code></li>
 </ul>
 </li>
-<li>例子可从以下参考链接中获得。</li>
+<li><p>高级颜色可选方案</p>
+<ol>
+<li>通过HSL使用新的更易于理解的数字化颜色值：<br> HSL是RGB的一种替代方案。设置一个介于0到360之间的色调值（0=红色，120=绿色，240=蓝色）然后使用色度或饱和度调整颜色（0%为灰色，100%位全饱和），然后按照需要调整亮度/暗度的量（0%亮度是黑色，100%亮度是白色，50%为正常）</li>
+<li>使用RGBA、HSLA以及opacity属性控制透明度（0完全透明，1完全不透明）<ul>
+<li>RGBA、HSLA在RGB和HSL基础上加上第四个值Alpha Value</li>
+<li>使用标准的opacity属性添加</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank" rel="external">JavaScript 中相等性判断</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is" target="_blank" rel="external">Object.is</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/25107117" target="_blank" rel="external">从 V8 的单元测试源码看“同值相等”</a></li>
-</ul>
+</li>
+</ol>
+</li>
+<li><p>背景及边框模板<br>使用圆角与投影分别使用属性<code>(-webkit-)border-radius</code>和<code>(-webkit-)box-shadow</code>。其中shadow属性可取五个值</p>
+<pre><code>- 投影的水平偏移
+- 投影的垂直偏移
+- 半径的模糊度。值越大，投影边界越模糊
+- 扩散的距离。即投影“流出”多少
+- 投影的颜色
+</code></pre></li>
+<li><p>多列布局模块</p>
+<ol>
+<li>方式一：使用<code>column-count</code>属性</li>
+<li>方式二：使用<code>column-width</code>属性</li>
+</ol>
+</li>
+<li><p>媒体查询：应用在“响应式网页设计”（Responsive Web Design）</p>
+</li>
+</ol>
+</li>
+<li><p>新的以及开发中的模块</p>
+<ol>
+<li>使用@font-face指令自定义字体</li>
+<li>变形、动画以及过渡的高级CSS操控</li>
+</ol>
+</li>
+</ol>
 
           
         
@@ -1452,7 +1369,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/07/webpack入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-15-chapter11-jquery/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -1471,7 +1388,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/07/webpack入门/" itemprop="url">【翻译】webpack入门</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
         
 
         <div class="post-meta">
@@ -1483,8 +1400,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-07T01:30:29+08:00">
-                2016-06-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
               </time>
             
 
@@ -1506,8 +1423,8 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/翻译/" itemprop="url" rel="index">
-                    <span itemprop="name">翻译</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -1541,68 +1458,14 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
 
       
         
-          
-            <p>本文由官方Tutorial <a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">Getting Started</a>整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。</p>
-<hr>
-<h1 id="WELCOME"><a href="#WELCOME" class="headerlink" title="WELCOME"></a>WELCOME</h1><p>这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：</p>
-<ul>
-<li>如何安装webpack</li>
-<li>如何使用webpack</li>
-<li>如何使用loader</li>
-<li>如何使用开发环境服务器</li>
-</ul>
-<h1 id="安装WEBPACK"><a href="#安装WEBPACK" class="headerlink" title="安装WEBPACK"></a>安装WEBPACK</h1><p>首先你需要安装有node，然后执行</p>
-<p><code>npm install webpack -g</code></p>
-<blockquote>
-<p>这会使webpack命令生效</p>
-</blockquote>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我们从一个空文件夹开始，首先创建以下文件</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3e6f0.png" alt="image"></p>
-<p>然后在该文件夹根目录下执行以下命令：</p>
-<pre><code>webpack ./entry.js bundle.js
-</code></pre><p>这会编译你的<code>entry.js</code>文件并生成<code>bundle.js</code>。倘若成功，将有以下信息输出：</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e40ae6.png" alt="image"></p>
-<p>用浏览器打开<code>index.html</code>，会出现<code>It works.</code></p>
-<h1 id="再添加一个文件"><a href="#再添加一个文件" class="headerlink" title="再添加一个文件"></a>再添加一个文件</h1><p>接下来，我们会为一个新文件添加如下代码。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e616f3.png" alt="image"></p>
-<p>再执行以下命令</p>
-<pre><code>webpack ./entry.js bundle.js
-</code></pre><p>刷新浏览器，此时你会看到文字变为”It works from content.js.”</p>
-<blockquote>
-<p>webpack会分析你入口文件对于其他文件的依赖，这些文件（通常称为模块）也会被包含在<code>bundle.js</code>中。</p>
-</blockquote>
-<h1 id="第一个LOADER"><a href="#第一个LOADER" class="headerlink" title="第一个LOADER"></a>第一个LOADER</h1><p>我们希望为我们的应用添加css文件。webpack原生仅支持JavaScript，所以我们需要<code>css-loader</code>来处理css文件，我们也需要<code>style-loader</code>来应用这些样式。</p>
-<p>运行<code>npm install css-loader style-loader</code>来安装这些loader（此处使用局部安装而非全局安装），这会在你的目录下生成<code>node_modules</code>文件夹。</p>
-<p>需要改动的文件如下：</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/18/562468f9a72c0.png" alt="image"></p>
-<p>再次编译并刷新浏览器你会看到应用的背景变为黄色。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3951d.png" alt="image"></p>
-<h1 id="绑定LOADER"><a href="#绑定LOADER" class="headerlink" title="绑定LOADER"></a>绑定LOADER</h1><p>我们不希望总是敲下如此冗长的<code>require(&quot;!style!css!./style.css&quot;);</code>，所以我们可以绑定文件的扩展名以简化写法为<code>require(&quot;./style.css&quot;)</code>。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/18/5624697c01675.png" alt="image"></p>
-<p>执行以下的编译命令：</p>
-<pre><code>webpack ./entry.js bundle.js --module-bind &quot;css=style!css&quot;
-</code></pre><p>你将看到同样的结果。</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>我们希望将配置选项写入配置文件中。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e4b155.png" alt="image"></p>
-<p>此后，仅需执行：</p>
-<pre><code>webpack
-</code></pre><p>来编译</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/562313105e09d.png" alt="image"></p>
-<blockquote>
-<p><code>webpack</code>命令总会尝试载入当前目录的<code>webpack.config.js</code>文件</p>
-</blockquote>
-<h1 id="更友好地输出"><a href="#更友好地输出" class="headerlink" title="更友好地输出"></a>更友好地输出</h1><p>随着项目的增长，编译过程可能会越来越长，所以我们可以展示一些进度条以及增加配色来实现更友好地输出。我们可以通过以下命令达到目的：</p>
-<pre><code>webpack --progress --colors
-</code></pre><h1 id="监视模式"><a href="#监视模式" class="headerlink" title="监视模式"></a>监视模式</h1><p>当我们不希望在文件改动后手动执行编译操作时</p>
-<pre><code>webpack --progress --colors --watch
-</code></pre><h1 id="开发服务器"><a href="#开发服务器" class="headerlink" title="开发服务器"></a>开发服务器</h1><p>提供开发服务器是非常好的一项服务，可以替换<code>python -m SimpleHTTPServer</code>启用HTTP静态服务器</p>
-<p>通过以下命令全局安装</p>
-<pre><code>npm install webpack-dev-server -g
-</code></pre><p>启动服务器</p>
-<pre><code>webpack-dev-server --progress --colors
-</code></pre><p>这会绑定一个小型express服务器到<code>localhost:8080</code>，来为你的静态资源及bundle（自动编译）服务。通过访问<code>http://localhost:8080/webpack-dev-server/bundle</code>，bundle每次重编译后浏览器页面都会自动更新。</p>
-
-          
+          使用jQuery
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/22/2015-4-15-chapter11-jquery/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1706,7 +1569,7 @@ mymap(set =&gt; set &gt; 9 );  // 大于9</code></pre>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
