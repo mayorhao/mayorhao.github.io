@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="《CSS 权威指南》">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《CSS 权威指南》笔记（四）">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/2015-09-28-css-guide-4/index.html">
+<meta property="og:site_name" content="MayorHao的秘密小屋">
+<meta property="og:description" content="《CSS 权威指南》">
+<meta property="og:updated_time" content="2017-06-09T06:49:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《CSS 权威指南》笔记（四）">
+<meta name="twitter:description" content="《CSS 权威指南》">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/09/2015-09-28-css-guide-4/"/>
+
+
+
+
+
+  <title>《CSS 权威指南》笔记（四） | MayorHao的秘密小屋</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MayorHao的秘密小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小浩少校写字的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-09-28-css-guide-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《CSS 权威指南》笔记（四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  《CSS 权威指南》
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第七章-基本视觉格式化"><a href="#第七章-基本视觉格式化" class="headerlink" title="第七章 基本视觉格式化"></a>第七章 基本视觉格式化</h1><ol>
+<li><p>基本框</p>
+<ol>
+<li>内边距不能是负值</li>
+<li>外边距可以是负值</li>
+<li>边框的宽度绝对不能为负</li>
+</ol>
+</li>
+<li><p>包含块</p>
+<p> 包含块是一个元素的『布局上下文』，包含块由最近的块级祖先框、表单元格或行内块祖先框的内容边界（content edge）构成。非行内元素的布局依赖于包含块，行内元素的摆放方式并不直接依赖于包含块。</p>
+</li>
+<li><p>一些概念</p>
+<ol>
+<li><p>正常流</p>
+<p> 传统HTML文档的文本布局，要让一个元素不在正常流中，唯一的方法就是使之成为浮动或定位元素。</p>
+</li>
+</ol>
+</li>
+<li><p>块级元素</p>
+<ol>
+<li>水平格式化『7大属性』：<code>margin-left、 border-left、 padding-left、 width、 padding-right、 border-right、 margin-right</code></li>
+<li>只有3个属性可以设置<code>auto</code>：分别为<code>width、 margin-left、 margin-right</code>。若3个属性都设置为非<code>auto</code>的某个值——格式化属性过分受限，此时总会把<code>margin-right</code>强制为<code>auto</code>（对于从左向右读得语言）。若3个属性都设置为<code>auto</code>，两个外边距都会设置为0，width会尽可能宽。若某个外边距及width设置为auto，设置为auto的外边距会减为0。</li>
+<li>负外边距。7个水平属性的总和要等于父元素的width</li>
+</ol>
+</li>
+<li><p>百分数</p>
+<p> 混合使用百分数和长度单位，可能会很麻烦</p>
+</li>
+<li><p>替换元素</p>
+<p> 对于替换元素，如果<code>width</code>为<code>auto</code>，元素的宽度则是内容的固有宽度，除非制定特定值覆盖这个规则。在未显示同时指定<code>width、height</code>情况下，宽高比保持不变。</p>
+</li>
+<li><p>垂直格式化（类比水平格式化）</p>
+<p> 值得注意的是<code>margin-top、margin-bottom</code>设置为<code>auto</code>，会自动计算为0，使元素没有外边距，而不会垂直居中。将元素垂直居中的唯一办法就是<strong>把上下外边距都设置为25%</strong>。</p>
+</li>
+<li><p>合并垂直外边距（*）</p>
+</li>
+<li><p>行内元素</p>
+</li>
+<li><p>垂直对齐（vertical-align）</p>
+</li>
+<li><p>缩放行高</p>
+<p>设置<code>line-height</code>最好方式是使用一个原始数字值，因为这个数会成为缩放因子，该因子是一个继承值而非计算值，会在元素间逐层传递。</p>
+</li>
+</ol>
+<h1 id="第八章-内边距、边框和外边距"><a href="#第八章-内边距、边框和外边距" class="headerlink" title="第八章 内边距、边框和外边距"></a>第八章 内边距、边框和外边距</h1><ol>
+<li>百分数值定义相对于父元素的width。这不仅应用于左右外边距，也应用于上下外边距。</li>
+<li><p>值复制</p>
+<p> CSS定义了一些规则，允许为外边距指定少于4个值。规则如下：</p>
+<ul>
+<li>如果缺少做坐边距的值，则使用有外边距的值。</li>
+<li>如果缺少做下边距的值，则使用有上边距的值。</li>
+<li>如果缺少做右边距的值，则使用有上边距的值。</li>
+</ul>
+</li>
+<li><p>正常流中垂直相邻边距会合并</p>
+</li>
+<li><p>外边距和行内元素</p>
+<p> 外边距只影响<strong>行内非替换元素</strong>的左右边距。因为外边距不会改变一个元素的行高。</p>
+</li>
+<li><p>边框和行内元素</p>
+<p> 不论为<strong>行内元素</strong>指定怎样的宽度，元素的行高都不会改变，但由于边框是<strong>可见的</strong>，所以将会绘制出来。左右边则是另外一回事，如果应用一个左边框或右边框，不仅该边框可见，切文本不会被覆盖。</p>
+</li>
+</ol>
+<h1 id="第九章-颜色和背景"><a href="#第九章-颜色和背景" class="headerlink" title="第九章 颜色和背景"></a>第九章 颜色和背景</h1><ol>
+<li>选择的类名最好描述其中包含的信息类型，而不是你想要达到的视觉效果。</li>
+<li>前景：元素的文本，还包括元素周围的边框。设置元素的前景色，最容易的方法是利用属性<code>color</code></li>
+<li><code>color</code>可以继承</li>
+<li><code>background-color</code> <code>background-image</code>不能继承</li>
+<li><code>background-position</code>背景定位(背景和元素中心点对齐)</li>
+<li><code>background-attachment</code>关联，<code>fixed</code>或<code>scroll</code></li>
+</ol>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-10-14）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/09/2015-09-07-css-guide-3/" rel="next" title="《CSS 权威指南》笔记（三）">
+                <i class="fa fa-chevron-left"></i> 《CSS 权威指南》笔记（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/09/2015-5-2-note-jquery-source-learning-1/" rel="prev" title="慕课网 jQuery 源码解析总结（1）——理解结构">
+                慕课网 jQuery 源码解析总结（1）——理解结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="MayorHao" />
+          <p class="site-author-name" itemprop="name">MayorHao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Calm down and Coding on</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-基本视觉格式化"><span class="nav-number">1.</span> <span class="nav-text">第七章 基本视觉格式化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-内边距、边框和外边距"><span class="nav-number">2.</span> <span class="nav-text">第八章 内边距、边框和外边距</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第九章-颜色和背景"><span class="nav-number">3.</span> <span class="nav-text">第九章 颜色和背景</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MayorHao</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

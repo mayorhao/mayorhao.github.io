@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-1-chapter1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/07/JavaScript的函数柯里化/" itemprop="url">JavaScript的函数柯里化</a></h1>
+                <a class="post-title-link" href="/2017/06/09/2015-4-1-chapter1/" itemprop="url">《HTML&&CSS3入门经典》（1）——为WEB结构化文档</a></h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
-                2016-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
               </time>
             
 
@@ -321,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -356,27 +356,14 @@
 
       
         
-          
-            <h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。<br>但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。<br>好了，言归正传。</p>
-<h3 id="来源及概念"><a href="#来源及概念" class="headerlink" title="来源及概念"></a>来源及概念</h3><p>curry化的命名是为了纪念数学家 Haskell Curry（编程语言 Haskell也是以他的名字命名)。<br>它的书面概念是：</p>
-<blockquote>
-<p>柯里化通常也称部分求值，其含义是给函数分步传递参数，每次传递参数后部分应用参数，并返回一个更具体的函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数函数，直至返回最后结果。 因此柯里化的过程是逐步传参，逐步缩小函数的适用范&gt;围，逐步求解的过程。</p>
-</blockquote>
-<p>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
-<p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
-<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
-<h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
-<p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样，我们可以传入默认参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contenx</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>,<span class="number">2</span>);</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> innerArgs=<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">            <span class="keyword">var</span> finnalArgs=args.concat(innerArgs);</div><div class="line">            <span class="keyword">return</span> fn.apply(context,finalArgs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">#### 提前返回，或者称之为惰性加载函数</div><div class="line">很常见的一个例子，兼容现代浏览器以及IE浏览器的事件添加方法。我们正常情况可能会这样写：</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">el, type, fn, capture</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;, capture);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</div><div class="line">        el.attachEvent(<span class="string">"on"</span> + type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;);</div><div class="line">    &#125; </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>上面的方法有什么问题呢？很显然，我们每次使用addEvent为元素添加事件的时候，(eg. IE6/IE7)都会走一遍<figure class="highlight plain"><figcaption><span>if ...```,其实只要一次判定就可以了，怎么做？–柯里化。改为下面这样子的代码：</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">```javascript</div><div class="line">var addEvent = (function()&#123;</div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.addEventListener(sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;, (capture));</div><div class="line">        &#125;;</div><div class="line">    &#125; else if (window.attachEvent) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.attachEvent(&quot;on&quot; + sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
-<p>初始<figure class="highlight plain"><figcaption><span>if...判定），而剩余的参数应用都是其返回函数实现的，典型的柯里化。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">#### 延迟计算，延迟执行</div><div class="line"></div><div class="line">其实上文中的```bind（）```函数就是典型的延迟执行。那延迟计算的例子：我每周末都要去钓鱼，我想知道我12月份4个周末总共钓了几斤鱼，把一些所谓的模式、概念抛开，我们可能就会下面这样实现：</div><div class="line">```javascript</div><div class="line">var fishWeight = 0;</div><div class="line">var addWeight = function(weight) &#123;</div><div class="line">    fishWeight += weight;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">addWeight(2.3);</div><div class="line">addWeight(6.5);</div><div class="line">addWeight(1.2);</div><div class="line">addWeight(2.5);</div><div class="line"></div><div class="line">console.log(fishWeight);</div></pre></td></tr></table></figure></p>
-<p>柯里化的实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> curryWeight = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _fishWeight = [];</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, _fishWeight);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            _fishWeight = _fishWeight.concat([].slice.call(<span class="built_in">arguments</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> fishWeight = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> addWeight = curryWeight(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i=<span class="number">0</span>; len = <span class="built_in">arguments</span>.length;</div><div class="line">    <span class="keyword">for</span> (i; i&lt;len; i+=<span class="number">1</span>) &#123;</div><div class="line">        fishWeight += <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">addWeight(<span class="number">2.3</span>);</div><div class="line">addWeight(<span class="number">6.5</span>);</div><div class="line">addWeight(<span class="number">1.2</span>);</div><div class="line">addWeight(<span class="number">2.5</span>);</div><div class="line">addWeight();    <span class="comment">//  这里才计算</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fishWeight);    <span class="comment">// 12.5</span></div></pre></td></tr></table></figure>
-<p>到最后才计算一次。</p>
-<p>以上就是curry化的一些个人见解。还会继续补充。</p>
-
-          
+          为WEB结构化文档
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-1-chapter1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -418,7 +405,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/11/判断值相等/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-15-chapter11-jquery/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -437,7 +424,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/11/判断值相等/" itemprop="url">说说 JS 相等性判断</a></h1>
+                <a class="post-title-link" href="/2017/06/09/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
         
 
         <div class="post-meta">
@@ -449,8 +436,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-11T12:02:00+08:00">
-                2016-06-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
               </time>
             
 
@@ -472,8 +459,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -507,28 +494,14 @@
 
       
         
-          
-            <p>关于 JS 相等性判断，很容易想到严格相等（===）和非严格相等（==），前者在比较前不会进行隐式转换，即若比较的两个值不是相同的类型，比较结果一定是不等的。而后者在进行比较前可能会根据具体情况进行相应的类型转换然后再按照严格比较规则进行比较。</p>
-<p><strong>通常情况下使用严格相等是没有问题的，但存在两个例外。一个是+0和-0的比较，另一个是NaN的比较。</strong></p>
-<p><strong>在严格相等中，+0 === -0 返回 true，NaN === NaN 返回 false</strong>，这与直观判断是不一致的。为了避免这类特殊情况，可以通过 ES6 新特性 <strong>Object.is</strong> 来进行判断。</p>
-<p>Polyfill 也很容易实现，对于+0和-0比较，首先严格相等，再判断倒数是否不相等即可，因为+0/0结果是Infinity，-0/0结果是-Infinity。而对于NaN比较问题，只需要判断二者分别不等于自身即可。（isNaN仅可判断当前数是否是NaN）</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>JavaScript 提供三种不同的比较操作符：严格相等、非严格相等、Object.is。</li>
-<li><p>ES2015标准提供以下四种比较操作符：严格相等、非严格相等、零值相等、同值相等。</p>
-<ul>
-<li>同值相等参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank" rel="external">JavaScript 中相等性判断</a>中 Object.defineProperty 实例，当试图对不可变属性进行修改时可能会发生错误。同值相等由 Object.is 方法提供。</li>
-<li>零值相等和同值相等类似，不过会认为 +0 与 -0 相等。</li>
-</ul>
-</li>
-<li>例子可从以下参考链接中获得。</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank" rel="external">JavaScript 中相等性判断</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/is" target="_blank" rel="external">Object.is</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/25107117" target="_blank" rel="external">从 V8 的单元测试源码看“同值相等”</a></li>
-</ul>
-
-          
+          使用jQuery
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-15-chapter11-jquery/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -570,7 +543,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/07/webpack入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-1-chapter2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -589,7 +562,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/07/webpack入门/" itemprop="url">【翻译】webpack入门</a></h1>
+                <a class="post-title-link" href="/2017/06/09/2015-4-1-chapter2/" itemprop="url">《HTML&&CSS3入门经典》（2）——文本的微调</a></h1>
         
 
         <div class="post-meta">
@@ -601,8 +574,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-07T01:30:29+08:00">
-                2016-06-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
               </time>
             
 
@@ -624,8 +597,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/翻译/" itemprop="url" rel="index">
-                    <span itemprop="name">翻译</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -659,68 +632,980 @@
 
       
         
-          
-            <p>本文由官方Tutorial <a href="https://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">Getting Started</a>整理翻译，因为该指南解决了我在上手webpack过程中遇到的诸多问题。</p>
-<hr>
-<h1 id="WELCOME"><a href="#WELCOME" class="headerlink" title="WELCOME"></a>WELCOME</h1><p>这份指南自始自终围绕一个简单例子。通过学习本教程你可以学到：</p>
-<ul>
-<li>如何安装webpack</li>
-<li>如何使用webpack</li>
-<li>如何使用loader</li>
-<li>如何使用开发环境服务器</li>
-</ul>
-<h1 id="安装WEBPACK"><a href="#安装WEBPACK" class="headerlink" title="安装WEBPACK"></a>安装WEBPACK</h1><p>首先你需要安装有node，然后执行</p>
-<p><code>npm install webpack -g</code></p>
-<blockquote>
-<p>这会使webpack命令生效</p>
-</blockquote>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我们从一个空文件夹开始，首先创建以下文件</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3e6f0.png" alt="image"></p>
-<p>然后在该文件夹根目录下执行以下命令：</p>
-<pre><code>webpack ./entry.js bundle.js
-</code></pre><p>这会编译你的<code>entry.js</code>文件并生成<code>bundle.js</code>。倘若成功，将有以下信息输出：</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e40ae6.png" alt="image"></p>
-<p>用浏览器打开<code>index.html</code>，会出现<code>It works.</code></p>
-<h1 id="再添加一个文件"><a href="#再添加一个文件" class="headerlink" title="再添加一个文件"></a>再添加一个文件</h1><p>接下来，我们会为一个新文件添加如下代码。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e616f3.png" alt="image"></p>
-<p>再执行以下命令</p>
-<pre><code>webpack ./entry.js bundle.js
-</code></pre><p>刷新浏览器，此时你会看到文字变为”It works from content.js.”</p>
-<blockquote>
-<p>webpack会分析你入口文件对于其他文件的依赖，这些文件（通常称为模块）也会被包含在<code>bundle.js</code>中。</p>
-</blockquote>
-<h1 id="第一个LOADER"><a href="#第一个LOADER" class="headerlink" title="第一个LOADER"></a>第一个LOADER</h1><p>我们希望为我们的应用添加css文件。webpack原生仅支持JavaScript，所以我们需要<code>css-loader</code>来处理css文件，我们也需要<code>style-loader</code>来应用这些样式。</p>
-<p>运行<code>npm install css-loader style-loader</code>来安装这些loader（此处使用局部安装而非全局安装），这会在你的目录下生成<code>node_modules</code>文件夹。</p>
-<p>需要改动的文件如下：</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/18/562468f9a72c0.png" alt="image"></p>
-<p>再次编译并刷新浏览器你会看到应用的背景变为黄色。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e3951d.png" alt="image"></p>
-<h1 id="绑定LOADER"><a href="#绑定LOADER" class="headerlink" title="绑定LOADER"></a>绑定LOADER</h1><p>我们不希望总是敲下如此冗长的<code>require(&quot;!style!css!./style.css&quot;);</code>，所以我们可以绑定文件的扩展名以简化写法为<code>require(&quot;./style.css&quot;)</code>。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/18/5624697c01675.png" alt="image"></p>
-<p>执行以下的编译命令：</p>
-<pre><code>webpack ./entry.js bundle.js --module-bind &quot;css=style!css&quot;
-</code></pre><p>你将看到同样的结果。</p>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>我们希望将配置选项写入配置文件中。</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/5623130e4b155.png" alt="image"></p>
-<p>此后，仅需执行：</p>
-<pre><code>webpack
-</code></pre><p>来编译</p>
-<p><img src="https://ooo.0o0.ooo/2015/10/17/562313105e09d.png" alt="image"></p>
-<blockquote>
-<p><code>webpack</code>命令总会尝试载入当前目录的<code>webpack.config.js</code>文件</p>
-</blockquote>
-<h1 id="更友好地输出"><a href="#更友好地输出" class="headerlink" title="更友好地输出"></a>更友好地输出</h1><p>随着项目的增长，编译过程可能会越来越长，所以我们可以展示一些进度条以及增加配色来实现更友好地输出。我们可以通过以下命令达到目的：</p>
-<pre><code>webpack --progress --colors
-</code></pre><h1 id="监视模式"><a href="#监视模式" class="headerlink" title="监视模式"></a>监视模式</h1><p>当我们不希望在文件改动后手动执行编译操作时</p>
-<pre><code>webpack --progress --colors --watch
-</code></pre><h1 id="开发服务器"><a href="#开发服务器" class="headerlink" title="开发服务器"></a>开发服务器</h1><p>提供开发服务器是非常好的一项服务，可以替换<code>python -m SimpleHTTPServer</code>启用HTTP静态服务器</p>
-<p>通过以下命令全局安装</p>
-<pre><code>npm install webpack-dev-server -g
-</code></pre><p>启动服务器</p>
-<pre><code>webpack-dev-server --progress --colors
-</code></pre><p>这会绑定一个小型express服务器到<code>localhost:8080</code>，来为你的静态资源及bundle（自动编译）服务。通过访问<code>http://localhost:8080/webpack-dev-server/bundle</code>，bundle每次重编译后浏览器页面都会自动更新。</p>
+          关于层叠样式表的更多介绍
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-1-chapter2/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-22-note-learn-jquery-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          jQuery学习笔记
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-22-note-learn-jquery-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-1-chapter7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-4-1-chapter7/" itemprop="url">《HTML&&CSS3入门经典》（7）——层叠样式表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          层叠样式表
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-1-chapter7/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-6-chapter5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-4-6-chapter5/" itemprop="url">《HTML&&CSS3入门经典》（5）——表格</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          表格
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-6-chapter5/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-8-chapter6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-4-8-chapter6/" itemprop="url">《HTML&&CSS3入门经典》（6）——表单</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          表单
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-8-chapter6/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-1-chapter8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-4-1-chapter8/" itemprop="url">《HTML&&CSS3入门经典》（8）——关于层叠样式表的更多介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          关于层叠样式表的更多介绍
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-4-1-chapter8/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-5-1-future-of-code-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          《代码的未来》读书笔记
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-5-1-future-of-code-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-08-25-css-guide-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/2015-08-25-css-guide-1/" itemprop="url">《CSS 权威指南》笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          《CSS 权威指南》
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/09/2015-08-25-css-guide-1/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -757,7 +1642,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -802,7 +1687,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -813,7 +1698,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -824,7 +1709,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -1,0 +1,807 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="表单">
+<meta name="keywords" content="HTML CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《HTML&amp;&amp;CSS3入门经典》（6）——表单">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/2015-4-8-chapter6/index.html">
+<meta property="og:site_name" content="MayorHao的秘密小屋">
+<meta property="og:description" content="表单">
+<meta property="og:updated_time" content="2017-06-09T06:49:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《HTML&amp;&amp;CSS3入门经典》（6）——表单">
+<meta name="twitter:description" content="表单">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/09/2015-4-8-chapter6/"/>
+
+
+
+
+
+  <title>《HTML&&CSS3入门经典》（6）——表单 | MayorHao的秘密小屋</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MayorHao的秘密小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小浩少校写字的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-4-8-chapter6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《HTML&&CSS3入门经典》（6）——表单</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  表单
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-使用-lt-form-gt-元素创建表单"><a href="#1-使用-lt-form-gt-元素创建表单" class="headerlink" title="1. 使用&lt;form&gt;元素创建表单"></a>1. 使用<code>&lt;form&gt;</code>元素创建表单</h3><ol>
+<li><strong>action</strong>特性：指明表单提交后对数据的处理</li>
+<li><strong>method</strong>特性：表单数据可以通过两种方式发送给服务器，每一种方式对应于一种HTTP方法：<ul>
+<li>get方法，将数据作为URL的一部分发送，默认值</li>
+<li>post方法，将数据隐藏在HTTP头中</li>
+</ul>
+</li>
+<li><strong>id</strong>特性</li>
+<li><strong>name</strong>特性</li>
+<li><strong>enctype</strong>特性：指定浏览器在将数据发送到服务器之前如何对其进行编码。浏览器通常支持三种类型的编码方式：<ol>
+<li>application/x-www-form-urlencoded,是大多数表单使用的标准方法</li>
+<li>multipart/form-data，通常用于访问者需要向服务器上传文件时</li>
+<li>text/plain，以纯文本形式不加修饰地将数据发送至服务器</li>
+</ol>
+</li>
+<li><strong>accept-charset</strong>特性：指定一系列用户能够输入，并且之后服务器可以处理的字符编码</li>
+<li><strong>novalidate</strong>特性：用以指定表单在提交时是否应该进行校验，如果该特性存在，浏览器则不应该在提交前校验表单</li>
+<li><strong>target</strong>特性</li>
+<li><strong>autocomplete</strong>特性：指明浏览器是否应该自动填写表单值</li>
+</ol>
+<h3 id="2-表单控件"><a href="#2-表单控件" class="headerlink" title="2. 表单控件"></a>2. 表单控件</h3><ol>
+<li>文本输入控件<ol>
+<li>单行文本输入控件：<code>&lt;input&gt;</code>元素的type特性值为text</li>
+<li>密码输入控件：<code>&lt;input&gt;</code>元素的type特性值为password</li>
+<li>多行文本输入控件：使用<code>&lt;textarea&gt;</code>元素</li>
+</ol>
+</li>
+<li>新的HTML5输入控件类型与特性<ol>
+<li>使用<strong>placeholder</strong>特性提供示例输入</li>
+<li>使用<strong>autocomplete</strong>特性确保用户隐私与安全</li>
+<li>使用<strong>required</strong>特性确保信息提供</li>
+</ol>
+</li>
+<li>按钮<br>通过三种方式创建按钮：<ul>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>submit、reset或button</strong></li>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>image</strong></li>
+<li>使用<code>&lt;button&gt;</code>元素</li>
+</ul>
+</li>
+<li>复选框<br> 通过<strong>type</strong>特性值为<strong>checkbox</strong>的<code>&lt;input&gt;</code>元素创建。复选框可以单独出现（如是否接受条款与条件），也可以作为复选框组出现（比如希望用户从一个给出的列表中指定其具有的全部技能）</li>
+<li>单选按钮<br> 通过<strong>type</strong>特性值为<strong>radio</strong>的<code>&lt;input&gt;</code>元素创建。<blockquote>
+<p>术语“单选按钮”（radio button)源自于老式收音机（radio）。在一些老式收音机上，在设定好的频道中，一次只能按下一个按钮已选择希望收听的电台，不可以在收音机上同时按下两个按钮，而按下其中一耳光后，另一个则跳起来。</p>
+</blockquote>
+</li>
+<li>选择框<ol>
+<li><code>&lt;select&gt;</code>元素<br> 常用特性：<strong>name、size、multiple</strong><br> 其他特性：<strong>disabled、form、autofocus、required</strong></li>
+<li><code>&lt;option&gt;</code>元素<br> 常用特性：<strong>value、selected、label、disabled</strong></li>
+<li>使用<strong>size</strong>特性创建滚动选择框</li>
+<li>使用<strong>multiple</strong>特性选择多个选项</li>
+<li>使用<code>&lt;optgroup&gt;</code>元素分组选项  </li>
+</ol>
+</li>
+<li>文件选择框<br> 通过<strong>type</strong>特性值为<strong>file</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>隐藏控件<br> 通过<strong>type</strong>特性值为<strong>hidden</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>新的HTML5表单元素<ol>
+<li>使用新的<code>&lt;progress&gt;</code>元素跟踪任务完成度</li>
+<li>使用<code>&lt;meter&gt;</code>元素表示一定范围内标量的测量值</li>
+<li>使用<code>&lt;input&gt;</code>元素及新的<code>&lt;datalist&gt;</code>创建自动完成列表<br> 用CSS代码来清楚<code>&lt;datalist&gt;</code>引入的箭头   <blockquote>
+<pre><code>input::-webkit-calendar-picker-indicator {
+    display: none;
+   -webkit-appearance: none;
+ }
+</code></pre></blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-使用-lt-label-gt-元素为控件创建标签"><a href="#3-使用-lt-label-gt-元素为控件创建标签" class="headerlink" title="3. 使用&lt;label&gt;元素为控件创建标签"></a>3. 使用<code>&lt;label&gt;</code>元素为控件创建标签</h3><p><code>&lt;label&gt;</code>元素带有一个叫做<strong>for</strong>的特性，用于指明该标签关联的表单控件。<strong>for</strong>特性的值应该与对应表单控件的id特性值相同</p>
+<h3 id="4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构"><a href="#4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构" class="headerlink" title="4. 使用&lt;fieldset&gt;及&lt;legend&gt;元素组织表单结构"></a>4. 使用<code>&lt;fieldset&gt;</code>及<code>&lt;legend&gt;</code>元素组织表单结构</h3><ol>
+<li><code>&lt;fieldset&gt;</code>元素在表单控件组周围添加边框，以表示它们是相关联元素</li>
+<li><code>&lt;legend&gt;</code>元素允许你为<code>&lt;fieldset&gt;</code>元素指定标题</li>
+</ol>
+<h3 id="5-焦点"><a href="#5-焦点" class="headerlink" title="5. 焦点"></a>5. 焦点</h3><p>元素可通过四种方式获得焦点：  </p>
+<pre><code>1. 使用定点设备，如鼠标  
+2. 使用键盘，通常使用Tab键在此类元素间导航定位，顺序由**“标签遍历顺序”（tabbing order）**指定，特性值tabindex  
+3. **快捷键（access key）**  
+4. `autofocus`属性  
+</code></pre><h3 id="6-disabled与readonly控件"><a href="#6-disabled与readonly控件" class="headerlink" title="6. disabled与readonly控件"></a>6. disabled与readonly控件</h3><ul>
+<li>readonly特性防止用户更改表单控件自身的值，可通过脚本修改。任何readonly控件的名称与值仍将发送至服务器</li>
+<li>disabled特性会禁用表单控件或<code>&lt;fieldset&gt;</code>元素中的表单控件组，从而使用户无法更改，可用脚本重新激活控件。除非控件被重新激活，否则其名称与值不会被发送至服务器</li>
+</ul>
+<h3 id="7-向服务器发送表单数据"><a href="#7-向服务器发送表单数据" class="headerlink" title="7. 向服务器发送表单数据"></a>7. 向服务器发送表单数据</h3><ol>
+<li>HTTP get</li>
+<li>HTTP post</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML-CSS/" rel="tag"># HTML CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/09/2015-4-1-chapter8/" rel="next" title="《HTML&&CSS3入门经典》（8）——关于层叠样式表的更多介绍">
+                <i class="fa fa-chevron-left"></i> 《HTML&&CSS3入门经典》（8）——关于层叠样式表的更多介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/09/2015-4-6-chapter5/" rel="prev" title="《HTML&&CSS3入门经典》（5）——表格">
+                《HTML&&CSS3入门经典》（5）——表格 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="MayorHao" />
+          <p class="site-author-name" itemprop="name">MayorHao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Calm down and Coding on</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用-lt-form-gt-元素创建表单"><span class="nav-number">1.</span> <span class="nav-text">1. 使用<form>元素创建表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-表单控件"><span class="nav-number">2.</span> <span class="nav-text">2. 表单控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用-lt-label-gt-元素为控件创建标签"><span class="nav-number">3.</span> <span class="nav-text">3. 使用<label>元素为控件创建标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构"><span class="nav-number">4.</span> <span class="nav-text">4. 使用<fieldset>及<legend>元素组织表单结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-焦点"><span class="nav-number">5.</span> <span class="nav-text">5. 焦点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-disabled与readonly控件"><span class="nav-number">6.</span> <span class="nav-text">6. disabled与readonly控件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-向服务器发送表单数据"><span class="nav-number">7.</span> <span class="nav-text">7. 向服务器发送表单数据</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MayorHao</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

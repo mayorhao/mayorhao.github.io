@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux 101 Hacks 中文," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="《Linux 101 Hacks》整理">
+<meta name="keywords" content="Linux 101 Hacks 中文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Linux 101 Hacks》整理">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/2016-01-20-linux-101-hacks/index.html">
+<meta property="og:site_name" content="MayorHao的秘密小屋">
+<meta property="og:description" content="《Linux 101 Hacks》整理">
+<meta property="og:updated_time" content="2017-06-09T06:49:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Linux 101 Hacks》整理">
+<meta name="twitter:description" content="《Linux 101 Hacks》整理">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/09/2016-01-20-linux-101-hacks/"/>
+
+
+
+
+
+  <title>《Linux 101 Hacks》整理 | MayorHao的秘密小屋</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MayorHao的秘密小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小浩少校写字的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2016-01-20-linux-101-hacks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《Linux 101 Hacks》整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  《Linux 101 Hacks》整理
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我会按章节将《Linux 101 Hacks》中我认为信息量较大的部分整理出来。</p>
+<h1 id="Chapter-1-Powerful-CD-Command-Hacks"><a href="#Chapter-1-Powerful-CD-Command-Hacks" class="headerlink" title="Chapter 1: Powerful CD Command Hacks"></a>Chapter 1: Powerful CD Command Hacks</h1><ol>
+<li><p><code>mkdircd</code></p>
+<p> 编辑 <code>.zshrc</code> 或 <code>.bash_profile</code> 文件，插入以下内容</p>
+<pre><code>function mkdircd () { 
+    mkdir -p &quot;$@&quot; &amp;&amp; eval cd &quot;\&quot;\$$#\&quot;&quot;;
+}
+</code></pre></li>
+</ol>
+<pre><code>保存退出后，重启 Terminal 或者 `source .zshrc`，没有问题的情况下 `mkdircd` 生效。
+</code></pre><ol>
+<li><p><code>cd -</code></p>
+<p> 在最近的两个目录间切换。</p>
+</li>
+<li><p>管理目录栈</p>
+<p> 有三个命令，意义正如其命名：<code>dirs</code> <code>pushed</code> <code>pops</code></p>
+</li>
+</ol>
+<h1 id="Chapter-2-Essential-Linux-Commands"><a href="#Chapter-2-Essential-Linux-Commands" class="headerlink" title="Chapter 2: Essential Linux Commands"></a>Chapter 2: Essential Linux Commands</h1><ol>
+<li><p><code>grep</code></p>
+<pre><code>Syntax: grep [options] pattern [files]
+</code></pre><p> 常见 options 如下：</p>
+<ul>
+<li><code>-v</code>: 显示所有不匹配项</li>
+<li><code>-c</code>: 统计符合项个数</li>
+<li><code>-i</code>: 忽略大小写</li>
+<li><code>-r</code>: 递归</li>
+<li><code>-l</code>: 只显示文件名</li>
+</ul>
+</li>
+<li><p><code>find</code></p>
+<pre><code>Syntax: find [pathnames] [conditions]
+</code></pre><p> conditions 需要进一步了解。</p>
+</li>
+<li><p>阻止标准输出而只显示错误信息</p>
+<p> <code>&gt; /dev/null</code></p>
+</li>
+<li><p>只显示标准输出而不显示错误信息</p>
+<p> <code>2&gt; /dev/null</code></p>
+</li>
+<li><p>改变大小写</p>
+<ol>
+<li><p>转换为大写</p>
+<p> <code>tr a-z A-Z &lt; target.txt</code></p>
+</li>
+<li><p>转换为小写</p>
+<p> <code>tr A-Z a-z &lt; target.txt</code></p>
+</li>
+</ol>
+</li>
+<li><p>后台执行命令</p>
+<ol>
+<li>使用 <code>&amp;</code></li>
+<li>使用 <code>nohup</code>，在 1 的基础上，避免因退出session导致进程被杀</li>
+<li>使用 <code>screen</code> command</li>
+<li>使用 <code>at</code> command</li>
+<li>使用 <code>watch</code> command</li>
+</ol>
+</li>
+</ol>
+<h1 id="Chapter-3-SSH-Commands-and-Tips"><a href="#Chapter-3-SSH-Commands-and-Tips" class="headerlink" title="Chapter 3: SSH Commands and Tips"></a>Chapter 3: SSH Commands and Tips</h1><ol>
+<li><p>Debug SSH 客户端 Session</p>
+<p> 加上<code>-l</code>参数，如<code>ssh -l gdp@128.28.28.15</code></p>
+</li>
+<li><p>远程与本地切换</p>
+<p> 在 remotehost 输入<code>~</code>，然后输入<code>Control-Z</code>，之后就可以通过查看<code>jobs</code>来恢复而无需退出当前回话。</p>
+</li>
+</ol>
+<h1 id="Chapter-4-Date-Manipulation"><a href="#Chapter-4-Date-Manipulation" class="headerlink" title="Chapter 4: Date Manipulation"></a>Chapter 4: Date Manipulation</h1><h1 id="Chapter-5-PS1-PS2-PS3-PS4-and-PROMPT-COMMAND-skip"><a href="#Chapter-5-PS1-PS2-PS3-PS4-and-PROMPT-COMMAND-skip" class="headerlink" title="Chapter 5: PS1, PS2, PS3, PS4 and PROMPT_COMMAND(skip)"></a>Chapter 5: PS1, PS2, PS3, PS4 and PROMPT_COMMAND(skip)</h1><h1 id="Archive-and-Compression"><a href="#Archive-and-Compression" class="headerlink" title="Archive and Compression"></a>Archive and Compression</h1><ol>
+<li><p>打包压缩多个文件</p>
+<p> <code>zip {file-name.zip} {file-names}</code></p>
+</li>
+<li><p>解压文件</p>
+<p> <code>unzip {file-name.zip}</code>，<code>-v</code>输出具体信息</p>
+</li>
+<li><p>显示压缩文件内容</p>
+<p> <code>unzip -l {file-name.zip}</code></p>
+</li>
+</ol>
+<p>(Hack 46 to be continued)</p>
+<hr>
+<p>（最后修改于 2016-03-16）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux-101-Hacks-中文/" rel="tag"># Linux 101 Hacks 中文</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/09/2016-03-19-javascript-design-pattern-3/" rel="next" title="《JavaScript 设计模式与开发指南》笔记（三）">
+                <i class="fa fa-chevron-left"></i> 《JavaScript 设计模式与开发指南》笔记（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/09/2016-03-13-javascript-design-pattern-2/" rel="prev" title="《JavaScript 设计模式与开发指南》笔记（二）">
+                《JavaScript 设计模式与开发指南》笔记（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="MayorHao" />
+          <p class="site-author-name" itemprop="name">MayorHao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Calm down and Coding on</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-1-Powerful-CD-Command-Hacks"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1: Powerful CD Command Hacks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-2-Essential-Linux-Commands"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2: Essential Linux Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-3-SSH-Commands-and-Tips"><span class="nav-number">3.</span> <span class="nav-text">Chapter 3: SSH Commands and Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-4-Date-Manipulation"><span class="nav-number">4.</span> <span class="nav-text">Chapter 4: Date Manipulation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-5-PS1-PS2-PS3-PS4-and-PROMPT-COMMAND-skip"><span class="nav-number">5.</span> <span class="nav-text">Chapter 5: PS1, PS2, PS3, PS4 and PROMPT_COMMAND(skip)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Archive-and-Compression"><span class="nav-number">6.</span> <span class="nav-text">Archive and Compression</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MayorHao</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
