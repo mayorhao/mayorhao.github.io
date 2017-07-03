@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-08-25-css-guide-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/async-await/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/09/2015-08-25-css-guide-1/" itemprop="url">《CSS 权威指南》笔记（一）</a></h1>
+                <a class="post-title-link" href="/2017/07/03/async-await/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,119 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
-                2017-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/generator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/03/generator/" itemprop="url">Generator从陌生到熟悉</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
               </time>
             
 
@@ -321,8 +432,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
                   </a>
                 </span>
 
@@ -356,10 +467,31 @@
 
       
         
-          《CSS 权威指南》
+          <h3 id="关于Generator"><a href="#关于Generator" class="headerlink" title="关于Generator"></a>关于Generator</h3><ol>
+<li>声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> Generator=<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意到那个<code>*</code>号</p>
+<ol>
+<li>生成器对象<br>generator不能像普通函数一样直接调用，调用会生成generator对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gen=Generator();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>gen本身也是可以迭代的，可以用for-of 来迭代，在代码中我们已经试了，迭代出每次yield切出的值</p>
+<ol>
+<li>方法</li>
+</ol>
+<ul>
+<li>generator.next(value)<br>返回一个状态对象，大概像这样：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    value:any,</div><div class="line">    done:Boolean</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>value 是yeild切出的值，done是指generator完成的状态，一旦触发最后一个yield，状态done变为true，或者reurn语句或者抛出错误。<br>next方法还可以接受参数，作用是，有大神的<a href="http://huli.logdown.com/posts/292331-javascript-es6-generator-foundation" target="_blank" rel="external">Generator基礎</a>总结的：</p>
+<blockquote>
+<ol>
+<li>yield其實是兩個動作的合體：丟東西出去-&gt;等東西進來</li>
+<li>每次next()都會跑到yield丟東西出來的那個步驟
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/09/2015-08-25-css-guide-1/">
+            <a class="btn" href="/2017/07/03/generator/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -405,7 +537,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-09-07-css-guide-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/async-thunk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -424,7 +556,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/09/2015-09-07-css-guide-3/" itemprop="url">《CSS 权威指南》笔记（三）</a></h1>
+                <a class="post-title-link" href="/2017/07/03/async-thunk/" itemprop="url">什么是thunk函数？</a></h1>
         
 
         <div class="post-meta">
@@ -436,8 +568,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
-                2017-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
               </time>
             
 
@@ -459,8 +591,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
                   </a>
                 </span>
 
@@ -494,14 +626,30 @@
 
       
         
-          《CSS 权威指南》
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/09/2015-09-07-css-guide-3/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="thunk函数是什么？"><a href="#thunk函数是什么？" class="headerlink" title="thunk函数是什么？"></a>thunk函数是什么？</h3><p>thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？<br>比方说这样一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> num</div><div class="line">&#125;</div><div class="line"><span class="comment">//那么问题来了，*x+1*的值是什么时候计算的呢？</span></div><div class="line">a(x+<span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p>一种流派是<em>传值调用</em>，即直接结算完x+5，再把值传给函数a,C语言就是这么干的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//相当于</div><div class="line">f(2)</div></pre></td></tr></table></figure></p>
+<p>而另一种流派是<em>传名调用</em>,即直接把表达式x+5传入函数体。直到用到它的时候才求值。Hskell语言采用这种策略。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//相当于</div><div class="line">f(x+1)</div><div class="line">return (1+1)</div></pre></td></tr></table></figure></p>
+<p>这两种流派哪种比较好？<br>我比较倾向于传名调用。因为传值调用虽简单，但是很可能会造成性能浪费。想象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> a</div><div class="line">&#125;</div><div class="line"><span class="comment">//调用</span></div><div class="line">f(<span class="number">3</span>*<span class="number">3</span>*x<span class="number">-2</span>*x<span class="number">-1</span>,<span class="number">2</span>)</div></pre></td></tr></table></figure></p>
+<p>好不容易计算完了参数a的数值，结果调用时根本就没有用到。这是对性能的极大浪费。</p>
+<blockquote>
+<p>查阅资料后这里需要强调下。求值策略。在计算机科学里，并不仅限于函数的传参方式。它决定了变量之间、函数调用时实参和形参之间值是如何传递的。也分为按值传递与按引用传递。但在js中，有大神将其对象的传递方式归纳为按共享传递。该求值策略被用于JS，ruby，python，java等多种语言。该策略与引用传递最大的区别是，对函数形参的赋值，不会影响到实参的值。详细可查阅<a href="http://bosn.me/js/js-call-by-sharing/" target="_blank" rel="external">共享传值</a></p>
+<h3 id="thunk函数是什么？-1"><a href="#thunk函数是什么？-1" class="headerlink" title="thunk函数是什么？"></a>thunk函数是什么？</h3><p>而具体传名调用的实现，一般是通过一个临时的函数来把值计算出来，再传入到函数体中。而这个临时的函数，就叫做Thunk函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">m</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> m*<span class="number">2</span></div><div class="line">&#125;</div><div class="line">f(x+<span class="number">5</span>);</div><div class="line"><span class="comment">//加入thunk函数的版本</span></div><div class="line"><span class="keyword">var</span> thunk=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+<span class="number">5</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">thunk</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> thunk()*<span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>上面代码中，函数f的参数x+5被thunk函数给替换掉了，以后用到x+5，都直接调用thunk就好。</p>
+<blockquote>
+<p>所以Thunk函数就是 “传名调用”的一种实现方式。用来替换传入函数的表达式。</p>
+<h3 id="Javascipt-Thunk函数。"><a href="#Javascipt-Thunk函数。" class="headerlink" title="Javascipt Thunk函数。"></a>Javascipt Thunk函数。</h3><p>我们知道javascript的参数是传值调用的。在JS中，Thunk函数替换的不是表达式，而是多参函数，将其替换成单参数版本，只接受回调参数作为参数。<br>比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常版本的readFile（多参数版本）</span></div><div class="line">fs.readFile(fileName, callback);</div><div class="line"></div><div class="line"><span class="comment">// Thunk版本的readFile（单参数版本）</span></div><div class="line"><span class="keyword">var</span> readFileThunk = Thunk(fileName);</div><div class="line">readFileThunk(callback);</div><div class="line"></div><div class="line"><span class="keyword">var</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> fs.readFile(fileName, callback); </div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>老实说，跟函数curring有点像。多参数的函数变为单参数，这个单参数函数就是Thunk函数。</p>
+<p><font color="#0099ff" face="黑体">任何函数，只要接受回调函数作为参数，就可以写成一个Thunk函数的形式</font><br>我们可以简单的写一Thunk函数转换器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Thunk=<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args=<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">        args.push(callback);</div><div class="line">        <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>,args)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>老实说，除了Thunk函数最后是传入callback作为参数外，其它地方真的很想函数currying。<br>这样，我们就可以用它来生成Thunk函数了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> readFileThunk=Thunk(fs.readFile);</div><div class="line">readFileThunk(fileA)(callback);</div></pre></td></tr></table></figure></p>
+<h3 id="Thunkify-模块"><a href="#Thunkify-模块" class="headerlink" title="Thunkify 模块"></a>Thunkify 模块</h3><p>有一个可以转化函数为Thunk函数的npm包，叫<a href="https://github.com/tj/node-thunkify" target="_blank" rel="external">Thunkify模块</a><br>使用npm 安装后，可以这样使用它<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Thunkify=<span class="built_in">require</span>(<span class="string">"Thunkify"</span>);</div><div class="line"><span class="keyword">let</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">let</span> read =thunkify(fs.readFile);</div><div class="line">read(<span class="string">'package.json'</span>)(<span class="function">(<span class="params">err,str</span>)=&gt;</span>&#123;</div><div class="line"><span class="comment">//do something</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>它的源码是这样的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">thunkify</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="built_in">arguments</span>.length);</div><div class="line">    <span class="keyword">var</span> ctx = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</div><div class="line">      args[i] = <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> called;</div><div class="line"></div><div class="line">      args.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//保证callback只执行一次。</span></div><div class="line">        <span class="keyword">if</span> (called) <span class="keyword">return</span>;</div><div class="line">        called = <span class="literal">true</span>;</div><div class="line">        done.apply(<span class="literal">null</span>, <span class="built_in">arguments</span>);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        fn.apply(ctx, args);</div><div class="line">      &#125; <span class="keyword">catch</span> (err) &#123;</div><div class="line">        done(err);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：thunkify只允许回调函数执行一次。</p>
+<h3 id="Generator函数的流程管理。"><a href="#Generator函数的流程管理。" class="headerlink" title="Generator函数的流程管理。."></a>Generator函数的流程管理。.</h3><p>为什么要用Thunk函数，有什么用？以前确实没什么用，但是有了generator之后，就有用了。Thunk现在可以用于Generator函数的自动流程管理。<br>比如说，还是读取文件，下面用Generator函数封装了两个异步操作：<br>```javascript<br>var </p>
+
+          
         
       
     </div>
@@ -543,7 +691,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-6-27-note-javascript-dom-5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/结婚/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -562,7 +710,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/09/2015-6-27-note-javascript-dom-5/" itemprop="url">《JavaScript DOM 编程艺术》笔记（五）</a></h1>
+                <a class="post-title-link" href="/2017/07/03/结婚/" itemprop="url">关于结婚</a></h1>
         
 
         <div class="post-meta">
@@ -574,284 +722,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
-                2017-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          《JavaScript DOM 编程艺术》笔记
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/09/2015-6-27-note-javascript-dom-5/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/2015-08-25-css-guide-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/09/2015-08-25-css-guide-2/" itemprop="url">《CSS 权威指南》笔记（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:49:57+08:00">
-                2017-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          《CSS 权威指南》
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/09/2015-08-25-css-guide-2/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/结婚/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/09/结婚/" itemprop="url">关于结婚</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T14:04:24+08:00">
-                2017-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
               </time>
             
 
@@ -953,7 +825,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/git-new-remote/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/git-new-remote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -972,7 +844,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/08/git-new-remote/" itemprop="url">git如何替换远程仓库</a></h1>
+                <a class="post-title-link" href="/2017/07/03/git-new-remote/" itemprop="url">git如何替换远程仓库</a></h1>
         
 
         <div class="post-meta">
@@ -984,8 +856,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T17:41:24+08:00">
-                2017-06-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
               </time>
             
 
@@ -1046,6 +918,341 @@
             <h3 id="git如何替换远程仓库"><a href="#git如何替换远程仓库" class="headerlink" title="git如何替换远程仓库"></a>git如何替换远程仓库</h3><p>我们经常会遇到这样的场景，在github上新起了一个项目。想将本地仓库推送上去，但是该仓库已经关联了别的远程仓库。这时，我么只需要:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init //重新初始化git仓库</div></pre></td></tr></table></figure></p>
 <p>然后，可以选择用：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin [url]</div></pre></td></tr></table></figure></p>
 <p>当然，我们也可以先把删除掉与原仓库的关联<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div><div class="line">git remote add origin [url]</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/offset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/22/offset/" itemprop="url">详解offset及offsetParent</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T09:52:53+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/NodeList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/22/NodeList/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T09:50:31+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="title-详解-nodeList-HTMLcollection-以及-NamedNodeMap"><a href="#title-详解-nodeList-HTMLcollection-以及-NamedNodeMap" class="headerlink" title="title:详解 nodeList HTMLcollection 以及 NamedNodeMap"></a>title:详解 nodeList HTMLcollection 以及 NamedNodeMap</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/20/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/20/README/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T09:47:51+08:00">
+                2017-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This repo is created to sync the posts of my static blog</p>
 
           
         
@@ -1289,290 +1496,91 @@
 
       
         
-          《Linux 101 Hacks》整理
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/14/2016-01-20-linux-101-hacks/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/11/2015-6-27-resource-skill-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/11/2015-6-27-resource-skill-tree/" itemprop="url">知道创宇研发技能表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T03:02:17+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
+          
+            <p>我会按章节将《Linux 101 Hacks》中我认为信息量较大的部分整理出来。</p>
+<h1 id="Chapter-1-Powerful-CD-Command-Hacks"><a href="#Chapter-1-Powerful-CD-Command-Hacks" class="headerlink" title="Chapter 1: Powerful CD Command Hacks"></a>Chapter 1: Powerful CD Command Hacks</h1><ol>
+<li><p><code>mkdircd</code></p>
+<p> 编辑 <code>.zshrc</code> 或 <code>.bash_profile</code> 文件，插入以下内容</p>
+<pre><code>function mkdircd () { 
+    mkdir -p &quot;$@&quot; &amp;&amp; eval cd &quot;\&quot;\$$#\&quot;&quot;;
+}
+</code></pre></li>
+</ol>
+<pre><code>保存退出后，重启 Terminal 或者 `source .zshrc`，没有问题的情况下 `mkdircd` 生效。
+</code></pre><ol>
+<li><p><code>cd -</code></p>
+<p> 在最近的两个目录间切换。</p>
+</li>
+<li><p>管理目录栈</p>
+<p> 有三个命令，意义正如其命名：<code>dirs</code> <code>pushed</code> <code>pops</code></p>
+</li>
+</ol>
+<h1 id="Chapter-2-Essential-Linux-Commands"><a href="#Chapter-2-Essential-Linux-Commands" class="headerlink" title="Chapter 2: Essential Linux Commands"></a>Chapter 2: Essential Linux Commands</h1><ol>
+<li><p><code>grep</code></p>
+<pre><code>Syntax: grep [options] pattern [files]
+</code></pre><p> 常见 options 如下：</p>
+<ul>
+<li><code>-v</code>: 显示所有不匹配项</li>
+<li><code>-c</code>: 统计符合项个数</li>
+<li><code>-i</code>: 忽略大小写</li>
+<li><code>-r</code>: 递归</li>
+<li><code>-l</code>: 只显示文件名</li>
+</ul>
+</li>
+<li><p><code>find</code></p>
+<pre><code>Syntax: find [pathnames] [conditions]
+</code></pre><p> conditions 需要进一步了解。</p>
+</li>
+<li><p>阻止标准输出而只显示错误信息</p>
+<p> <code>&gt; /dev/null</code></p>
+</li>
+<li><p>只显示标准输出而不显示错误信息</p>
+<p> <code>2&gt; /dev/null</code></p>
+</li>
+<li><p>改变大小写</p>
+<ol>
+<li><p>转换为大写</p>
+<p> <code>tr a-z A-Z &lt; target.txt</code></p>
+</li>
+<li><p>转换为小写</p>
+<p> <code>tr A-Z a-z &lt; target.txt</code></p>
+</li>
+</ol>
+</li>
+<li><p>后台执行命令</p>
+<ol>
+<li>使用 <code>&amp;</code></li>
+<li>使用 <code>nohup</code>，在 1 的基础上，避免因退出session导致进程被杀</li>
+<li>使用 <code>screen</code> command</li>
+<li>使用 <code>at</code> command</li>
+<li>使用 <code>watch</code> command</li>
+</ol>
+</li>
+</ol>
+<h1 id="Chapter-3-SSH-Commands-and-Tips"><a href="#Chapter-3-SSH-Commands-and-Tips" class="headerlink" title="Chapter 3: SSH Commands and Tips"></a>Chapter 3: SSH Commands and Tips</h1><ol>
+<li><p>Debug SSH 客户端 Session</p>
+<p> 加上<code>-l</code>参数，如<code>ssh -l gdp@128.28.28.15</code></p>
+</li>
+<li><p>远程与本地切换</p>
+<p> 在 remotehost 输入<code>~</code>，然后输入<code>Control-Z</code>，之后就可以通过查看<code>jobs</code>来恢复而无需退出当前回话。</p>
+</li>
+</ol>
+<h1 id="Chapter-4-Date-Manipulation"><a href="#Chapter-4-Date-Manipulation" class="headerlink" title="Chapter 4: Date Manipulation"></a>Chapter 4: Date Manipulation</h1><h1 id="Chapter-5-PS1-PS2-PS3-PS4-and-PROMPT-COMMAND-skip"><a href="#Chapter-5-PS1-PS2-PS3-PS4-and-PROMPT-COMMAND-skip" class="headerlink" title="Chapter 5: PS1, PS2, PS3, PS4 and PROMPT_COMMAND(skip)"></a>Chapter 5: PS1, PS2, PS3, PS4 and PROMPT_COMMAND(skip)</h1><h1 id="Archive-and-Compression"><a href="#Archive-and-Compression" class="headerlink" title="Archive and Compression"></a>Archive and Compression</h1><ol>
+<li><p>打包压缩多个文件</p>
+<p> <code>zip {file-name.zip} {file-names}</code></p>
+</li>
+<li><p>解压文件</p>
+<p> <code>unzip {file-name.zip}</code>，<code>-v</code>输出具体信息</p>
+</li>
+<li><p>显示压缩文件内容</p>
+<p> <code>unzip -l {file-name.zip}</code></p>
+</li>
+</ol>
+<p>(Hack 46 to be continued)</p>
+<hr>
+<p>（最后修改于 2016-03-16）</p>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          知道创宇研发技能表
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/2015-6-27-resource-skill-tree/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/22/2016-03-13-javascript-design-pattern-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/22/2016-03-13-javascript-design-pattern-2/" itemprop="url">《JavaScript 设计模式与开发指南》笔记（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-22T13:01:29+08:00">
-                2017-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          《JavaScript 设计模式与开发指南》
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/22/2016-03-13-javascript-design-pattern-2/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1609,7 +1617,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1654,7 +1662,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1676,7 +1684,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

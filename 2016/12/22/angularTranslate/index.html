@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture3.jpg">
 <meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/Picture4.jpg">
 <meta property="og:image" content="https://cdn.infoq.com/statics_s1_20170530-0600u1/resource/articles/angular-component-communication/en/resources/0F3A4898.jpg">
-<meta property="og:updated_time" content="2017-06-08T09:10:10.000Z">
+<meta property="og:updated_time" content="2017-07-03T04:43:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【翻译】Angular组件通信">
 <meta name="twitter:description" content="Angular组件通信源文章:Getting Components to Communicate in Angular 本文要点 Angular应用是基于组件的，可以在组件之间传递数据。 可以通过@Input()向子组件传递数据。 可以通过@Output()捕获由子组件传来的数据。 可以使用像ngrx的外部数据存储来组织大型应用  组件是组成Angular应用的基石，在angular应用中，每个可">
@@ -372,6 +372,7 @@
 <h3 id="向组件传递数据"><a href="#向组件传递数据" class="headerlink" title="向组件传递数据"></a>向组件传递数据</h3><p>在Angular中，当父组件需要传递数据给子组件时，我们使用<code>@Input</code>，打个比方，我们正在开发一个应用程序来展示页面上的评论。 AppComponent会负责把评论数组加载进来，我们会把每条评论的数据分发给评论组件。<br>通过<code>@Input</code>,子组件会接收一个评论参数，以下是整个组件的代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line"><span class="attr">selector</span>: <span class="string">'comment'</span>,</div><div class="line"><span class="attr">templateUrl</span>: <span class="string">'./comment.component.html'</span>,</div><div class="line"><span class="attr">styleUrls</span>: [<span class="string">'./comment.component.css'</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CommentComponent</span> </span>&#123;</div><div class="line">@Input() comment;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>现在我们可以在别处调用该组件,并传递给它需要的评论数据，代码为：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">comment</span> [<span class="attr">comment</span>]=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">comment</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h3><p>首先，是组件选择器<code>&lt;comment&gt;&lt;/comment&gt;</code>,如果你之前使用过Angular，这个应该相当熟悉了。</p>
 <p>第二，是属性绑定：<code>[comment]</code>，元素属性两边的方括号刚开始显得有点混乱，事实上，方括号并不是将数据从传递给组件所必需的，但是，如果没有它们，我们只能向组件的<code>@Input</code>传递普通的字符串。方括号告诉Angular这是一个属性绑定，并且传进来的值是动态的，它会将这个动态的数据插入和传入到组件。</p>
 <p>最后，在属性绑定<code>comment</code>之后，我们就能够获取这个属性，这部分告诉Angular去查看<code>this.comment</code>属性，并将它传递给我们的评论组件。</p>
@@ -541,7 +542,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -563,7 +564,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

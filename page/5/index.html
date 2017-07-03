@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-15-chapter11-jquery/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/26/2015-08-25-css-guide-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/01/22/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
+                <a class="post-title-link" href="/2015/08/26/2015-08-25-css-guide-1/" itemprop="url">《CSS 权威指南》笔记（一）</a></h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-26T11:22:03+08:00">
+                2015-08-26
               </time>
             
 
@@ -356,14 +356,74 @@
 
       
         
-          使用jQuery
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-4-15-chapter11-jquery/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="第一章-CSS和文档"><a href="#第一章-CSS和文档" class="headerlink" title="第一章 CSS和文档"></a>第一章 CSS和文档</h1><ol>
+<li><p>层叠</p>
+<p> CSS规定了冲突规则，这些规则统称为层叠（cascade）</p>
+</li>
+<li><p>元素</p>
+<ul>
+<li><p>替换和非替换元素</p>
+<ol>
+<li>替换元素（replaced element）：用来替换元素内容的部分并非由文档内容直接表示</li>
+<li>非替换元素（nonreplaced element）：内容由用户代理（通常是浏览器）在元素本身生成的框中显示</li>
+</ol>
+</li>
+<li><p>元素显示角色</p>
+<ol>
+<li>块级元素（block-level）</li>
+<li>行内元素（inline-level）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>候选样式表、首要样式表、永久样式表</p>
+</li>
+</ol>
+<h1 id="第二章-选择器"><a href="#第二章-选择器" class="headerlink" title="第二章 选择器"></a>第二章 选择器</h1><ol>
+<li>文档元素选择器</li>
+<li>类选择器</li>
+<li>ID选择器</li>
+<li>属性选择器<ol>
+<li>简单属性选择：如<code>h1[class]</code></li>
+<li>根据具体属性值选择(完全串匹配)：如<code>a[href=&quot;http://if-true.com&quot;]</code></li>
+<li>根据部分属性值选择（子串选择器）：<code>~=、^=、$=、*=</code></li>
+<li>特定属性选择类型，如<code>[lang|=&quot;en&quot;]</code>选择lang属性等于en或者以en开头的所有元素    </li>
+</ol>
+</li>
+<li><p>选择相邻兄弟元素（具有共同的父元素）</p>
+<p> 如 h1 + p {margin-top: 0; } 表示去除紧邻在一个h1元素后出现的段落的上边距，<strong>针对后者</strong></p>
+</li>
+<li><p>伪类</p>
+<ol>
+<li><p>链接伪类</p>
+<p> <code>:link</code> <code>:visited</code>存在的必要性：<code>:link</code>指向作为超链接（有href属性）并指向一个未访问地址的所有锚。</p>
+</li>
+<li><p>动态伪类</p>
+<p> <code>:focus</code> <code>:hover</code> <code>:active</code></p>
+</li>
+<li><p>伪类顺序</p>
+<p> <code>link-visited-focus-hover-active</code></p>
+</li>
+<li><p>选择第一个子元素<code>:first-child</code></p>
+<p> <code>p: first-child</code>表示某元素作为第一个子元素的所有p元素，<strong>最常见错误理解是p元素的第一个子元素</strong></p>
+</li>
+</ol>
+</li>
+<li><p>伪元素选择器</p>
+<ol>
+<li>设置首字母样式<code>:first-letter</code></li>
+<li>设置第一行样式<code>:first-line</code></li>
+<li>设置之前元素样式<code>:before</code></li>
+<li>设置之后元素样式<code>:after</code></li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-09-24）</p>
+
+          
         
       
     </div>
@@ -405,7 +465,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-6-27-note-javascript-dom-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/25/2015-08-25-css-guide-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -424,7 +484,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/01/22/2015-6-27-note-javascript-dom-4/" itemprop="url">《JavaScript DOM 编程艺术》笔记（四）</a></h1>
+                <a class="post-title-link" href="/2015/08/25/2015-08-25-css-guide-2/" itemprop="url">《CSS 权威指南》笔记（二）</a></h1>
         
 
         <div class="post-meta">
@@ -436,8 +496,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-25T14:22:03+08:00">
+                2015-08-25
               </time>
             
 
@@ -494,14 +554,81 @@
 
       
         
-          《JavaScript DOM 编程艺术》笔记
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-6-27-note-javascript-dom-4/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>声明的特殊性，即权值</li>
+<li>通配选择器对特殊性没有贡献（0），继承的值没有特殊性</li>
+<li>链接样式顺序：LVHA</li>
+<li>相对URL格式问题</li>
+</ol>
+<hr>
+<h1 id="第三章-结构和层叠"><a href="#第三章-结构和层叠" class="headerlink" title="第三章 结构和层叠"></a>第三章 结构和层叠</h1><ol>
+<li><p>用户代理不仅要考虑继承，还要考虑声明的特殊性，另外需要考虑声明本身的来源，这个过程就被称为层叠（cascade）。三种机制的关联：特殊性、继承和层叠</p>
+</li>
+<li><p>特殊性</p>
+<p> 特殊性值表述为4个部分（依次为行内样式、id、类与属性、元素），如：0，0，0，0。从左向右依次比较，一旦某一位能判断高低，则不考虑后面的数是什么。</p>
+<ol>
+<li><p>通配选择器特殊性</p>
+<p> 通配选择器对一个选择器的特殊性没有贡献，但与根本没有特殊性是有区别的</p>
+</li>
+<li><p>ID和属性选择器的特殊性</p>
+<p> ID比属性选择器的贡献要大</p>
+</li>
+<li><p>内联样式特殊性</p>
+<p> 特殊性最高</p>
+</li>
+<li><p>重要性</p>
+<p> !important</p>
+</li>
+</ol>
+</li>
+<li><p>继承</p>
+<ol>
+<li>大多数框模型属性（包括外边距、内边距、背景和边框）都不能继承</li>
+<li>继承的值没有特殊性，甚至连0特殊性都没有</li>
+<li>不加区别地使用通配选择器可能存在的问题之一是它能匹配任何元素，往往有一种短路继承的效果。更合适的做法是从一开始就避免不加区别地使用通配选择器</li>
+</ol>
+</li>
+<li><p>层叠</p>
+<ol>
+<li><p>声明权重考虑5级，权重由大到小顺序依次为</p>
+<ol>
+<li>读者的重要声明</li>
+<li>创作人员的重要声明</li>
+<li>创作人员的正常声明</li>
+<li>读者的正常声明</li>
+<li>用户代理声明</li>
+</ol>
+</li>
+<li><p>链接样式顺序：<strong>link-visited-hover-active(LVHA)</strong>。若将伪类链接在一起，能缓解特殊性和顺序带来的问题</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第四章-值和单位"><a href="#第四章-值和单位" class="headerlink" title="第四章 值和单位"></a>第四章 值和单位</h1><ol>
+<li><p>Web 安全颜色</p>
+<p> 指在256色计算机上总能避免抖动的颜色。如果使用RGB百分数，要让所有三个分量要么是0%，要么是一个能被20整除的数。如果使用0~255范围的RGB值，则各分量要么是0要么是能被51整除的数。十六进制法类似</p>
+</li>
+<li><p>相对长度单位em、ex、px</p>
+<p> em是最灵活的，它随字体大小缩放，元素和元素操作都能更为一致</p>
+</li>
+<li><p>相对URL</p>
+<p> CSS中，相对URL要相对于样式表本身，而不是相对于使用该样式表的HTML文档。例如一个外部样式表，其中导入了另一个样式表。如果使用相对URL来导入第二个样式表，它必须相对于第一个样式表</p>
+<p> <strong>URL和开始括号之间不能有空格</strong></p>
+</li>
+<li><p>CSS2单位</p>
+<ol>
+<li>角度值：读(deg)、梯度(grad)、弧度(rad)</li>
+<li>时间值：毫秒(ms)、秒(s)</li>
+<li>频率值：赫兹(Hz)、兆赫（MHz）</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-09-24）</p>
+
+          
         
       
     </div>
@@ -543,7 +670,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-22-note-learn-jquery-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/22/2016-03-28-high-performance-javascript-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -562,7 +689,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/01/22/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
+                <a class="post-title-link" href="/2015/03/22/2016-03-28-high-performance-javascript-1/" itemprop="url">《高性能 JavaScript》笔记（一）</a></h1>
         
 
         <div class="post-meta">
@@ -574,7 +701,521 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-22T13:01:29+08:00">
+                2015-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第1章-加载和执行"><a href="#第1章-加载和执行" class="headerlink" title="第1章 加载和执行"></a>第1章 加载和执行</h1><ol>
+<li>多数浏览器使用单一进程来处理用户界面（UI）刷新和 JavaScript 脚本执行，所以同一时刻只能做一件事。JavaScript 执行过程耗时越久，浏览器等待响应的时间就越长。</li>
+<li>由于脚本会阻塞页面其他资源的下载，因此推荐将所有的 <code>&lt;script&gt;</code> 标签尽可能放到 <code>&lt;body&gt;</code> 标签的底部，以尽量减少对整个页面下载的影响。</li>
+<li>减少页面包含的 <code>&lt;script&gt;</code> 标签数量有助于改善阻塞页面渲染这一情况。</li>
+<li>把一段内嵌脚本放在引用外链样式表的 <code>&lt;link&gt;</code> 标签之后会导致页面阻塞去等待样式表的下载，这样做是为了确保内嵌脚本在执行时能获得最精确的样式信息。建议永远不要把内嵌脚本紧跟在 <code>&lt;link&gt;</code> 标签之后。</li>
+<li><p>无阻塞脚本</p>
+<ol>
+<li><p>延迟的脚本<br> 在 window 对象的 load 事件触发后再下载脚本。 采用 <code>defer</code> 属性。<code>defer</code> 与 <code>async</code> 的相同点是采用并行下载，在下载过程中不会产生阻塞。区别在于执行时机，<code>async</code> 是加载完成后自动执行，而 <code>defer</code> 需要等待页面完成后执行。</p>
+</li>
+<li><p>动态脚本元素</p>
+<p> 用标准的 DOM 方法可以很容易地创建一个新的 <code>&lt;script&gt;</code>，文件在该元素被添加到页面时开始下载，并可通过侦听事件来获得脚本加载完成时的状态。</p>
+</li>
+<li><p>XMLHttpRequest 脚本注入</p>
+<p> 如果收到了有效响应，就创建一个带有内联脚本的 <code>&lt;script&gt;</code> 标签。这种方法的优点是可以下载 JavaScript 代码但不立即执行，以及在所有主流浏览器中无一例外都能工作。主要局限是同源策略。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第2章-数据存取"><a href="#第2章-数据存取" class="headerlink" title="第2章 数据存取"></a>第2章 数据存取</h1><ol>
+<li>计算机科学中有一个经典问题是通过改变数据的存储位置来获得最佳的读写性能。</li>
+<li><p>JavaScript 中有四种基本的数据存储位置</p>
+<ul>
+<li>字面量</li>
+<li>本地变量</li>
+<li>数组元素</li>
+<li>对象成员</li>
+</ul>
+</li>
+<li><p>作用域链对 JavaScript 有许多影响，从确定哪些变量可以被函数访问，到确定 this 的赋值。</p>
+</li>
+<li><p>改变作用域链</p>
+<ol>
+<li><p>with 语句</p>
+<p> 一个新的变量对象被创建，并被推入作用域链的首位，这意味着函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。</p>
+</li>
+<li><p>try-catch 语句</p>
+<p> catch 子句把异常对象推入一个变量对象并置于作用域的首位，在 catch 代码块内部，函数所有局部变量将会放在第二个作用域链对象中。</p>
+</li>
+</ol>
+</li>
+<li><p>闭包、作用域和内存</p>
+<p> 通常来说，函数的活动对象会随着执行环境一同销毁，但引入闭包时，由于引用仍然存在于闭包的 [[Scope]] 属性中，因此激活对象无法被销毁。</p>
+</li>
+<li><p>原型</p>
+<p> 对象可以有两种成员类型：实例成员和原型成员。实例成员直接存在于对象实例中，原型成员则从对象原型继承而来。</p>
+</li>
+<li><p>嵌套成员</p>
+<p> 嵌套成员会导致 JavaScript 引擎搜索所有对象成员。对象成员嵌套得越深，读取速度就会越慢。执行 <code>location.href</code> 总是比 <code>window.location.href</code> 要快。</p>
+</li>
+<li><p>缓存对象成员值</p>
+<p> 若在函数中要多次读取同一个对象属性，最佳做法是将属性值保存到局部变量。局部变量能用来替代属性以避免多次查找带来的性能开销。</p>
+<p> 但这种优化技术并不推荐用于对象的成员方法，因为许多对象方法使用 <strong>this</strong> 来判断执行环境，把一个对象方法保存在局部变量会导致 <strong>this</strong> 绑定到 <strong>window</strong>，而 <strong>this</strong> 值的改变会使得 JavaScript 引擎无法正确解析它的对象成员，继而导致程序错误。</p>
+</li>
+</ol>
+<h1 id="第三章-DOM-编程"><a href="#第三章-DOM-编程" class="headerlink" title="第三章 DOM 编程"></a>第三章 DOM 编程</h1><ol>
+<li><p>浏览器中的 DOM</p>
+<p> 尽管 DOM 是个与语言无关的 API，它在浏览器中的接口却是用 JavaScript 实现的。浏览器中通常会把 DOM 和 JavaScript 独立实现。两个相互独立的功能只要通过接口彼此连接，就会产生消耗。</p>
+</li>
+<li><p>innerHTML 对比 DOM 方法</p>
+<p> 二者性能相差无几。</p>
+</li>
+<li><p>节点克隆</p>
+<p> 使用 DOM 方法更新页面内容的另一个途径是克隆已有元素，而不是创建新元素，即使用 <code>element.cloneNode()</code> 替代 <code>document.createElement()</code>。</p>
+</li>
+<li><p>HTML 集合</p>
+<p> 类似于数组的列表，但不是真正的数组，没有 <code>push()</code>、<code>slice()</code> 之类的方法，但提供了一个类似于数组的 <code>length</code> 属性。</p>
+</li>
+<li><p>选择器 API</p>
+<p> <code>querySelectorAll()</code> 返回一个 NoeList——包含着匹配节点的类数组对象。这个方法不会返回 HTML 集合，不会对应实时的文档结构。</p>
+</li>
+<li><p>重绘和重排</p>
+<p> 重排一定导致重绘，重绘不一定重排。</p>
+</li>
+<li><p>减少重绘和重排次数</p>
+<ol>
+<li>使元素脱离文档流</li>
+<li>对其应用多重改变</li>
+<li><p>把元素带回文档中</p>
+<p>3种基本方法可以使 DOM 脱离文档</p>
+<ol>
+<li>隐藏元素</li>
+<li>使用文档片段</li>
+<li>拷贝原始元素到一个脱离文档的节点中，修改副本，再替换原始元素</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>使用事件委托来减少事件处理器的数量    </p>
+</li>
+</ol>
+<h1 id="第4章-算法和流程控制"><a href="#第4章-算法和流程控制" class="headerlink" title="第4章 算法和流程控制"></a>第4章 算法和流程控制</h1><ol>
+<li><p>循环</p>
+<ol>
+<li><p>4种循环的类型</p>
+<ul>
+<li>标准的 for 循环</li>
+<li>while 循环</li>
+<li>do-while 循环</li>
+<li>for-in 循环</li>
+</ul>
+</li>
+<li><p>循环性能</p>
+<p> for-in 循环比其他几种明显要慢，因为每次迭代操作都会同时搜索实例和原型属性，故不要使用 for-in 循环来遍历数组成员。</p>
+</li>
+<li><p>提升循环性能</p>
+<ul>
+<li>减少迭代工作量；减少对象成员及数组项的查找次数，把值存储到局部变量中。</li>
+<li>颠倒数组顺序：倒序循环</li>
+<li><p>减少迭代次数：”达夫设备（Duff’s Device）”</p>
+<p>  循环体展开技术，使得一次迭代中实际上执行了多次迭代的操作。</p>
+<p>  典型实现如下：</p>
+<pre><code>var iterations = Math.floor(items.length / 8);
+var startAt = items.length % 8;
+var i = 0;
+
+do {
+    switch(startAt) {
+        case 0: process(items[i++]);
+           case 7: process(items[i++]);
+           case 6: process(items[i++]);
+           case 5: process(items[i++]);
+           case 4: process(items[i++]);
+           case 3: process(items[i++]);
+           case 2: process(items[i++]);
+        case 1: process(items[i++]);
+    }
+    startAt = 0;
+} while(iterations--);
+</code></pre><p>  一个稍快的版本取消了 <code>switch</code> 语句，并将余数处理和主循环分开。</p>
+<pre><code>var count = items.length - 1;
+var startAt = items.length % 8;
+var iterations = Math.floor(items.length / 8);
+
+while(startAt--) {
+    process(items[count--]);
+}
+
+while(iterations--) {
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+    process(items[count--]);
+}
+</code></pre></li>
+</ul>
+</li>
+<li><p>基于函数的迭代</p>
+<p> <code>forEach()</code>同时接受三个参数，分别是<strong>当前数组项的值、索引以及数组本身</strong>。速度慢的主要原因是对每个数组项调用外部方法所带来的开销。</p>
+</li>
+</ol>
+</li>
+<li><p>条件语句</p>
+<ol>
+<li><p>大多数情况下 <code>switch</code> 比 <code>if-else</code> 运行得更快</p>
+</li>
+<li><p>优化 if-else</p>
+<ul>
+<li>确保最有可能出现的条件放在首位。</li>
+<li>把 if-else 组织成一系列嵌套的 if-else 语句。</li>
+<li>查找表：不用书写任何条件判断语句，即便候选值数量增加，也几乎不会产生额外的性能开销。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>递归</p>
+<ol>
+<li>调用栈限制</li>
+<li>递归模式</li>
+</ol>
+</li>
+<li><p>迭代</p>
+<p> 任何递归能实现的算法同样可以用迭代来实现。使用优化后的循环替代长时间运行的递归函数可以提升性能。因为运行一个循环比反复调用一个函数的开销要小得多。</p>
+</li>
+<li><p>Memoization</p>
+<p> 缓存前一个计算结果供后续计算使用。</p>
+<pre><code>// 利用 Memoization 重写 factorial() 函数
+function memfactorial(n) {
+    if (!memfactorial.cache) {
+        memfactorial.cache = {
+            &quot;0&quot;, 1,
+            &quot;1&quot;, 1
+        };
+    }
+
+    if (!memfactorial.cache.hasOwnProperty(n)) {
+        memfactorial.cache[n] = n * memfactorial(n - 1);
+    }
+
+    return memfactorial.cache(n);
+}
+</code></pre></li>
+</ol>
+<h1 id="第5章-字符串和正则表达式（略）"><a href="#第5章-字符串和正则表达式（略）" class="headerlink" title="第5章 字符串和正则表达式（略）"></a>第5章 字符串和正则表达式（略）</h1><h1 id="第6章-快速响应的用户界面"><a href="#第6章-快速响应的用户界面" class="headerlink" title="第6章 快速响应的用户界面"></a>第6章 快速响应的用户界面</h1><hr>
+<p>（最后修改于 2016-04-03）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/21/2016-03-12-javascript-design-pattern-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/21/2016-03-12-javascript-design-pattern-1/" itemprop="url">《JavaScript 设计模式与开发指南》笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-21T13:01:29+08:00">
+                2015-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前后花了大约一周时间（2016-03-12——2016-03-19）将《JavaScript 设计模式与开发指南》通读了一遍，对设计模式也有了很基础的人数，外在的主要表现是如何减少过多的 <code>if else</code> 语句，内在则从维护和扩展角度出发。书中各个模式的简单实现代码我会在今后去重现、体会、整理。</p>
+<p>本书笔记分为三个部分，也是按照全书目录三个部分划分的，当前是第一部分<strong>基础部分</strong>，另外两部分分别是：<a href="/2016/03/13/javascript-design-pattern-2.html">《JavaScript 设计模式与开发指南》笔记（二）</a>、<a href="/2016/03/19/javascript-design-pattern-3.html">《JavaScript 设计模式与开发指南》笔记（三）</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
+<li><p>设计模式的定义</p>
+<p> 在面向对象软件设计过程中针对特定问题的简介而优雅的解决方案。</p>
+</li>
+</ol>
+<h1 id="第一部分-基础知识"><a href="#第一部分-基础知识" class="headerlink" title="第一部分 基础知识"></a>第一部分 基础知识</h1><h2 id="第1章-面向对象的-JavaScript"><a href="#第1章-面向对象的-JavaScript" class="headerlink" title="第1章 面向对象的 JavaScript"></a>第1章 面向对象的 JavaScript</h2><ol>
+<li><p>JavaScript 中的原型继承</p>
+<p> 基本规则：</p>
+<pre><code>* 所有的数据都是对象
+* 要得到一个对象，不是通过实例化类，而是找到一个对象作为原型并克隆它
+* 对象会记住它的原型
+* 如果对象无法响应某个请求，它会把这个请求委托给它自己的原型
+</code></pre></li>
+</ol>
+<h2 id="第2章-this、call-和-apply"><a href="#第2章-this、call-和-apply" class="headerlink" title="第2章 this、call 和 apply"></a>第2章 this、call 和 apply</h2><ol>
+<li><p>this</p>
+<ol>
+<li><p>this 的指向，除去不常用的 with 和 eval 情况，实际应用可以分为以下四类</p>
+<pre><code>* 作为对象的方法调用
+* 作为普通函数调用
+* 构造器调用
+* Function.prototype.call 和 Function.prototype.apply 调用
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<h2 id="第3章-闭包和高阶函数"><a href="#第3章-闭包和高阶函数" class="headerlink" title="第3章 闭包和高阶函数"></a>第3章 闭包和高阶函数</h2><ol>
+<li><p>高阶函数</p>
+<ol>
+<li><p>高阶函数是至少满足下列条件之一的函数</p>
+<pre><code>* 函数可以作为参数被传递
+* 函数可以返回值输出
+</code></pre></li>
+</ol>
+</li>
+<li><p>currying（柯里化）</p>
+<p> currying 又称<strong>部分求值</strong>。一个 currying 的函数首先会接受一些函数，接受了这些函数后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存下来。待到函数被真正需要求值的时候，之前传入的所有参数会被一次性用于求值。</p>
+</li>
+<li><p>uncurrying</p>
+</li>
+<li><p>函数节流</p>
+<p> 将即将被执行的函数用 setTimeout 延迟一段时间执行。如果该延迟执行还没完成，则忽略接下来该函数的请求。</p>
+</li>
+<li><p>分时函数</p>
+</li>
+<li>惰性加载函数</li>
+</ol>
+<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a><a href="./2016-03-13-javascript-design-pattern-2.md">第二部分</a></h2><p>最后修改于 2016-03-13</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-21-understand-node-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-5-21-understand-node-1/" itemprop="url">《深入浅出node.js》笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T14:11:29+08:00">
                 2015-01-22
               </time>
             
@@ -632,14 +1273,19 @@
 
       
         
-          jQuery学习笔记
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-4-22-note-learn-jquery-1/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="第一章-Node简介"><a href="#第一章-Node简介" class="headerlink" title="第一章 Node简介"></a>第一章 Node简介</h1><h3 id="为什么是JavaScript"><a href="#为什么是JavaScript" class="headerlink" title="为什么是JavaScript"></a>为什么是JavaScript</h3><p>写作Node的时候，Ryan Dahl曾经评估过C、Lua、Haskell、Ruby等语言作为备选实现，结论为：C的开发门槛高，可以预见不会有太多的开发者能将它用于日常的业务开发，所以舍弃它；Ryan Dahl觉得自己还不足够玩转Haskell，所以舍弃它；Lua自身已经含有很多阻塞I/O库，为其构建非阻塞I/O库也不能改变人们继续使用阻塞I/O库的习惯，所以舍弃它；而Ruby的虚拟机由于性能不好而落选。相比之下，JavaScript比C的开发门槛要低，比Lua的历史包袱要少，历史包袱为零，为其导入非阻塞I/O库没有额外阻力。</p>
+<h3 id="单线程"><a href="#单线程" class="headerlink" title="单线程　　"></a>单线程　　</h3><p>Node保持了JavaScript在浏览器中单线程的特点。单线程的最大好处是不用像多线程编程那样处处在意状态的同步问题，这里没有死锁的存在，也就没有线程上下文交换所带来的性能上的开销。<br>单线程的弱点具体有三方面：  </p>
+<pre><code>1. 无法利用多核CPU  
+2. 错误会引起整个应用退出，应用的健壮性值得考验  
+3. 大量计算占用CPU导致无法继续调用异步I/O
+</code></pre><h3 id="I-O密集型"><a href="#I-O密集型" class="headerlink" title="I/O密集型"></a>I/O密集型</h3><p>I/O密集的优势主要在于Node利用时间循环的处理能力，而不是启动每一个线程为每一个请求服务，占用资源极少。</p>
+<h3 id="是否不擅长CPU密集型业务"><a href="#是否不擅长CPU密集型业务" class="headerlink" title="是否不擅长CPU密集型业务"></a>是否不擅长CPU密集型业务</h3><p>CPU密集型应用给Node带来的挑战主要是：由于JavaScript单线程的原因，如果有长时间运行的计算（比如大循环），将会导致CPU时间片不能释放，使得后续I/O无法发起。但是适当调整和分解大型运算任务为多个小任务，使得运算能够适时释放，不阻塞I/O调用的发起，这样即可同时享受到并行异步I/O的好处，又能充分利用CPU。<br>对于长时间运行的计算，如果它的耗时超过普通阻塞I/O的耗时，那么应用场景就需要重新评估，因为这类计算比阻塞I/O还影响效率，甚至说就是一个纯计算的场景，根本没有I/O。</p>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-09-23）</p>
+
+          
         
       
     </div>
@@ -770,14 +1416,220 @@
 
       
         
-          《JavaScript DOM 编程艺术》笔记
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-5-2-note-javascript-dom-1/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="Chapter-1-JavaScript简史"><a href="#Chapter-1-JavaScript简史" class="headerlink" title="Chapter 1 JavaScript简史"></a>Chapter 1 JavaScript简史</h3><h3 id="Chapter-2-Javascript语法"><a href="#Chapter-2-Javascript语法" class="headerlink" title="Chapter 2 Javascript语法"></a>Chapter 2 Javascript语法</h3><ol>
+<li><p>数组  </p>
+<p> 关联数组：如果在填充数组时只给出了元素的值，这个数组就将是一个传统数组，它的各个元素的下标将被自动创建和刷新。可以通过在填充数组时为每个新元素明确地给出下标来改变这种默认的行为。在为新元素给出下标时，不必局限于使用整数数字，可以使用字符串：  </p>
+<pre><code>var lennon = Array();  
+lennon[&quot;name&quot;] = &quot;John&quot;;  
+lennon[&quot;yeaer&quot;] = &quot;1940&quot;;  
+lennon[&quot;living&quot;] = false;  
+</code></pre><p> 但这种用法并不是一个好习惯，实际上是给lennon数组添加了name、year和living三个属性</p>
+</li>
+<li><p>对象</p>
+<p> 创建对象使用<strong>Object</strong>关键字，上一节的lennon数组可以创建成下面这个对象：</p>
+<pre><code>var lennon = Object();  
+lennon.name = &quot;John&quot;;  
+lennon.year = 1940;  
+lennon.living = false;  
+</code></pre><p> 进一步使用一种更简洁的语法，即花括号语法：</p>
+<pre><code>var lennon = {name:&quot;John&quot;, year:1940, living:false};
+</code></pre><p> 下面创建一个beatles数组，并用刚才创建的lennon对象来填充它的第一个元素。</p>
+<pre><code>var beatles = Array();  
+beatles[0] = lennon;
+</code></pre><p> 此时我们可以通过beatles[0].name得到值”John”。<br> 但这远远不够，可以进一步改进：把beatles数组也声明为对象而不是传统数组，避免用下标去访问数组里的元素。</p>
+<pre><code>var beatles = {};  
+beatles.vocalist = lennon;
+</code></pre><p> 现在可以通过beatles.vocalist.name得到值”John”。</p>
+</li>
+<li><p>关于命名</p>
+<p> 在命名变量时，用下划线来分隔各个单词；在命名函数时，采用驼峰命名法。这么做可以一眼看出哪些名字是变量，哪些名字是函数。</p>
+</li>
+</ol>
+<h3 id="Chapter-3-DOM"><a href="#Chapter-3-DOM" class="headerlink" title="Chapter 3 DOM"></a>Chapter 3 DOM</h3><ol>
+<li>5个常用的DOM方法：getElementById、getElementsByTagName、getElementsByClassName、getAttribute、setAttribute</li>
+</ol>
+<ol>
+<li><p>节点（node)</p>
+<ol>
+<li>元素节点(element node)</li>
+<li>文本节点(text node)</li>
+<li>属性节点(attribute node)</li>
+</ol>
+</li>
+<li><p>getElementsByClassName兼容老浏览器(只能匹配一个class值)  </p>
+<pre><code>function getElementsByClassName(node, classname){
+    if(node.getElementsByClassName){
+        //使用现有方法
+        return node.getElementsByClassName(classname);
+    } else{
+        var results = new Array();
+        var elems = node.getElementsByTagName(&quot;*&quot;);
+        for(var i=0; i&lt;elems.length; i++){
+            if(elems[i].className.indexOf(classname)!=-1){
+                results[results.length]=elems[i];
+            }
+        }
+        return results;
+    }
+}
+</code></pre></li>
+<li><p>DOM的工作模式：先加载文档的静态内容，再动态刷新，动态刷新不影响文档的静态内容。</p>
+</li>
+<li>getElementById返回一个对象，getElementsByTagName和getElementsByClassName返回一个对象数组。</li>
+</ol>
+<p>（完）</p>
+<p>（最后修改于2015-09-21）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-1-future-of-code-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="0-关于《代码的未来》"><a href="#0-关于《代码的未来》" class="headerlink" title="0.关于《代码的未来》"></a>0.关于《代码的未来》</h3><p>作者是Ruby之父松本行弘，内容涉及Go、VoltDB、node.js、CoffeeScript、Dart、MongoDB、摩尔定律、编程语言、多喝、NoSQL等当今备受关注的话题。笔记采用随阅读进度随时补充的策略，我会优先选择我感兴趣的部分，并将我认为有意思或者很重要的观点记录下来。标题代表所在章节即章节名称。</p>
+<h3 id="1-编程的时间和空间"><a href="#1-编程的时间和空间" class="headerlink" title="1.编程的时间和空间"></a>1.编程的时间和空间</h3><ol>
+<li>创造出一种人类和计算机都能够理解的语言（编程语言），并通过这样的语言将人类的意图传达给计算机，这样的行为就叫做编程。</li>
+<li>编程的本质是思考。</li>
+<li>以不变应万变。比如说，算法就能以不变应万变。被称为最古老算法的辗转相除法，是在公元前300年左右被提出的。此外，计算机科学中的大多数基本算法都是在20世纪60年代被提出的。</li>
+<li>摩尔定律的局限。首先是物理定律的局限。LSI是现实世界中物理存在的东西，自然受到物理定律的制约。在这40年里，LSI一直在不断变得更加精密，甚至快要到达量子力学所管辖的地盘了。当LSI的精密化达到这种程度，日常生活中一些从来不必在意的小事，都会变成十分严重的问题。第一个重要的问题是光速。光速约为每秒30万千米，即一秒钟可以绕地球7圈半…然而，CPU的时钟频率已经到达了GHz尺度，比如说，在3GHz的频率下，波形由开到关（即1个时钟周期）的时间内，光只能前进10cm的距离…</li>
+<li>“巴纳姆效应”是一种心理学现象，指的是将一些原本是放之四海而皆准、模棱两可的一般性描述望自己身上套，并认为这些描述对自己是准确的。</li>
+<li>IT未来预测从价格、性能、容量、带宽考虑。</li>
+</ol>
+<h3 id="2-编程语言的过去、现在和未来"><a href="#2-编程语言的过去、现在和未来" class="headerlink" title="2.编程语言的过去、现在和未来"></a>2.编程语言的过去、现在和未来</h3><ol>
+<li>古代编程语言三巨头：FORTRAN、COBOL、Lisp</li>
+<li>编程语言的进化冬季，不是工具和语言本身的简化，而是将通过这些工具和语言所得到的结果（解决方案）更简洁地表达出来。</li>
+<li>DSL（Domain Specific Language 特定领域语言）</li>
+<li>元编程…在单词前面加上meta，表示对自身的描述。例如，描述数据所具有的结构的数据，也就是关于数据本身的数据，被称为元数据（Metadata）…小说中的角色如果知道自己所身处的故事是虚构的，这样的小说就被称为元小说（Metafiction）…像这样获取和变更城区本身信息的功能，被称为反射（Reflection）。</li>
+</ol>
+
+          
         
       
     </div>
@@ -1037,144 +1889,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-1-future-of-code-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          《代码的未来》读书笔记
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-5-1-future-of-code-1/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-6-chapter9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1369,7 +2083,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-17-resource-learn-linux/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-22-note-learn-jquery-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -1388,7 +2102,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/01/22/2015-4-17-resource-learn-linux/" itemprop="url">Linux学习资源（持续更新）</a></h1>
+                <a class="post-title-link" href="/2015/01/22/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
         
 
         <div class="post-meta">
@@ -1423,8 +2137,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -1458,14 +2172,68 @@
 
       
         
-          Linux学习资源
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/22/2015-4-17-resource-learn-linux/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <pre><code>当我在回顾这篇笔记的时候，我记不清楚我是从哪里归纳总结来的，没有提到教程地址，没有第二篇...
+</code></pre><h3 id="1-常见DOM事件"><a href="#1-常见DOM事件" class="headerlink" title="1.常见DOM事件"></a>1.常见DOM事件</h3><ol>
+<li>鼠标事件：click、dblclick、mouseenter、mouseleave</li>
+<li>键盘事件：keypress、keydown、keyup</li>
+<li>表单事件：submit、change、focus、blur</li>
+<li>文档/窗口时间：load、resize、scoll、unload</li>
+</ol>
+<h3 id="2-获取内容和属性"><a href="#2-获取内容和属性" class="headerlink" title="2.获取内容和属性"></a>2.获取内容和属性</h3><ol>
+<li><p>获得内容</p>
+<ul>
+<li>text()——设置或返回所选元素的文本内容</li>
+<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
+<li>val()——设置或返回表单字段的值</li>
+</ul>
+</li>
+<li><p>获取属性-attr()</p>
+</li>
+</ol>
+<h3 id="3-设置内容和属性"><a href="#3-设置内容和属性" class="headerlink" title="3.设置内容和属性"></a>3.设置内容和属性</h3><ol>
+<li><p>设置内容</p>
+<ul>
+<li>text()——设置或返回所选元素的文本内容</li>
+<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
+<li>val()——设置或返回表单字段的值</li>
+</ul>
+</li>
+<li><p>text()、html()以及val()的回调函数  </p>
+<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串</p>
+</li>
+<li><p>设置属性-attr()</p>
+</li>
+<li><p>attr()的回调函数  </p>
+<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。</p>
+</li>
+</ol>
+<h3 id="4-添加元素"><a href="#4-添加元素" class="headerlink" title="4. 添加元素"></a>4. 添加元素</h3><ol>
+<li><p>添加新的HTML内容</p>
+<ul>
+<li>append() - 在被选元素的结尾插入内容</li>
+<li>prepend() - 在被选元素的开头插入内容</li>
+<li>after() - 在被选元素之后插入内容</li>
+<li>before() - 在被选元素之前插入内容</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-删除元素"><a href="#5-删除元素" class="headerlink" title="5. 删除元素"></a>5. 删除元素</h3><ol>
+<li><p>删除元素/内容</p>
+<ul>
+<li>remove()-删除被选元素（及其子元素）</li>
+<li>empty()-从被选元素中删除子元素</li>
+</ul>
+</li>
+<li><p>过滤被删除的元素  </p>
+<p> remove()方法也可接受一个参数，允许您对被删元素进行过滤。empty()则没有对应的方法</p>
+</li>
+</ol>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-09-23）</p>
+
+          
         
       
     </div>
@@ -1502,7 +2270,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1547,7 +2315,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1569,7 +2337,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

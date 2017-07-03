@@ -1,0 +1,743 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,ES6,异步," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
+<meta name="keywords" content="javascript,ES6,异步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是thunk函数？">
+<meta property="og:url" content="http://yoursite.com/2017/07/03/async-thunk/index.html">
+<meta property="og:site_name" content="MayorHao的秘密小屋">
+<meta property="og:description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
+<meta property="og:updated_time" content="2017-07-03T04:43:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="什么是thunk函数？">
+<meta name="twitter:description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/03/async-thunk/"/>
+
+
+
+
+
+  <title>什么是thunk函数？ | MayorHao的秘密小屋</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MayorHao的秘密小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小浩少校写字的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/async-thunk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">什么是thunk函数？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T12:43:53+08:00">
+                2017-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="thunk函数是什么？"><a href="#thunk函数是什么？" class="headerlink" title="thunk函数是什么？"></a>thunk函数是什么？</h3><p>thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？<br>比方说这样一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> num</div><div class="line">&#125;</div><div class="line"><span class="comment">//那么问题来了，*x+1*的值是什么时候计算的呢？</span></div><div class="line">a(x+<span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p>一种流派是<em>传值调用</em>，即直接结算完x+5，再把值传给函数a,C语言就是这么干的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//相当于</div><div class="line">f(2)</div></pre></td></tr></table></figure></p>
+<p>而另一种流派是<em>传名调用</em>,即直接把表达式x+5传入函数体。直到用到它的时候才求值。Hskell语言采用这种策略。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//相当于</div><div class="line">f(x+1)</div><div class="line">return (1+1)</div></pre></td></tr></table></figure></p>
+<p>这两种流派哪种比较好？<br>我比较倾向于传名调用。因为传值调用虽简单，但是很可能会造成性能浪费。想象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> a</div><div class="line">&#125;</div><div class="line"><span class="comment">//调用</span></div><div class="line">f(<span class="number">3</span>*<span class="number">3</span>*x<span class="number">-2</span>*x<span class="number">-1</span>,<span class="number">2</span>)</div></pre></td></tr></table></figure></p>
+<p>好不容易计算完了参数a的数值，结果调用时根本就没有用到。这是对性能的极大浪费。</p>
+<blockquote>
+<p>查阅资料后这里需要强调下。求值策略。在计算机科学里，并不仅限于函数的传参方式。它决定了变量之间、函数调用时实参和形参之间值是如何传递的。也分为按值传递与按引用传递。但在js中，有大神将其对象的传递方式归纳为按共享传递。该求值策略被用于JS，ruby，python，java等多种语言。该策略与引用传递最大的区别是，对函数形参的赋值，不会影响到实参的值。详细可查阅<a href="http://bosn.me/js/js-call-by-sharing/" target="_blank" rel="external">共享传值</a></p>
+<h3 id="thunk函数是什么？-1"><a href="#thunk函数是什么？-1" class="headerlink" title="thunk函数是什么？"></a>thunk函数是什么？</h3><p>而具体传名调用的实现，一般是通过一个临时的函数来把值计算出来，再传入到函数体中。而这个临时的函数，就叫做Thunk函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">m</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> m*<span class="number">2</span></div><div class="line">&#125;</div><div class="line">f(x+<span class="number">5</span>);</div><div class="line"><span class="comment">//加入thunk函数的版本</span></div><div class="line"><span class="keyword">var</span> thunk=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+<span class="number">5</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">thunk</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> thunk()*<span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>上面代码中，函数f的参数x+5被thunk函数给替换掉了，以后用到x+5，都直接调用thunk就好。</p>
+<blockquote>
+<p>所以Thunk函数就是 “传名调用”的一种实现方式。用来替换传入函数的表达式。</p>
+<h3 id="Javascipt-Thunk函数。"><a href="#Javascipt-Thunk函数。" class="headerlink" title="Javascipt Thunk函数。"></a>Javascipt Thunk函数。</h3><p>我们知道javascript的参数是传值调用的。在JS中，Thunk函数替换的不是表达式，而是多参函数，将其替换成单参数版本，只接受回调参数作为参数。<br>比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正常版本的readFile（多参数版本）</span></div><div class="line">fs.readFile(fileName, callback);</div><div class="line"></div><div class="line"><span class="comment">// Thunk版本的readFile（单参数版本）</span></div><div class="line"><span class="keyword">var</span> readFileThunk = Thunk(fileName);</div><div class="line">readFileThunk(callback);</div><div class="line"></div><div class="line"><span class="keyword">var</span> Thunk = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> fs.readFile(fileName, callback); </div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>老实说，跟函数curring有点像。多参数的函数变为单参数，这个单参数函数就是Thunk函数。</p>
+<p><font color="#0099ff" face="黑体">任何函数，只要接受回调函数作为参数，就可以写成一个Thunk函数的形式</font><br>我们可以简单的写一Thunk函数转换器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Thunk=<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args=<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">        args.push(callback);</div><div class="line">        <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>,args)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>老实说，除了Thunk函数最后是传入callback作为参数外，其它地方真的很想函数currying。<br>这样，我们就可以用它来生成Thunk函数了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> readFileThunk=Thunk(fs.readFile);</div><div class="line">readFileThunk(fileA)(callback);</div></pre></td></tr></table></figure></p>
+<h3 id="Thunkify-模块"><a href="#Thunkify-模块" class="headerlink" title="Thunkify 模块"></a>Thunkify 模块</h3><p>有一个可以转化函数为Thunk函数的npm包，叫<a href="https://github.com/tj/node-thunkify" target="_blank" rel="external">Thunkify模块</a><br>使用npm 安装后，可以这样使用它<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> Thunkify=<span class="built_in">require</span>(<span class="string">"Thunkify"</span>);</div><div class="line"><span class="keyword">let</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">let</span> read =thunkify(fs.readFile);</div><div class="line">read(<span class="string">'package.json'</span>)(<span class="function">(<span class="params">err,str</span>)=&gt;</span>&#123;</div><div class="line"><span class="comment">//do something</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>它的源码是这样的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">thunkify</span>(<span class="params">fn</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="built_in">arguments</span>.length);</div><div class="line">    <span class="keyword">var</span> ctx = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; args.length; ++i) &#123;</div><div class="line">      args[i] = <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> called;</div><div class="line"></div><div class="line">      args.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//保证callback只执行一次。</span></div><div class="line">        <span class="keyword">if</span> (called) <span class="keyword">return</span>;</div><div class="line">        called = <span class="literal">true</span>;</div><div class="line">        done.apply(<span class="literal">null</span>, <span class="built_in">arguments</span>);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        fn.apply(ctx, args);</div><div class="line">      &#125; <span class="keyword">catch</span> (err) &#123;</div><div class="line">        done(err);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：thunkify只允许回调函数执行一次。</p>
+<h3 id="Generator函数的流程管理。"><a href="#Generator函数的流程管理。" class="headerlink" title="Generator函数的流程管理。."></a>Generator函数的流程管理。.</h3><p>为什么要用Thunk函数，有什么用？以前确实没什么用，但是有了generator之后，就有用了。Thunk现在可以用于Generator函数的自动流程管理。<br>比如说，还是读取文件，下面用Generator函数封装了两个异步操作：<br>```javascript<br>var </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+            <a href="/tags/异步/" rel="tag"># 异步</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/03/结婚/" rel="next" title="关于结婚">
+                <i class="fa fa-chevron-left"></i> 关于结婚
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/03/generator/" rel="prev" title="Generator从陌生到熟悉">
+                Generator从陌生到熟悉 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="MayorHao" />
+          <p class="site-author-name" itemprop="name">MayorHao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Calm down and Coding on</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#thunk函数是什么？"><span class="nav-number">1.</span> <span class="nav-text">thunk函数是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thunk函数是什么？-1"><span class="nav-number">2.</span> <span class="nav-text">thunk函数是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascipt-Thunk函数。"><span class="nav-number">3.</span> <span class="nav-text">Javascipt Thunk函数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thunkify-模块"><span class="nav-number">4.</span> <span class="nav-text">Thunkify 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generator函数的流程管理。"><span class="nav-number">5.</span> <span class="nav-text">Generator函数的流程管理。.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MayorHao</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
