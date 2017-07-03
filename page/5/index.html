@@ -267,923 +267,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/26/2015-08-25-css-guide-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/26/2015-08-25-css-guide-1/" itemprop="url">《CSS 权威指南》笔记（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-26T11:22:03+08:00">
-                2015-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第一章-CSS和文档"><a href="#第一章-CSS和文档" class="headerlink" title="第一章 CSS和文档"></a>第一章 CSS和文档</h1><ol>
-<li><p>层叠</p>
-<p> CSS规定了冲突规则，这些规则统称为层叠（cascade）</p>
-</li>
-<li><p>元素</p>
-<ul>
-<li><p>替换和非替换元素</p>
-<ol>
-<li>替换元素（replaced element）：用来替换元素内容的部分并非由文档内容直接表示</li>
-<li>非替换元素（nonreplaced element）：内容由用户代理（通常是浏览器）在元素本身生成的框中显示</li>
-</ol>
-</li>
-<li><p>元素显示角色</p>
-<ol>
-<li>块级元素（block-level）</li>
-<li>行内元素（inline-level）</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>候选样式表、首要样式表、永久样式表</p>
-</li>
-</ol>
-<h1 id="第二章-选择器"><a href="#第二章-选择器" class="headerlink" title="第二章 选择器"></a>第二章 选择器</h1><ol>
-<li>文档元素选择器</li>
-<li>类选择器</li>
-<li>ID选择器</li>
-<li>属性选择器<ol>
-<li>简单属性选择：如<code>h1[class]</code></li>
-<li>根据具体属性值选择(完全串匹配)：如<code>a[href=&quot;http://if-true.com&quot;]</code></li>
-<li>根据部分属性值选择（子串选择器）：<code>~=、^=、$=、*=</code></li>
-<li>特定属性选择类型，如<code>[lang|=&quot;en&quot;]</code>选择lang属性等于en或者以en开头的所有元素    </li>
-</ol>
-</li>
-<li><p>选择相邻兄弟元素（具有共同的父元素）</p>
-<p> 如 h1 + p {margin-top: 0; } 表示去除紧邻在一个h1元素后出现的段落的上边距，<strong>针对后者</strong></p>
-</li>
-<li><p>伪类</p>
-<ol>
-<li><p>链接伪类</p>
-<p> <code>:link</code> <code>:visited</code>存在的必要性：<code>:link</code>指向作为超链接（有href属性）并指向一个未访问地址的所有锚。</p>
-</li>
-<li><p>动态伪类</p>
-<p> <code>:focus</code> <code>:hover</code> <code>:active</code></p>
-</li>
-<li><p>伪类顺序</p>
-<p> <code>link-visited-focus-hover-active</code></p>
-</li>
-<li><p>选择第一个子元素<code>:first-child</code></p>
-<p> <code>p: first-child</code>表示某元素作为第一个子元素的所有p元素，<strong>最常见错误理解是p元素的第一个子元素</strong></p>
-</li>
-</ol>
-</li>
-<li><p>伪元素选择器</p>
-<ol>
-<li>设置首字母样式<code>:first-letter</code></li>
-<li>设置第一行样式<code>:first-line</code></li>
-<li>设置之前元素样式<code>:before</code></li>
-<li>设置之后元素样式<code>:after</code></li>
-</ol>
-</li>
-</ol>
-<hr>
-<p>（完）</p>
-<p>（最后修改于2015-09-24）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/25/2015-08-25-css-guide-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/25/2015-08-25-css-guide-2/" itemprop="url">《CSS 权威指南》笔记（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-25T14:22:03+08:00">
-                2015-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li>声明的特殊性，即权值</li>
-<li>通配选择器对特殊性没有贡献（0），继承的值没有特殊性</li>
-<li>链接样式顺序：LVHA</li>
-<li>相对URL格式问题</li>
-</ol>
-<hr>
-<h1 id="第三章-结构和层叠"><a href="#第三章-结构和层叠" class="headerlink" title="第三章 结构和层叠"></a>第三章 结构和层叠</h1><ol>
-<li><p>用户代理不仅要考虑继承，还要考虑声明的特殊性，另外需要考虑声明本身的来源，这个过程就被称为层叠（cascade）。三种机制的关联：特殊性、继承和层叠</p>
-</li>
-<li><p>特殊性</p>
-<p> 特殊性值表述为4个部分（依次为行内样式、id、类与属性、元素），如：0，0，0，0。从左向右依次比较，一旦某一位能判断高低，则不考虑后面的数是什么。</p>
-<ol>
-<li><p>通配选择器特殊性</p>
-<p> 通配选择器对一个选择器的特殊性没有贡献，但与根本没有特殊性是有区别的</p>
-</li>
-<li><p>ID和属性选择器的特殊性</p>
-<p> ID比属性选择器的贡献要大</p>
-</li>
-<li><p>内联样式特殊性</p>
-<p> 特殊性最高</p>
-</li>
-<li><p>重要性</p>
-<p> !important</p>
-</li>
-</ol>
-</li>
-<li><p>继承</p>
-<ol>
-<li>大多数框模型属性（包括外边距、内边距、背景和边框）都不能继承</li>
-<li>继承的值没有特殊性，甚至连0特殊性都没有</li>
-<li>不加区别地使用通配选择器可能存在的问题之一是它能匹配任何元素，往往有一种短路继承的效果。更合适的做法是从一开始就避免不加区别地使用通配选择器</li>
-</ol>
-</li>
-<li><p>层叠</p>
-<ol>
-<li><p>声明权重考虑5级，权重由大到小顺序依次为</p>
-<ol>
-<li>读者的重要声明</li>
-<li>创作人员的重要声明</li>
-<li>创作人员的正常声明</li>
-<li>读者的正常声明</li>
-<li>用户代理声明</li>
-</ol>
-</li>
-<li><p>链接样式顺序：<strong>link-visited-hover-active(LVHA)</strong>。若将伪类链接在一起，能缓解特殊性和顺序带来的问题</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="第四章-值和单位"><a href="#第四章-值和单位" class="headerlink" title="第四章 值和单位"></a>第四章 值和单位</h1><ol>
-<li><p>Web 安全颜色</p>
-<p> 指在256色计算机上总能避免抖动的颜色。如果使用RGB百分数，要让所有三个分量要么是0%，要么是一个能被20整除的数。如果使用0~255范围的RGB值，则各分量要么是0要么是能被51整除的数。十六进制法类似</p>
-</li>
-<li><p>相对长度单位em、ex、px</p>
-<p> em是最灵活的，它随字体大小缩放，元素和元素操作都能更为一致</p>
-</li>
-<li><p>相对URL</p>
-<p> CSS中，相对URL要相对于样式表本身，而不是相对于使用该样式表的HTML文档。例如一个外部样式表，其中导入了另一个样式表。如果使用相对URL来导入第二个样式表，它必须相对于第一个样式表</p>
-<p> <strong>URL和开始括号之间不能有空格</strong></p>
-</li>
-<li><p>CSS2单位</p>
-<ol>
-<li>角度值：读(deg)、梯度(grad)、弧度(rad)</li>
-<li>时间值：毫秒(ms)、秒(s)</li>
-<li>频率值：赫兹(Hz)、兆赫（MHz）</li>
-</ol>
-</li>
-</ol>
-<hr>
-<p>（完）</p>
-<p>（最后修改于2015-09-24）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/22/2016-03-28-high-performance-javascript-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/03/22/2016-03-28-high-performance-javascript-1/" itemprop="url">《高性能 JavaScript》笔记（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-22T13:01:29+08:00">
-                2015-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第1章-加载和执行"><a href="#第1章-加载和执行" class="headerlink" title="第1章 加载和执行"></a>第1章 加载和执行</h1><ol>
-<li>多数浏览器使用单一进程来处理用户界面（UI）刷新和 JavaScript 脚本执行，所以同一时刻只能做一件事。JavaScript 执行过程耗时越久，浏览器等待响应的时间就越长。</li>
-<li>由于脚本会阻塞页面其他资源的下载，因此推荐将所有的 <code>&lt;script&gt;</code> 标签尽可能放到 <code>&lt;body&gt;</code> 标签的底部，以尽量减少对整个页面下载的影响。</li>
-<li>减少页面包含的 <code>&lt;script&gt;</code> 标签数量有助于改善阻塞页面渲染这一情况。</li>
-<li>把一段内嵌脚本放在引用外链样式表的 <code>&lt;link&gt;</code> 标签之后会导致页面阻塞去等待样式表的下载，这样做是为了确保内嵌脚本在执行时能获得最精确的样式信息。建议永远不要把内嵌脚本紧跟在 <code>&lt;link&gt;</code> 标签之后。</li>
-<li><p>无阻塞脚本</p>
-<ol>
-<li><p>延迟的脚本<br> 在 window 对象的 load 事件触发后再下载脚本。 采用 <code>defer</code> 属性。<code>defer</code> 与 <code>async</code> 的相同点是采用并行下载，在下载过程中不会产生阻塞。区别在于执行时机，<code>async</code> 是加载完成后自动执行，而 <code>defer</code> 需要等待页面完成后执行。</p>
-</li>
-<li><p>动态脚本元素</p>
-<p> 用标准的 DOM 方法可以很容易地创建一个新的 <code>&lt;script&gt;</code>，文件在该元素被添加到页面时开始下载，并可通过侦听事件来获得脚本加载完成时的状态。</p>
-</li>
-<li><p>XMLHttpRequest 脚本注入</p>
-<p> 如果收到了有效响应，就创建一个带有内联脚本的 <code>&lt;script&gt;</code> 标签。这种方法的优点是可以下载 JavaScript 代码但不立即执行，以及在所有主流浏览器中无一例外都能工作。主要局限是同源策略。</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="第2章-数据存取"><a href="#第2章-数据存取" class="headerlink" title="第2章 数据存取"></a>第2章 数据存取</h1><ol>
-<li>计算机科学中有一个经典问题是通过改变数据的存储位置来获得最佳的读写性能。</li>
-<li><p>JavaScript 中有四种基本的数据存储位置</p>
-<ul>
-<li>字面量</li>
-<li>本地变量</li>
-<li>数组元素</li>
-<li>对象成员</li>
-</ul>
-</li>
-<li><p>作用域链对 JavaScript 有许多影响，从确定哪些变量可以被函数访问，到确定 this 的赋值。</p>
-</li>
-<li><p>改变作用域链</p>
-<ol>
-<li><p>with 语句</p>
-<p> 一个新的变量对象被创建，并被推入作用域链的首位，这意味着函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。</p>
-</li>
-<li><p>try-catch 语句</p>
-<p> catch 子句把异常对象推入一个变量对象并置于作用域的首位，在 catch 代码块内部，函数所有局部变量将会放在第二个作用域链对象中。</p>
-</li>
-</ol>
-</li>
-<li><p>闭包、作用域和内存</p>
-<p> 通常来说，函数的活动对象会随着执行环境一同销毁，但引入闭包时，由于引用仍然存在于闭包的 [[Scope]] 属性中，因此激活对象无法被销毁。</p>
-</li>
-<li><p>原型</p>
-<p> 对象可以有两种成员类型：实例成员和原型成员。实例成员直接存在于对象实例中，原型成员则从对象原型继承而来。</p>
-</li>
-<li><p>嵌套成员</p>
-<p> 嵌套成员会导致 JavaScript 引擎搜索所有对象成员。对象成员嵌套得越深，读取速度就会越慢。执行 <code>location.href</code> 总是比 <code>window.location.href</code> 要快。</p>
-</li>
-<li><p>缓存对象成员值</p>
-<p> 若在函数中要多次读取同一个对象属性，最佳做法是将属性值保存到局部变量。局部变量能用来替代属性以避免多次查找带来的性能开销。</p>
-<p> 但这种优化技术并不推荐用于对象的成员方法，因为许多对象方法使用 <strong>this</strong> 来判断执行环境，把一个对象方法保存在局部变量会导致 <strong>this</strong> 绑定到 <strong>window</strong>，而 <strong>this</strong> 值的改变会使得 JavaScript 引擎无法正确解析它的对象成员，继而导致程序错误。</p>
-</li>
-</ol>
-<h1 id="第三章-DOM-编程"><a href="#第三章-DOM-编程" class="headerlink" title="第三章 DOM 编程"></a>第三章 DOM 编程</h1><ol>
-<li><p>浏览器中的 DOM</p>
-<p> 尽管 DOM 是个与语言无关的 API，它在浏览器中的接口却是用 JavaScript 实现的。浏览器中通常会把 DOM 和 JavaScript 独立实现。两个相互独立的功能只要通过接口彼此连接，就会产生消耗。</p>
-</li>
-<li><p>innerHTML 对比 DOM 方法</p>
-<p> 二者性能相差无几。</p>
-</li>
-<li><p>节点克隆</p>
-<p> 使用 DOM 方法更新页面内容的另一个途径是克隆已有元素，而不是创建新元素，即使用 <code>element.cloneNode()</code> 替代 <code>document.createElement()</code>。</p>
-</li>
-<li><p>HTML 集合</p>
-<p> 类似于数组的列表，但不是真正的数组，没有 <code>push()</code>、<code>slice()</code> 之类的方法，但提供了一个类似于数组的 <code>length</code> 属性。</p>
-</li>
-<li><p>选择器 API</p>
-<p> <code>querySelectorAll()</code> 返回一个 NoeList——包含着匹配节点的类数组对象。这个方法不会返回 HTML 集合，不会对应实时的文档结构。</p>
-</li>
-<li><p>重绘和重排</p>
-<p> 重排一定导致重绘，重绘不一定重排。</p>
-</li>
-<li><p>减少重绘和重排次数</p>
-<ol>
-<li>使元素脱离文档流</li>
-<li>对其应用多重改变</li>
-<li><p>把元素带回文档中</p>
-<p>3种基本方法可以使 DOM 脱离文档</p>
-<ol>
-<li>隐藏元素</li>
-<li>使用文档片段</li>
-<li>拷贝原始元素到一个脱离文档的节点中，修改副本，再替换原始元素</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>使用事件委托来减少事件处理器的数量    </p>
-</li>
-</ol>
-<h1 id="第4章-算法和流程控制"><a href="#第4章-算法和流程控制" class="headerlink" title="第4章 算法和流程控制"></a>第4章 算法和流程控制</h1><ol>
-<li><p>循环</p>
-<ol>
-<li><p>4种循环的类型</p>
-<ul>
-<li>标准的 for 循环</li>
-<li>while 循环</li>
-<li>do-while 循环</li>
-<li>for-in 循环</li>
-</ul>
-</li>
-<li><p>循环性能</p>
-<p> for-in 循环比其他几种明显要慢，因为每次迭代操作都会同时搜索实例和原型属性，故不要使用 for-in 循环来遍历数组成员。</p>
-</li>
-<li><p>提升循环性能</p>
-<ul>
-<li>减少迭代工作量；减少对象成员及数组项的查找次数，把值存储到局部变量中。</li>
-<li>颠倒数组顺序：倒序循环</li>
-<li><p>减少迭代次数：”达夫设备（Duff’s Device）”</p>
-<p>  循环体展开技术，使得一次迭代中实际上执行了多次迭代的操作。</p>
-<p>  典型实现如下：</p>
-<pre><code>var iterations = Math.floor(items.length / 8);
-var startAt = items.length % 8;
-var i = 0;
-
-do {
-    switch(startAt) {
-        case 0: process(items[i++]);
-           case 7: process(items[i++]);
-           case 6: process(items[i++]);
-           case 5: process(items[i++]);
-           case 4: process(items[i++]);
-           case 3: process(items[i++]);
-           case 2: process(items[i++]);
-        case 1: process(items[i++]);
-    }
-    startAt = 0;
-} while(iterations--);
-</code></pre><p>  一个稍快的版本取消了 <code>switch</code> 语句，并将余数处理和主循环分开。</p>
-<pre><code>var count = items.length - 1;
-var startAt = items.length % 8;
-var iterations = Math.floor(items.length / 8);
-
-while(startAt--) {
-    process(items[count--]);
-}
-
-while(iterations--) {
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-    process(items[count--]);
-}
-</code></pre></li>
-</ul>
-</li>
-<li><p>基于函数的迭代</p>
-<p> <code>forEach()</code>同时接受三个参数，分别是<strong>当前数组项的值、索引以及数组本身</strong>。速度慢的主要原因是对每个数组项调用外部方法所带来的开销。</p>
-</li>
-</ol>
-</li>
-<li><p>条件语句</p>
-<ol>
-<li><p>大多数情况下 <code>switch</code> 比 <code>if-else</code> 运行得更快</p>
-</li>
-<li><p>优化 if-else</p>
-<ul>
-<li>确保最有可能出现的条件放在首位。</li>
-<li>把 if-else 组织成一系列嵌套的 if-else 语句。</li>
-<li>查找表：不用书写任何条件判断语句，即便候选值数量增加，也几乎不会产生额外的性能开销。</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>递归</p>
-<ol>
-<li>调用栈限制</li>
-<li>递归模式</li>
-</ol>
-</li>
-<li><p>迭代</p>
-<p> 任何递归能实现的算法同样可以用迭代来实现。使用优化后的循环替代长时间运行的递归函数可以提升性能。因为运行一个循环比反复调用一个函数的开销要小得多。</p>
-</li>
-<li><p>Memoization</p>
-<p> 缓存前一个计算结果供后续计算使用。</p>
-<pre><code>// 利用 Memoization 重写 factorial() 函数
-function memfactorial(n) {
-    if (!memfactorial.cache) {
-        memfactorial.cache = {
-            &quot;0&quot;, 1,
-            &quot;1&quot;, 1
-        };
-    }
-
-    if (!memfactorial.cache.hasOwnProperty(n)) {
-        memfactorial.cache[n] = n * memfactorial(n - 1);
-    }
-
-    return memfactorial.cache(n);
-}
-</code></pre></li>
-</ol>
-<h1 id="第5章-字符串和正则表达式（略）"><a href="#第5章-字符串和正则表达式（略）" class="headerlink" title="第5章 字符串和正则表达式（略）"></a>第5章 字符串和正则表达式（略）</h1><h1 id="第6章-快速响应的用户界面"><a href="#第6章-快速响应的用户界面" class="headerlink" title="第6章 快速响应的用户界面"></a>第6章 快速响应的用户界面</h1><hr>
-<p>（最后修改于 2016-04-03）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/21/2016-03-12-javascript-design-pattern-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/03/21/2016-03-12-javascript-design-pattern-1/" itemprop="url">《JavaScript 设计模式与开发指南》笔记（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-21T13:01:29+08:00">
-                2015-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前后花了大约一周时间（2016-03-12——2016-03-19）将《JavaScript 设计模式与开发指南》通读了一遍，对设计模式也有了很基础的人数，外在的主要表现是如何减少过多的 <code>if else</code> 语句，内在则从维护和扩展角度出发。书中各个模式的简单实现代码我会在今后去重现、体会、整理。</p>
-<p>本书笔记分为三个部分，也是按照全书目录三个部分划分的，当前是第一部分<strong>基础部分</strong>，另外两部分分别是：<a href="/2016/03/13/javascript-design-pattern-2.html">《JavaScript 设计模式与开发指南》笔记（二）</a>、<a href="/2016/03/19/javascript-design-pattern-3.html">《JavaScript 设计模式与开发指南》笔记（三）</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
-<li><p>设计模式的定义</p>
-<p> 在面向对象软件设计过程中针对特定问题的简介而优雅的解决方案。</p>
-</li>
-</ol>
-<h1 id="第一部分-基础知识"><a href="#第一部分-基础知识" class="headerlink" title="第一部分 基础知识"></a>第一部分 基础知识</h1><h2 id="第1章-面向对象的-JavaScript"><a href="#第1章-面向对象的-JavaScript" class="headerlink" title="第1章 面向对象的 JavaScript"></a>第1章 面向对象的 JavaScript</h2><ol>
-<li><p>JavaScript 中的原型继承</p>
-<p> 基本规则：</p>
-<pre><code>* 所有的数据都是对象
-* 要得到一个对象，不是通过实例化类，而是找到一个对象作为原型并克隆它
-* 对象会记住它的原型
-* 如果对象无法响应某个请求，它会把这个请求委托给它自己的原型
-</code></pre></li>
-</ol>
-<h2 id="第2章-this、call-和-apply"><a href="#第2章-this、call-和-apply" class="headerlink" title="第2章 this、call 和 apply"></a>第2章 this、call 和 apply</h2><ol>
-<li><p>this</p>
-<ol>
-<li><p>this 的指向，除去不常用的 with 和 eval 情况，实际应用可以分为以下四类</p>
-<pre><code>* 作为对象的方法调用
-* 作为普通函数调用
-* 构造器调用
-* Function.prototype.call 和 Function.prototype.apply 调用
-</code></pre></li>
-</ol>
-</li>
-</ol>
-<h2 id="第3章-闭包和高阶函数"><a href="#第3章-闭包和高阶函数" class="headerlink" title="第3章 闭包和高阶函数"></a>第3章 闭包和高阶函数</h2><ol>
-<li><p>高阶函数</p>
-<ol>
-<li><p>高阶函数是至少满足下列条件之一的函数</p>
-<pre><code>* 函数可以作为参数被传递
-* 函数可以返回值输出
-</code></pre></li>
-</ol>
-</li>
-<li><p>currying（柯里化）</p>
-<p> currying 又称<strong>部分求值</strong>。一个 currying 的函数首先会接受一些函数，接受了这些函数后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存下来。待到函数被真正需要求值的时候，之前传入的所有参数会被一次性用于求值。</p>
-</li>
-<li><p>uncurrying</p>
-</li>
-<li><p>函数节流</p>
-<p> 将即将被执行的函数用 setTimeout 延迟一段时间执行。如果该延迟执行还没完成，则忽略接下来该函数的请求。</p>
-</li>
-<li><p>分时函数</p>
-</li>
-<li>惰性加载函数</li>
-</ol>
-<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a><a href="./2016-03-13-javascript-design-pattern-2.md">第二部分</a></h2><p>最后修改于 2016-03-13</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-21-understand-node-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1284,6 +367,147 @@ function memfactorial(n) {
 <hr>
 <p>（完）</p>
 <p>（最后修改于2015-09-23）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-6-27-note-javascript-dom-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-6-27-note-javascript-dom-4/" itemprop="url">《JavaScript DOM 编程艺术》笔记（四）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Chapter-8-充实文档的内容"><a href="#Chapter-8-充实文档的内容" class="headerlink" title="Chapter 8 充实文档的内容"></a>Chapter 8 充实文档的内容</h3><ol>
+<li>两项基本原则：渐进增强、平稳退化</li>
+<li>关于DOCTYPE：某些浏览器根据<code>DOCTYPE</code>来决定使用<strong>标准模式</strong>还是使用<strong>兼容模式</strong>来呈现页面。<strong>兼容模式</strong>意味着浏览器要模仿某些早期浏览器的“怪异行为”，而容许那些不规范的页面在新浏览器也能正常工作。一般来说，应该<strong>坚持使用标准模式</strong>，<strong>避免触发兼容模式</strong>。HTML5 DOCTYPE默认对应的是标准模式  </li>
+</ol>
+<hr>
+<p>（未完）</p>
+<p>（原书已归还图书馆，暂时无法补充其余内容）</p>
+<p>（最后修改于2015-09-21）</p>
 
           
         
@@ -2266,11 +1490,304 @@ beatles.vocalist = lennon;
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-17-resource-learn-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-17-resource-learn-linux/" itemprop="url">Linux学习资源（持续更新）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源/" itemprop="url" rel="index">
+                    <span itemprop="name">资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-《The-Linux-Command-Line》"><a href="#1-《The-Linux-Command-Line》" class="headerlink" title="1. 《The Linux Command Line》"></a>1. 《The Linux Command Line》</h3><p>豆瓣链接：<a href="&quot;http://book.douban.com/subject/6806862/&quot;">The Linux Command Line</a><br>在线阅读：<a href="&quot;https://billie66.github.io/TLCL/book/&quot;">中英文双语版</a>、<a href="&quot;https://billie66.github.io/TLCL/book/zh/&quot;">中文版</a><br>PDF版本：<a href="&quot;http://media.happycasts.net/tlcl-en-cn.pdf&quot;">中英文双语班</a>、<a href="&quot;http://media.happycasts.net/tlcl-cn.pdf&quot;">中文版</a><br>epub版本:<a href="&quot;https://www.gitbook.com/book/billie66/tlcl-cn/details&quot;">中文版</a></p>
+<h3 id="2-美丽新世界：linux-下的惬意生活"><a href="#2-美丽新世界：linux-下的惬意生活" class="headerlink" title="2. 美丽新世界：linux 下的惬意生活"></a>2. 美丽新世界：linux 下的惬意生活</h3><p>Github地址：<a href="&quot;https://github.com/yangyangwithgnu/the_new_world_linux&quot;">单击我</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-15-chapter11-jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-jQuery基础"><a href="#1-jQuery基础" class="headerlink" title="1. jQuery基础"></a>1. jQuery基础</h3><ol>
+<li>$函数介绍<br>可以使用两种不同的名称访问此函数：jQuery或者$，二者等价。</li>
+<li>链式结构</li>
+<li>使用<code>$(document).ready()</code>以智能方式启动脚本<br>任何需要执行的语句都包含于匿名函数中，并且将在<code>$(document).ready()</code>事件触发时得到执行</li>
+</ol>
+<h3 id="2-jQuery与DOM"><a href="#2-jQuery与DOM" class="headerlink" title="2. jQuery与DOM"></a>2. jQuery与DOM</h3><ol>
+<li>使用jQuery选择元素<br>使用$()及一个CSS选择器选择一个或一组元素</li>
+<li>创建和添加元素<br>创建元素形式如：<br><code>var elem = $(&quot;&lt;h1&gt;&quot;).text(&quot;Good Morning&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>比较灵活的写法还有：<br><code>var elem = &quot;$(&quot;&lt;h1&gt;Good Morning&lt;/h1&gt;&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>更进一步：<br><code>var elem = &quot;$(&quot;&lt;h1 id = &quot;greeting&quot;&gt;Good Morning&quot;&lt;/h1&gt;);</code><br>添加元素形式如：<br><code>$(&quot;#container&quot;).append(elem);</code></li>
+<li>使用jQuery操控元素<ol>
+<li>使用<code>$().addClass()、$().removeClass()、$().hasClass()和$().toggleClass()</code>管理CSS类</li>
+<li>使用<code>$().attr()</code>获取或设置特性</li>
+<li>使用<code>$().css()</code>获取或设置CSS属性</li>
+<li>使用<code>$().html()</code>获取或设置元素的HTML  </li>
+</ol>
+</li>
+<li>基本动画与特效<ol>
+<li>使用<code>$().show()、$().hide()和$().toggle()</code>显示与隐藏元素</li>
+<li>使用<code>$().fadeIn()、$().fadeOut()、$().fadeToggle()</code>动态显示不透明度</li>
+<li>使用<code>$().slideUp()、$().slideDown()和$().slideToggle()</code>创建滑动门效果</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-使用jQuery管理事件"><a href="#3-使用jQuery管理事件" class="headerlink" title="3. 使用jQuery管理事件"></a>3. 使用jQuery管理事件</h3><ol>
+<li>jQuery遗留事件处理<br> <code>$().bind()</code>和<code>$().unbind()</code>，其行为与使用标准的<code>$().on</code>和<code>$().off()</code>完全一致</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
 
@@ -2315,7 +1832,7 @@ beatles.vocalist = lennon;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2326,7 +1843,7 @@ beatles.vocalist = lennon;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2337,7 +1854,7 @@ beatles.vocalist = lennon;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

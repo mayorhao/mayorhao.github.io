@@ -267,1091 +267,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/08/2015-09-28-css-guide-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/08/2015-09-28-css-guide-4/" itemprop="url">《CSS 权威指南》笔记（四）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-08T03:55:29+08:00">
-                2016-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第七章-基本视觉格式化"><a href="#第七章-基本视觉格式化" class="headerlink" title="第七章 基本视觉格式化"></a>第七章 基本视觉格式化</h1><ol>
-<li><p>基本框</p>
-<ol>
-<li>内边距不能是负值</li>
-<li>外边距可以是负值</li>
-<li>边框的宽度绝对不能为负</li>
-</ol>
-</li>
-<li><p>包含块</p>
-<p> 包含块是一个元素的『布局上下文』，包含块由最近的块级祖先框、表单元格或行内块祖先框的内容边界（content edge）构成。非行内元素的布局依赖于包含块，行内元素的摆放方式并不直接依赖于包含块。</p>
-</li>
-<li><p>一些概念</p>
-<ol>
-<li><p>正常流</p>
-<p> 传统HTML文档的文本布局，要让一个元素不在正常流中，唯一的方法就是使之成为浮动或定位元素。</p>
-</li>
-</ol>
-</li>
-<li><p>块级元素</p>
-<ol>
-<li>水平格式化『7大属性』：<code>margin-left、 border-left、 padding-left、 width、 padding-right、 border-right、 margin-right</code></li>
-<li>只有3个属性可以设置<code>auto</code>：分别为<code>width、 margin-left、 margin-right</code>。若3个属性都设置为非<code>auto</code>的某个值——格式化属性过分受限，此时总会把<code>margin-right</code>强制为<code>auto</code>（对于从左向右读得语言）。若3个属性都设置为<code>auto</code>，两个外边距都会设置为0，width会尽可能宽。若某个外边距及width设置为auto，设置为auto的外边距会减为0。</li>
-<li>负外边距。7个水平属性的总和要等于父元素的width</li>
-</ol>
-</li>
-<li><p>百分数</p>
-<p> 混合使用百分数和长度单位，可能会很麻烦</p>
-</li>
-<li><p>替换元素</p>
-<p> 对于替换元素，如果<code>width</code>为<code>auto</code>，元素的宽度则是内容的固有宽度，除非制定特定值覆盖这个规则。在未显示同时指定<code>width、height</code>情况下，宽高比保持不变。</p>
-</li>
-<li><p>垂直格式化（类比水平格式化）</p>
-<p> 值得注意的是<code>margin-top、margin-bottom</code>设置为<code>auto</code>，会自动计算为0，使元素没有外边距，而不会垂直居中。将元素垂直居中的唯一办法就是<strong>把上下外边距都设置为25%</strong>。</p>
-</li>
-<li><p>合并垂直外边距（*）</p>
-</li>
-<li><p>行内元素</p>
-</li>
-<li><p>垂直对齐（vertical-align）</p>
-</li>
-<li><p>缩放行高</p>
-<p>设置<code>line-height</code>最好方式是使用一个原始数字值，因为这个数会成为缩放因子，该因子是一个继承值而非计算值，会在元素间逐层传递。</p>
-</li>
-</ol>
-<h1 id="第八章-内边距、边框和外边距"><a href="#第八章-内边距、边框和外边距" class="headerlink" title="第八章 内边距、边框和外边距"></a>第八章 内边距、边框和外边距</h1><ol>
-<li>百分数值定义相对于父元素的width。这不仅应用于左右外边距，也应用于上下外边距。</li>
-<li><p>值复制</p>
-<p> CSS定义了一些规则，允许为外边距指定少于4个值。规则如下：</p>
-<ul>
-<li>如果缺少做坐边距的值，则使用有外边距的值。</li>
-<li>如果缺少做下边距的值，则使用有上边距的值。</li>
-<li>如果缺少做右边距的值，则使用有上边距的值。</li>
-</ul>
-</li>
-<li><p>正常流中垂直相邻边距会合并</p>
-</li>
-<li><p>外边距和行内元素</p>
-<p> 外边距只影响<strong>行内非替换元素</strong>的左右边距。因为外边距不会改变一个元素的行高。</p>
-</li>
-<li><p>边框和行内元素</p>
-<p> 不论为<strong>行内元素</strong>指定怎样的宽度，元素的行高都不会改变，但由于边框是<strong>可见的</strong>，所以将会绘制出来。左右边则是另外一回事，如果应用一个左边框或右边框，不仅该边框可见，切文本不会被覆盖。</p>
-</li>
-</ol>
-<h1 id="第九章-颜色和背景"><a href="#第九章-颜色和背景" class="headerlink" title="第九章 颜色和背景"></a>第九章 颜色和背景</h1><ol>
-<li>选择的类名最好描述其中包含的信息类型，而不是你想要达到的视觉效果。</li>
-<li>前景：元素的文本，还包括元素周围的边框。设置元素的前景色，最容易的方法是利用属性<code>color</code></li>
-<li><code>color</code>可以继承</li>
-<li><code>background-color</code> <code>background-image</code>不能继承</li>
-<li><code>background-position</code>背景定位(背景和元素中心点对齐)</li>
-<li><code>background-attachment</code>关联，<code>fixed</code>或<code>scroll</code></li>
-</ol>
-<hr>
-<p>（完）</p>
-<p>（最后修改于2015-10-14）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/08/2015-09-08-30-days-learn-30-skills/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/08/2015-09-08-30-days-learn-30-skills/" itemprop="url">《30天学习30种新技术》</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-08T03:55:29+08:00">
-                2016-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在<a href="segmentfault.com">segmentfault</a>发现的系列文章<a href="http://segmentfault.com/a/1190000000349384" target="_blank" rel="external">30天学习30种新技术</a>。深度谈不上，但选题吸引人，尽管是两年前的文章，但其中绝大多数甚至都没有听说过.</p>
-<p>Just give it a try.</p>
-<hr>
-<p>目录如下：</p>
-<ol>
-<li><p><del>Day 1: Bower——管理你的客户端依赖关系</del></p>
-</li>
-<li><p><del>Day 2: AngularJS —— 对 AngularJS 的初步认识</del></p>
-</li>
-<li><p>Day 3: Flask —— 使用 Python 和 OpenShift 进行即时 Web 开发</p>
-</li>
-<li><p>Day 4: PredictionIO —— 如何创建一个博客推荐器</p>
-</li>
-<li><p><del>Day 5: GruntJS —— 重复乏味的工作总会有人做（反正我不做）</del></p>
-</li>
-<li><p>Day 6: 在 Java 虚拟机上使用 Grails 进行快速 Web 开发</p>
-</li>
-<li><p><del>Day 7: GruntJS 在线重载 提升生产率至新境界</del></p>
-</li>
-<li><p><del>Day 8: Harp.JS —— 现代静态 Web 服务器</del></p>
-</li>
-<li><p>Day 9: TextBlob —— 对文本进行情感分析</p>
-</li>
-<li><p>Day 10: PhoneGap —— 开发手机应用如此简单</p>
-</li>
-<li><p>Day 11: AeroGear 推送服务器：使应用的通知推送变得简单</p>
-</li>
-<li><p>Day 12: OpenCV —— Java 开发者的人脸检测</p>
-</li>
-<li><p>Day 13: Dropwizard —— 非常棒的 Java REST 服务器栈</p>
-</li>
-<li><p>Day14: 使用斯坦福 NER 软件包实现你自己的命名实体识别器（Named Entity Recognition，NER）</p>
-</li>
-<li><p>Day 15: Meteor —— 从零开始创建一个 Web 应用</p>
-</li>
-<li><p>Day 16: Goose Extractor —— 好用的文章提取工具</p>
-</li>
-<li><p>Day 17: 使用 JBoss Forge 和 OpenShift 构建部署 JAVA EE 6 应用</p>
-</li>
-<li><p>Day 18: BoilerPipe —— Java开发者的文章提取工具</p>
-</li>
-<li><p><del>Day 19: EmberJS 入门指南</del></p>
-</li>
-<li><p>Day 20: 斯坦福CoreNLP —— 用 Java 给 Twitter 情感分析</p>
-</li>
-<li><p><del>Day 21：Docker 入门教程</del></p>
-</li>
-<li><p>Day 22： 使用 Spring、MongoDB 和 AngularJS 开发单页面应用</p>
-</li>
-<li><p><del>Day 23： 使用 TimelineJS 构建精美的时间轴</del></p>
-</li>
-<li><p>Day 24: 使用 Yeoman 自动构建 Ember 项目</p>
-</li>
-<li><p>Day 25: Tornado —— 联合 Tornado、MongoDB 和 AngularJS 进行应用开发</p>
-</li>
-<li><p><del>Day 26: TogetherJS —— 让我们一起来编程！</del></p>
-</li>
-<li><p><del>Day 27: Restify —— 在Node.js中构建正确的REST Web服务</del></p>
-</li>
-<li><p>Day 28: OpenShift 的 Eclipse 集成</p>
-</li>
-<li><p>Day 29: 编写你的第一个 Google Chrome 扩展程序</p>
-</li>
-<li><p><del>Day 30: Play Framework —— Java 开发者的梦想框架</del></p>
-</li>
-</ol>
-<hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/07/JavaScript的函数柯里化/" itemprop="url">JavaScript的函数柯里化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
-                2016-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。<br>但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。<br>好了，言归正传。</p>
-<h3 id="来源及概念"><a href="#来源及概念" class="headerlink" title="来源及概念"></a>来源及概念</h3><p>curry化的命名是为了纪念数学家 Haskell Curry（编程语言 Haskell也是以他的名字命名)。<br>它的书面概念是：</p>
-<blockquote>
-<p>柯里化通常也称部分求值，其含义是给函数分步传递参数，每次传递参数后部分应用参数，并返回一个更具体的函数接受剩下的参数，这中间可嵌套多层这样的接受部分参数函数，直至返回最后结果。 因此柯里化的过程是逐步传参，逐步缩小函数的适用范&gt;围，逐步求解的过程。</p>
-</blockquote>
-<p>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
-<p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
-<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
-<h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
-<p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样，我们可以传入默认参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contenx</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>,<span class="number">2</span>);</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> innerArgs=<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">            <span class="keyword">var</span> finnalArgs=args.concat(innerArgs);</div><div class="line">            <span class="keyword">return</span> fn.apply(context,finalArgs);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">#### 提前返回，或者称之为惰性加载函数</div><div class="line">很常见的一个例子，兼容现代浏览器以及IE浏览器的事件添加方法。我们正常情况可能会这样写：</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">el, type, fn, capture</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;, capture);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</div><div class="line">        el.attachEvent(<span class="string">"on"</span> + type, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            fn.call(el, e);</div><div class="line">        &#125;);</div><div class="line">    &#125; </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>上面的方法有什么问题呢？很显然，我们每次使用addEvent为元素添加事件的时候，(eg. IE6/IE7)都会走一遍<figure class="highlight plain"><figcaption><span>if ...```,其实只要一次判定就可以了，怎么做？–柯里化。改为下面这样子的代码：</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">```javascript</div><div class="line">var addEvent = (function()&#123;</div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.addEventListener(sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;, (capture));</div><div class="line">        &#125;;</div><div class="line">    &#125; else if (window.attachEvent) &#123;</div><div class="line">        return function(el, sType, fn, capture) &#123;</div><div class="line">            el.attachEvent(&quot;on&quot; + sType, function(e) &#123;</div><div class="line">                fn.call(el, e);</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
-<p>初始<figure class="highlight plain"><figcaption><span>if...判定），而剩余的参数应用都是其返回函数实现的，典型的柯里化。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">#### 延迟计算，延迟执行</div><div class="line"></div><div class="line">其实上文中的```bind（）```函数就是典型的延迟执行。那延迟计算的例子：我每周末都要去钓鱼，我想知道我12月份4个周末总共钓了几斤鱼，把一些所谓的模式、概念抛开，我们可能就会下面这样实现：</div><div class="line">```javascript</div><div class="line">var fishWeight = 0;</div><div class="line">var addWeight = function(weight) &#123;</div><div class="line">    fishWeight += weight;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">addWeight(2.3);</div><div class="line">addWeight(6.5);</div><div class="line">addWeight(1.2);</div><div class="line">addWeight(2.5);</div><div class="line"></div><div class="line">console.log(fishWeight);</div></pre></td></tr></table></figure></p>
-<p>柯里化的实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> curryWeight = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _fishWeight = [];</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> fn.apply(<span class="literal">null</span>, _fishWeight);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            _fishWeight = _fishWeight.concat([].slice.call(<span class="built_in">arguments</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> fishWeight = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> addWeight = curryWeight(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i=<span class="number">0</span>; len = <span class="built_in">arguments</span>.length;</div><div class="line">    <span class="keyword">for</span> (i; i&lt;len; i+=<span class="number">1</span>) &#123;</div><div class="line">        fishWeight += <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">addWeight(<span class="number">2.3</span>);</div><div class="line">addWeight(<span class="number">6.5</span>);</div><div class="line">addWeight(<span class="number">1.2</span>);</div><div class="line">addWeight(<span class="number">2.5</span>);</div><div class="line">addWeight();    <span class="comment">//  这里才计算</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fishWeight);    <span class="comment">// 12.5</span></div></pre></td></tr></table></figure>
-<p>到最后才计算一次。</p>
-<p>以上就是curry化的一些个人见解。还会继续补充。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/2016-01-20-javascript-guide-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/15/2016-01-20-javascript-guide-2/" itemprop="url">《JavaScript 权威指南》笔记（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T02:33:29+08:00">
-                2016-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第10章-DOM"><a href="#第10章-DOM" class="headerlink" title="第10章 DOM"></a>第10章 DOM</h1><ol>
-<li>DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。</li>
-<li><p>Node 类型</p>
-<p> 每个节点都有一个 nodeType 属性,用于表明节点的类型。节点类型有12种。</p>
-</li>
-<li><p>每个节点都有一个 childNodes 属性,其中保存着一个 NodeList 对象。</p>
-</li>
-<li>nodeName 和 nodeValue 属性（需要先判断 nodeType）</li>
-<li><p>将 NodeList 对象转换为数组</p>
-<pre><code>function convertToArray(nodes){
-    var array = null;
-    try {
-        array = Array.prototype.slice.call(nodes, 0); //针对非 IE 浏览器 } catch (ex) {
-        array = new Array();
-        for (var i=0, len=nodes.length; i &lt; len; i++){
-            array.push(nodes[i]);
-        }
-    }
-    return array;
-}
-</code></pre></li>
-<li><p>每个节点都有一个 <code>parentNode</code> 属性。同胞节点有 <code>previousSibling</code> 和 <code>nextSibling</code> 属性。父节点的 <code>firstChild</code> 和 <code>lastChild</code> 属性分别指向其 <code>childNodes</code> 列表中的第一个和最后一个节点。</p>
-</li>
-<li><code>hasChildNodes()</code>在节点包含一或多个子节点的情况下返回 true</li>
-<li>所有节点都有的最后一个属性是 <code>ownerDocument</code>,该属性指向表示整个文档的文档节点。</li>
-<li><p>操作节点</p>
-<ol>
-<li><code>appendChild()</code>,用于向 childNodes 列表的末尾添加一个节点。如果传入到 appendChild()中的节点已经是文档的一部分了,那结果就是将该节点从原来的位置 转移到新位置。(如传入文档的第一个节点)</li>
-<li><code>insertBefore()</code>接受两个参数:要插入的节点和作为参照的节点。 </li>
-<li><code>replaceChild()</code>接受两个参数:要插入的节点和要替换的节点。</li>
-<li><code>removeChild()</code>方法接受一个参数,即要移除的节点。</li>
-</ol>
-</li>
-<li><p>其他方法</p>
-<ol>
-<li><code>cloneNode()</code>,参数 true 或 false 表示深浅复制</li>
-<li><code>normalize()</code></li>
-</ol>
-</li>
-<li><p>Document 类型</p>
-<p>Document 类型表示文档。在浏览器中,document 对象是 HTMLDocument(继承自 Document 类型)的一个实例,表示整个 HTML 页面。而且,document 对象是 window 对象的一个 属性,因此可以将其作为全局对象来访问。</p>
-</li>
-<li><p>文档信息</p>
-<p>document.url、document.domain、document.referrer</p>
-</li>
-</ol>
-<h1 id="第11章-DOM-扩展"><a href="#第11章-DOM-扩展" class="headerlink" title="第11章 DOM 扩展"></a>第11章 DOM 扩展</h1><ol>
-<li>Selectors API Level 1 的核心是两个方法:querySelector()和 querySelectorAll()。</li>
-<li>querySelector()方法接收一个 CSS 选择符,返回与该模式匹配的第一个元素,如果没有找到匹配的元素,返回 null。</li>
-<li>querySelectorAll()方法返回的是一个 NodeList 的实例。要取得返回的 NodeList 中的每一个元素,可以使用 item()方法,也可以使用方括号语法。</li>
-<li>matchesSelector()方法，Selectors API Level 2规范为Element类型新增的一个方法。这个方法接收 一个参数,即 CSS 选择符,如果调用元素与该选择符匹配,返回 true;否则,返回 false。</li>
-<li><p>HTML5 扩展</p>
-<ol>
-<li><p>与类相关的扩充</p>
-<ol>
-<li>getElementsByClassName()方法</li>
-<li>classList 属性</li>
-</ol>
-</li>
-<li><p>焦点管理</p>
-<ol>
-<li>document.activeElement 属性,这个 属性始终会引用 DOM 中当前获得了焦点的元素</li>
-<li>document.hasFocus()方法,这个方法用于确定文档是否获得了焦点。</li>
-</ol>
-</li>
-<li><p>HTMLDocument的变化</p>
-<ol>
-<li>readyState 属性：loading,正在加载文档；complete,已经加载完文档</li>
-<li>兼容模式：compatMode 属性</li>
-<li>head 属性</li>
-</ol>
-</li>
-<li><p>插入标记</p>
-<ol>
-<li>innerHTML()</li>
-<li>outerHTML()</li>
-<li>insertAdjacentHTML()</li>
-</ol>
-</li>
-<li><p>滚动</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="第12章-DOM2-和-DOM3"><a href="#第12章-DOM2-和-DOM3" class="headerlink" title="第12章 DOM2 和 DOM3"></a>第12章 DOM2 和 DOM3</h1><ol>
-<li>DOM1 级主要定义的是 HTML 和 XML 文档的底层结构。DOM2 和 DOM3 级则在这个结构 的基础上引入了更多的交互能力,也支持了更高级的 XML 特性。</li>
-</ol>
-<h1 id="第16章-HTML5-脚本编程"><a href="#第16章-HTML5-脚本编程" class="headerlink" title="第16章 HTML5 脚本编程"></a>第16章 HTML5 脚本编程</h1><ol>
-<li><p>跨文本消息传递（XDM）</p>
-<p> postMessage() 使用</p>
-</li>
-<li><p>原生拖放</p>
-<ol>
-<li><p>拖放事件</p>
-<p> 拖动元素时，将依次触发下列事件：dragstart、drag、dragend。<br> 当某个元素被拖动到一个有效的放置目标上时，下列事件会依次发生：dragenter、dragover、dragleave 或 drop</p>
-</li>
-<li><p>dataTransfer 对象</p>
-<p> 实现拖放操作时数据交换</p>
-</li>
-</ol>
-</li>
-<li><p>媒体元素</p>
-</li>
-<li><p>历史状态管理</p>
-<p> history 对象 hashchange、pushState、popState、replaceState</p>
-</li>
-</ol>
-<h1 id="第17章-错误处理与调试"><a href="#第17章-错误处理与调试" class="headerlink" title="第17章 错误处理与调试"></a>第17章 错误处理与调试</h1><ol>
-<li><p>错误处理</p>
-<ol>
-<li><p>try-catch 语句</p>
-<p> 若有 finally 子句，无论是否发生错误，甚至 return 语句，finally 子句都会执行。</p>
-</li>
-<li><p>抛出错误 throw</p>
-</li>
-</ol>
-</li>
-<li><p>常见的错误类型</p>
-<ol>
-<li>类型转换错误（使用全等和不全等操作符）</li>
-<li>数据类型错误（基本类型使用 typeof 检测，对象使用 instanceof 检测）</li>
-<li>通信错误（使用 Ajax）</li>
-</ol>
-</li>
-<li><p>区分致命错误和非致命错误</p>
-</li>
-<li>把错误记录到服务器</li>
-<li><p>调试技术</p>
-<ol>
-<li>将消息记录到控制台</li>
-<li>将消息记录到当前页面</li>
-<li>抛出错误（assert()函数）</li>
-</ol>
-</li>
-</ol>
-<h1 id="第19章-E4X"><a href="#第19章-E4X" class="headerlink" title="第19章 E4X"></a>第19章 E4X</h1><ol>
-<li><p>E4X 的类型</p>
-<ol>
-<li><p>E4X = ECMAScript for XML</p>
-</li>
-<li><p>4个新的全局类型</p>
-<ul>
-<li>XML: XML 结构中的任何一个独立的部分</li>
-<li>XMList: XML 对象的集合</li>
-<li>Namespace: 命名空间前缀与命名空间 URI 之间的映射</li>
-<li>QName: 由内部名称和命名空间 URI 组成的一个限定名 </li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<p><strong>（Chapter 19 未完待续）</strong></p>
-<h1 id="第21章-Ajax-与-Comet"><a href="#第21章-Ajax-与-Comet" class="headerlink" title="第21章 Ajax 与 Comet"></a>第21章 Ajax 与 Comet</h1><ol>
-<li><p>XMLHttpRequest 用法</p>
-<p> 若不必支持IE7以前的版本，直接使用 XMLHttpRequest 构造函数。</p>
-<pre><code>var xhr = new XMLHttpRequest();
-</code></pre><p> 紧接着，调用 <code>open()</code> 方法，接受三个参数：请求类型、URL、是否异步发送请求，此时并不会发送真正的请求，而只是启动一个请求准备发送。<br> 要发送特定的请求，需要调用 <code>send()</code> 方法，接受一个参数：请求主体的数据或 null。<br> 对于<strong>异步请求</strong>，需要检测 <code>readyState</code> 属性，来获取当前活动状态。只要 <code>readyState</code> 变化，都会触发 <code>readystatechange</code> 事件。例子如下：</p>
-<pre><code>var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-    if(xhr.readyState == 4) {
-        if((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status == 304) {
-            alert(xhr.responseText);
-        } else {
-            alert(&quot;Request was unsuccessful: &quot; + xhr.status);
-        }
-    }
-}
-xhr.open(&apos;get&apos;, &apos;example.txt&apos;, true);
-</code></pre><p> 在接收到响应之前，可以调用 <code>abort()</code> 方法来取消异步请求。</p>
-</li>
-<li><p>HTTP 头部信息</p>
-<p> <code>setRequestHeader()</code> 方法可以设置自定义的请求头部信息，接受两个参数，键值对。<br> <code>getResponseHeader()</code> 方法传入头部字段，可以取得响应头部信息，而调用 <code>getAllResponseHeaders()</code> 则可以取得包含所有头部信息的长字符串。</p>
-</li>
-<li><p>GET 请求</p>
-<p> 使用 GET 请求查询字符串中每个参数的名称和值都必须使用 encodeURIComponent() 进行编码。</p>
-</li>
-<li><p>POST 请求</p>
-<p> 将数据作为请求的主体提交。</p>
-</li>
-<li><p>XMLHttpRequest 2级</p>
-<ol>
-<li>FormData</li>
-<li>超时设定</li>
-<li>overrideMimeType() 方法</li>
-</ol>
-</li>
-<li><p>进度事件</p>
-<p> 6个进度事件：loadstars、progress、error、abort、load、loaded。</p>
-<p> progress 事件包含三个属性：lengthComputable、position、totaSize</p>
-<p> load 事件与 progress 事件</p>
-</li>
-<li><p>跨源资源共享</p>
-<p> CORS 背后的基本思想，就是使用自定义的 HTTP 头部让浏览器与服务器进行沟通，从而决定请求与响应成功还是失败。</p>
-<p> 非 IE 浏览器通过 XMLHttpRequest 实现了对 CORS 的原生支持。</p>
-</li>
-<li><p>跨浏览器的 CORS</p>
-<pre><code>function createCORSRequest(method, url) {
-    var xhr  = new XMLHttpRequest();
-    if(&quot;withCredentials&quot; in xor) {
-        xhr.open(method, url, true);
-    } else if(typeof XDomainRequest != &quot;undefined&quot;) {
-        xhr = new XDomainRequest();
-        xhr.open(method, url);
-    } else {
-        xhr = null;
-    }
-    return xhr;
-}
-
-var request = createCORSRequest(&apos;get&apos;, &apos;http://www.somewhere-else.com/page/&apos;);
-if(request) {
-    request.onload = function() {
-        // 处理 request.responseText
-    };
-    request.send();
-}
-</code></pre></li>
-<li><p>其他跨域技术</p>
-<ol>
-<li><p>图像 Ping</p>
-<pre><code>var img = new Image();
-img.onload = img.onerror = function() {
-    alert(&apos;done&apos;);
-}
-img.src = &apos;url&apos;;
-</code></pre><p> 2个缺点：只能发送 GET 请求，无法访问服务器的响应文本。</p>
-</li>
-<li><p>JSONP</p>
-<p> 优点是能够访问响应文本。</p>
-</li>
-<li><p>Comet</p>
-<p> 一种服务器向页面推送数据的技术。两种实现方式：<strong>长轮询和流</strong>（区分短轮询）</p>
-</li>
-<li><p>Web Sockets</p>
-<ol>
-<li><p>实例化</p>
-<pre><code>var socket = new WebSocket(&apos;ws://www.example.com/server.php&apos;);
-</code></pre></li>
-<li><p>发送和接收数据</p>
-<pre><code>socket.send(&apos;hello world&apos;); // 复杂的数据结构发送之前必须序列化
-
-socket.onmessage = function(event) {
-    var data = event.data;
-    // ...
-}
-</code></pre></li>
-<li><p>其他事件</p>
-<ol>
-<li>open：在成功建立连接时触发。</li>
-<li>error：在发生错误时触发，连续不能持续。</li>
-<li>close：在连接关闭时触发。<code>event</code> 对象还有三个额外的属性：wasClean、code、reason。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="第22章-高级技巧"><a href="#第22章-高级技巧" class="headerlink" title="第22章 高级技巧"></a>第22章 高级技巧</h1><ol>
-<li><p>高级函数</p>
-<ol>
-<li><p>安全的类型检测</p>
-<p> 在任何值上调用 Object 原生的 toString() 方法，都会返回一个 <code>[object NativeConstructorName]</code> 格式的字符串。通过 <code>Object.prototype.toString.call(value)</code> 检测。</p>
-</li>
-<li><p>作用域安全的构造函数</p>
-<p> 由于 this 对象实在运行时绑定的，避免因为忽略 new 操作符而导致 this 映射到全局对象 window 上。（P599 例子）</p>
-</li>
-<li><p>惰性载入函数</p>
-<p> 2种实现方式：函数被调用时再处理函数，函数声明时就指定适当的函数（匿名、自执行函数）</p>
-</li>
-<li><p>函数绑定 bind()</p>
-<pre><code>function bind(fn, context) {
-    return function() {
-        return fn.apply(context, arguments);
-    }
-}
-</code></pre></li>
-<li><p>函数柯里化（function currying）</p>
-<p> 创建步骤：调用另一个函数并为他传入要柯里化的函数和必要参数。</p>
-<pre><code>function curry(fn) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    return function() {
-        var innerArgs = Array.prototype.slice.call(arguments);
-        var finalArgs = args.concat(innerArgs);
-        return fn.apply(null, finalArgs);
-    }
-}
-</code></pre></li>
-</ol>
-</li>
-<li><p>防篡改对象</p>
-<ol>
-<li><p>不可扩展对象</p>
-<p> 使用 <code>Object.preventExtensions()</code> 方法来不能再给对象添加属性和方法，已有的成员丝毫不受影响。使用 <code>Object.isExtensible()</code> 方法来确定对象是否可以扩展。</p>
-</li>
-<li><p>密封的对象</p>
-<p> 使用 <code>Object.seal()</code> 方法使队形不可扩展，且已有成员的 <code>[[Configurable]]</code> 特性将被设置为 false，意味着不能删除。</p>
-<p> 使用 <code>Object.isSealed()</code> 方法确定对象是否已经被密封了。</p>
-</li>
-<li><p>冻结的对象</p>
-<p> 使用 <code>Object.freeze()</code> 方法来冻结对象。在密封的基础上，将已有成员的 <code>[[Writable]]</code> 特性设置为 false。同时有 <code>Object.isFrozen()</code> 方法来检测冻结对象。</p>
-</li>
-</ol>
-</li>
-<li><p>高级定时器</p>
-<p> JavaScript 中没有任何代码是立刻执行的，但一旦进程空闲则尽快执行。关于定时器要记住的最重要的事情是，指定的时间间隔表示何时将定时器的代码添加到队列，而不是何时实际执行代码。</p>
-<p> 避免 <code>setInterval()</code> 重复定时器的2个缺点，可以使用如下模式</p>
-<pre><code>setTimeout(function() {
-    // TODO
-    setTimeout(arguments.callee, interval); // arguments.callee 来获取对当前执行函数的引用
-}, interval)
-</code></pre></li>
-<li><p>Yielding Processes</p>
-<p> 运行在浏览器中的 JavaScript 都被分配了一个确定数量的资源，不同于桌面应用往往能够随意控制内存大小和处理器时间，JavaScript 被严格限制了，放置恶意的 Web 程序。</p>
-<p> 数组分块技术。</p>
-</li>
-<li><p>函数节流（重要）</p>
-</li>
-<li><p>自定义事件</p>
-<ol>
-<li>属性 handlers：存储事件处理程序。</li>
-<li>addHandler()：注册给定类型事件的事件处理程序。</li>
-<li>fire()：触发一个事件。</li>
-<li>removeHandler()：注销某个事件类型的事件处理程序。</li>
-</ol>
-</li>
-<li><p>拖放（略）</p>
-</li>
-</ol>
-<h1 id="第24章-最佳实践"><a href="#第24章-最佳实践" class="headerlink" title="第24章 最佳实践"></a>第24章 最佳实践</h1><ol>
-<li><p>可维护性</p>
-<p> 大部分开发人员都花费大量的时间维护他人代码。很难从头开始开发新代码，很多情况下都是以他人工作结果为基础的。</p>
-<p> 变量和函数命名：变量名应为名词，函数名应以动词开头，返回布尔类型的函数一般以 <code>is</code> 开头。</p>
-<p> 变量类型透明：由于 JavaScript 中变量是松散类型的，很容易忘记变量所应包含的数据类型。三种方式解决：</p>
-<pre><code>1. 初始化
-2. 匈牙利标记法
-3. 类型注释
-</code></pre></li>
-<li><p>性能</p>
-<ol>
-<li><p>注意作用域</p>
-<ul>
-<li>避免全局查找</li>
-<li>避免 with 语句</li>
-</ul>
-</li>
-<li><p>选择正确的方法</p>
-<ul>
-<li>避免不必要的属性查找</li>
-<li>优化循环：减值迭代、简化终止条件、简化循环体、使用后测试循环</li>
-<li>展开循环</li>
-</ul>
-</li>
-<li><p>最小化语句数</p>
-<ul>
-<li>多个变量声明</li>
-<li>插入迭代值</li>
-<li>使用数组和对象字面量</li>
-</ul>
-</li>
-<li><p>优化 DOM 交互</p>
-<ol>
-<li>最小化现场更新（使用文档片段 createDocumentFragment）</li>
-<li>使用 innerHTML</li>
-<li>使用事件代理</li>
-<li>注意 HTMLCollection</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>部署</p>
-</li>
-</ol>
-<h1 id="第25章-新兴的-API"><a href="#第25章-新兴的-API" class="headerlink" title="第25章 新兴的 API"></a>第25章 新兴的 API</h1><ol>
-<li><p>requestAnimationFrame()</p>
-<ol>
-<li>早期动画循环及 <code>setInterval</code>、<code>setTimeout</code> 利弊</li>
-<li>最平滑动画的最佳循环间隔是 1000ms/60，约等于17ms</li>
-</ol>
-</li>
-<li><p>Page Visibility API</p>
-<p> 三部分组成：document.hidden、document.visibilityState(4个可能的状态值)、visibility change事件。</p>
-</li>
-<li><p>Geolocation API</p>
-<p> 浏览器中的实现是 navigator.geolocation 对象。</p>
-</li>
-<li><p>File API</p>
-</li>
-<li><p>Web 计时</p>
-<p> Web 计时机制的核心是 window.performance 对象。</p>
-</li>
-<li><p>Web Workers</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/11/判断值相等/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2035,163 +950,6 @@ socket.onmessage = function(event) {
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/22/2015-4-6-chapter5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/01/22/2015-4-6-chapter5/" itemprop="url">《HTML&&CSS3入门经典》（5）——表格</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-22T13:01:29+08:00">
-                2016-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-基本表格元素与特性——用-lt-table-gt-元素创建表格，包含以下特性"><a href="#1-基本表格元素与特性——用-lt-table-gt-元素创建表格，包含以下特性" class="headerlink" title="1. 基本表格元素与特性——用&lt;table&gt;元素创建表格，包含以下特性"></a>1. 基本表格元素与特性——用<code>&lt;table&gt;</code>元素创建表格，包含以下特性</h3><ul>
-<li><strong>dir</strong>特性：指定表格文本行文方向。可能取值有 <strong>ltr</strong>和 <strong>rtl</strong></li>
-<li><code>&lt;tr&gt;</code>元素包含表格行</li>
-<li><code>&lt;td&gt;</code>与<code>&lt;th&gt;</code>元素表示表格单元。前者表示表格数据，后者表示表头信息</li>
-<li><strong>colspan</strong>特性：一个单元横跨多个列时</li>
-<li><strong>headers</strong>特性：指明哪些表头应该对应所在单元</li>
-<li><strong>rowspan</strong>特性：一个单元纵向跨越多少表格行</li>
-<li><strong>scope</strong>特性：指定当前表头向哪些单元提供标签和表头信息，可能取值有：row、col、rowgroup、colgroup</li>
-</ul>
-<h3 id="2-为表格添加标题"><a href="#2-为表格添加标题" class="headerlink" title="2. 为表格添加标题"></a>2. 为表格添加标题</h3><p>使用<code>&lt;caption&gt;</code>元素。多数浏览器在表格之上的中间位置显示该元素的内容</p>
-<p>###3. 表格区域分组</p>
-<ol>
-<li>使用<strong>colspan</strong>特性跨越列</li>
-<li>使用<strong>rowspan</strong>特性跨越行</li>
-<li>将表格分解为<strong>表头、表体及表尾</strong><ul>
-<li><code>&lt;thead&gt;</code>创建独立的表头</li>
-<li><code>&lt;tbody&gt;</code>指定表格主体</li>
-<li><code>&lt;tfoot&gt;</code>创建独立的表尾</li>
-</ul>
-</li>
-<li>使用<code>&lt;colgroup&gt;</code>元素进行列分组。它直接出现在<code>&lt;table&gt;</code>开标签之后，并包含一个<strong>span</strong>特性，用以指定该组包含了多少列</li>
-<li>使用<code>&lt;col&gt;</code>元素在列间共享样式，更多地用于呈现目的</li>
-</ol>
-<h3 id="4-嵌套表格"><a href="#4-嵌套表格" class="headerlink" title="4. 嵌套表格"></a>4. 嵌套表格</h3><h3 id="5-易访问表格"><a href="#5-易访问表格" class="headerlink" title="5. 易访问表格"></a>5. 易访问表格</h3><p>使用id、scope、headers特性：在<code>&lt;th&gt;</code>元素中添加<strong>scope</strong>特性有助于指定该表头应用于哪些单元，取值有<strong>row、col、rowgroup、colgroup</strong>。在<code>&lt;td&gt;</code>元素中添加 <strong>headers</strong>属性有助于指定哪些表头对应于该单元，该特性的值是一个由空格分隔的表头单元<strong>id</strong>属性值列表。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/22/2016-03-10-javascript-guide-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2405,11 +1163,1497 @@ socket.onmessage = function(event) {
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/22/2015-4-6-chapter5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/22/2015-4-6-chapter5/" itemprop="url">《HTML&&CSS3入门经典》（5）——表格</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-22T13:01:29+08:00">
+                2016-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-基本表格元素与特性——用-lt-table-gt-元素创建表格，包含以下特性"><a href="#1-基本表格元素与特性——用-lt-table-gt-元素创建表格，包含以下特性" class="headerlink" title="1. 基本表格元素与特性——用&lt;table&gt;元素创建表格，包含以下特性"></a>1. 基本表格元素与特性——用<code>&lt;table&gt;</code>元素创建表格，包含以下特性</h3><ul>
+<li><strong>dir</strong>特性：指定表格文本行文方向。可能取值有 <strong>ltr</strong>和 <strong>rtl</strong></li>
+<li><code>&lt;tr&gt;</code>元素包含表格行</li>
+<li><code>&lt;td&gt;</code>与<code>&lt;th&gt;</code>元素表示表格单元。前者表示表格数据，后者表示表头信息</li>
+<li><strong>colspan</strong>特性：一个单元横跨多个列时</li>
+<li><strong>headers</strong>特性：指明哪些表头应该对应所在单元</li>
+<li><strong>rowspan</strong>特性：一个单元纵向跨越多少表格行</li>
+<li><strong>scope</strong>特性：指定当前表头向哪些单元提供标签和表头信息，可能取值有：row、col、rowgroup、colgroup</li>
+</ul>
+<h3 id="2-为表格添加标题"><a href="#2-为表格添加标题" class="headerlink" title="2. 为表格添加标题"></a>2. 为表格添加标题</h3><p>使用<code>&lt;caption&gt;</code>元素。多数浏览器在表格之上的中间位置显示该元素的内容</p>
+<p>###3. 表格区域分组</p>
+<ol>
+<li>使用<strong>colspan</strong>特性跨越列</li>
+<li>使用<strong>rowspan</strong>特性跨越行</li>
+<li>将表格分解为<strong>表头、表体及表尾</strong><ul>
+<li><code>&lt;thead&gt;</code>创建独立的表头</li>
+<li><code>&lt;tbody&gt;</code>指定表格主体</li>
+<li><code>&lt;tfoot&gt;</code>创建独立的表尾</li>
+</ul>
+</li>
+<li>使用<code>&lt;colgroup&gt;</code>元素进行列分组。它直接出现在<code>&lt;table&gt;</code>开标签之后，并包含一个<strong>span</strong>特性，用以指定该组包含了多少列</li>
+<li>使用<code>&lt;col&gt;</code>元素在列间共享样式，更多地用于呈现目的</li>
+</ol>
+<h3 id="4-嵌套表格"><a href="#4-嵌套表格" class="headerlink" title="4. 嵌套表格"></a>4. 嵌套表格</h3><h3 id="5-易访问表格"><a href="#5-易访问表格" class="headerlink" title="5. 易访问表格"></a>5. 易访问表格</h3><p>使用id、scope、headers特性：在<code>&lt;th&gt;</code>元素中添加<strong>scope</strong>特性有助于指定该表头应用于哪些单元，取值有<strong>row、col、rowgroup、colgroup</strong>。在<code>&lt;td&gt;</code>元素中添加 <strong>headers</strong>属性有助于指定哪些表头对应于该单元，该特性的值是一个由空格分隔的表头单元<strong>id</strong>属性值列表。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/22/2015-6-27-note-javascript-dom-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/22/2015-6-27-note-javascript-dom-5/" itemprop="url">《JavaScript DOM 编程艺术》笔记（五）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-22T13:01:29+08:00">
+                2016-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Chapter-9-CSS-DOM"><a href="#Chapter-9-CSS-DOM" class="headerlink" title="Chapter 9 CSS-DOM"></a>Chapter 9 CSS-DOM</h3><ol>
+<li><p>三位一体的网页</p>
+<ol>
+<li>结构层</li>
+<li>表示层</li>
+<li>行为层</li>
+</ol>
+</li>
+<li><p>三种技术之间存在潜在的重叠区域。用DOM可以改变网页的结构;CSS利用伪类走进DOM领地，但DOM也可以给元素设定样式。</p>
+</li>
+<li><p>style属性</p>
+<ol>
+<li><p>获取样式</p>
+<p> 文档的每个<strong>元素节点</strong>都有一个属性<code>style</code>。<code>style</code>属性包含着元素的样式，查询这个属性将返回一个<strong>对象</strong>而不是一个简单的字符串。</p>
+<p> 语法为：<code>element.style.property</code></p>
+<p> 关于<code>style</code>属性需要注意以下几点：</p>
+<ol>
+<li>当需要引用一个中间带减号的CSS属性时，DOM要求你使用<strong>驼峰命名法</strong>。CSS属性<code>font-family</code>变为DOM属性<code>fontFamily</code></li>
+<li>DOM在表示属性时采用的单位并不总是与它们在CSS样式表里的设置相同。如十六进制设置属性颜色，通过<code>style</code>查询返回结果是rgb格式</li>
+<li>style属性只能返回<strong>内嵌样式</strong>，不能检索外部CSS文件声明样式及<code>&lt;head&gt;</code>部分的<code>&lt;style&gt;</code>标签。另外，用DOM设置的样式，可以用DOM检索出来。</li>
+</ol>
+</li>
+<li><p>设置样式</p>
+<p> <code>style</code>对象各个属性可读可写。</p>
+<p> 语法为：<code>element.style.property = value</code></p>
+</li>
+</ol>
+</li>
+<li><p>何时该用DOM脚本设置样式</p>
+<ol>
+<li><p>根据元素在节点数里的位置来设置样式</p>
+<p> 在不考虑CSS3的前提下，CSS还无法根据元素间的相对位置关系找出某个特定的元素，这对DOM并不是什么难题。</p>
+<p> Snippet：获取下一个元素节点</p>
+<pre><code>function getNextElement(node) {
+    if(node.Type == 1) {
+        return node;
+    }
+    if(node.nextSibling) {
+        return getNextElement(node.nextSibling);
+    }
+    return null;
+}
+</code></pre></li>
+<li><p>根据某种条件反复设置某种样式</p>
+<p> JavaScript擅长处理重复性任务，用while或for循环就可以轻松遍历一个列表。</p>
+<p> Snippet：为表格添加斑马线效果</p>
+<pre><code>function stripeTables() {
+    if(!document.getElementsByTagName) return false;
+    var tables = document.getElementsByTagName(&quot;table&quot;);
+    var odd, rows;
+    for(var i = 0; i &lt; tables.length; i ++) {
+        odd = false;
+        rows = document.getElementsByTagName(&quot;tr&quot;);
+        for(var j = 0; j &lt; rows.length; j++) {
+            if(odd == true) {
+                rows[j].style.backgroundColor = &quot;#ffc&quot;;
+                odd = false;
+            } else {
+                odd = true;
+            }
+        }
+    }
+}
+</code></pre></li>
+<li><p>响应事件</p>
+<p> 最简单的方案是采用<strong>伪类</strong>，但如果想利用这个伪类在鼠标悬停时改变其他元素的样式，采用DOM。</p>
+<p> Snippet：鼠标指针悬停在表格行上方时，该行文本加粗</p>
+<pre><code>function highlightRows() {
+    if(!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName(&quot;tr&quot;);
+    for(var i = 0; i &lt; rows.length; i++) {
+        rows[i].onmouseover = function() {
+            this.style.fontWeight = &quot;bold&quot;;
+        }
+        row[i].onmouseout = function() {
+            this.style.fontWeight = &quot;normal&quot;;
+        }
+    }
+}
+</code></pre></li>
+<li><p>className属性</p>
+<p> 与其使用DOM直接改变某个元素的样式，不如通过JavaScript代码去更新这个元素的class属性。</p>
+<ol>
+<li><p>使用<code>setAttribute()</code>方法：</p>
+<p> 语法：<code>element.setAttribte(&quot;class&quot;, &quot;intro&quot;);</code></p>
+</li>
+<li><p>使用<code>className</code>属性</p>
+<p> 语法：<code>element.className = value;</code></p>
+<p> 不足：只能替换，不能追加</p>
+<p> 完善：利用字符串<strong>拼接操作</strong></p>
+<p> 语法：<code>element.className += &quot; intro&quot;;</code>注意赋值的第一个字符是<strong>空格</strong></p>
+<p> 实际上我们仅希望在原来确实有一个class的情况下才这么做。</p>
+<p> Snippet：addClass</p>
+<pre><code>function addClass(element, value) {
+    if(!element.className) {
+        element.className = value;
+    } else {
+        var newClassName = &quot; &quot; + value;
+        element.className += newClassName;
+</code></pre></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>对函数进行抽象</p>
+</li>
+</ol>
+<p>（完）</p>
+<p>（最后修改于2015-09-21）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/20/2016-01-20-javascript-guide-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/20/2016-01-20-javascript-guide-1/" itemprop="url">《JavaScript 权威指南》笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-20T00:50:29+08:00">
+                2016-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>（Chapter 3 —— Chapter 7）</p>
+<hr>
+<h1 id="第3章-基本概念"><a href="#第3章-基本概念" class="headerlink" title="第3章 基本概念"></a>第3章 基本概念</h1><ol>
+<li><p>严格模式</p>
+<p> <code>&quot;use strict&quot;;</code></p>
+</li>
+<li><p>数据类型</p>
+<p>  5种简单数据类型：Undefined Null Boolean Number String。1种复杂数据类型 Object。</p>
+</li>
+<li><p>typeof 操作符</p>
+<p> 可能的返回值，6种数据类型（小写）</p>
+<ul>
+<li>“undefined”</li>
+<li>“boolean”</li>
+<li>“string”</li>
+<li>“number”</li>
+<li>“object”</li>
+<li><p>“function”</p>
+<p>注意：</p>
+</li>
+<li><p>typeof null 返回值 ‘object’</p>
+</li>
+<li>typeof 未声明变量和未初始化变量，均返回 undefined</li>
+</ul>
+</li>
+<li><p>Null 类型</p>
+<p> 表示空对象指针，所以 typeof null 返回 object</p>
+</li>
+<li><p>0/0返回 NaN，正数除以0返回 Infinity，负数除以0返回 -Infinity</p>
+</li>
+<li>isNaN() 适用于对象。先调用 valueOf()，若不行，再调用 toString()</li>
+<li><p>数值转换</p>
+<p> Number() parseInt() parseFloat()</p>
+<ol>
+<li>parseInt() 第二个参数表示按照 X 进制进行解析，即基数。</li>
+<li>parseFloat() 只解析十进制</li>
+</ol>
+</li>
+<li><p>toString()</p>
+<ol>
+<li>null 和 undefined 没有该方法。可以使用转型函数 String()。</li>
+<li>可传递一个参数：输出数值的基数。默认情况下，toString()以十进制格式返回数值的字符串表示。</li>
+</ol>
+</li>
+<li><p>Object 类型</p>
+<p> Object 的每个实例都有下列的属性和方法：</p>
+<ol>
+<li>constructor: 构造函数。</li>
+<li>hasOwnProperty(propertyName): 用于检查给定的属性是否在当前对象的实例中（而不是实例的原型中）。</li>
+<li>isPrototypeOf(object): 用于检查传入的对象是否是传入对象的原型。</li>
+<li>propertyIsEnumerable(propertyName): 用于检查给定的属性是否能够使用 for-in 语句。</li>
+<li>toLocaleString(): 返回对象的字符串表示，与执行环境的地区对应。</li>
+<li>toString(): 返回对象的字符串表示。</li>
+<li>valueOf(): 返回对象的字符串、数值或布尔值表示</li>
+</ol>
+</li>
+<li><p>switch 语句在比较值时使用的是全等操作符</p>
+</li>
+</ol>
+<h1 id="第4章-变量、作用域和内存问题"><a href="#第4章-变量、作用域和内存问题" class="headerlink" title="第4章 变量、作用域和内存问题"></a>第4章 变量、作用域和内存问题</h1><ol>
+<li><p>基本类型和引用类型</p>
+<ul>
+<li>基本类型：Undefined、Null、Boolean、Number、String</li>
+<li>引用类型：Object</li>
+</ul>
+</li>
+<li><p>只能给引用类型值动态地添加属性</p>
+</li>
+<li>ECMAScript 中所有函数的参数都是按值传递的（P71）</li>
+<li><p>检测类型</p>
+<ul>
+<li>typeof</li>
+<li>instanceof: 检测引用类型的值是什么类型的对象</li>
+</ul>
+</li>
+<li><p>执行环境及作用域</p>
+<ol>
+<li><p>延长作用域链</p>
+<ul>
+<li>try-catch 语句的 catch 块</li>
+<li>with 语句</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>垃圾收集</p>
+<ol>
+<li>标记清除</li>
+<li>引用计数</li>
+</ol>
+</li>
+<li><p>基本类型值在内存中占据固定大小的空间，被保存在栈空间中</p>
+</li>
+<li>引用类型的值是对象，保存在堆内存中</li>
+</ol>
+<h1 id="第5章-引用类型"><a href="#第5章-引用类型" class="headerlink" title="第5章 引用类型"></a>第5章 引用类型</h1><ol>
+<li>创建 Object 实例的方式有2种。第一种是使用 new 操作符后跟 Object 构造函数，另一种是使用对象字面量表示法。</li>
+<li>一般来说，访问对象属性时使用<strong>点表示法</strong>，不过也可以使用<strong>方括号表示法</strong>来访问对象的属性</li>
+<li><p>Array 类型</p>
+<ol>
+<li>创造数组的两种方式：Array 构造函数（可以省略 new 操作符）、数组字面量表示法。</li>
+<li>检测数组： Array.isArray(value)</li>
+<li>栈方法：push() pop()</li>
+<li>队列方法： push() shift()</li>
+<li>重排序方法：reverse() sort()。sort() 方法可以接受一个比较函数作为参数。</li>
+<li><p>操作方法：concat() slice() splice()</p>
+<p> splice() 主要有3种用法</p>
+<ol>
+<li>删除：可以删除任意数量的项，指定2个参数：要删除的第一项的位置和要删除的项数。</li>
+<li>插入：可以向指定位置插入任意数量的项，指定3个参数：起始位置、0（要删除的项数）和要插入的项。</li>
+<li>替换：可以向指定位置插入任意数量的项，且同时删除任意数量的项，指定三个参数：起始位置、要删除的项数和要插入的任意数量的项。</li>
+</ol>
+</li>
+<li><p>位置方法：indexOf() lastIndexOf()，两个参数：要查找的项和起始位置</p>
+</li>
+<li>迭代方法：every() filter() forEach() map() some()</li>
+<li>归并方法：reduce() reduceRight()</li>
+</ol>
+</li>
+<li><p>Date 类型</p>
+<ol>
+<li>Date.parse() Date.UTC()</li>
+<li>日期格式化方法（P101）</li>
+</ol>
+</li>
+<li><p>RegExp 类型（略）</p>
+</li>
+<li><p>Function 类型</p>
+<ol>
+<li>初始化三种方法：函数声明、函数表达式，第三种是使用 Function 构造函数，理解”函数是对象，函数名是指针”</li>
+<li>没有重载</li>
+<li>函数内部属性：arguments、this</li>
+<li>函数的属性和方法：两个属性：length、prototype，length 表示函数希望接受的命名参数的个数</li>
+<li>每个函数都包含两个非继承而来的方法：apply()和call()，区别仅仅是接受参数的方式不同，真正强大的地方是扩充函数赖以运行的作用域。</li>
+</ol>
+</li>
+<li><p>基本包装类型</p>
+<p> 3 个特殊的引用类型：Boolean Number String</p>
+</li>
+<li><p>单体内置对象</p>
+<p> 开发人员不必显式地实例化内置对象。例如 Object Array String Global Math</p>
+<ol>
+<li><p>Global 对象</p>
+<ol>
+<li><p>URI 编码方法</p>
+<ul>
+<li>encodeURI、encodeURIComponent：encodeURI()不会对本身属于 URI 的特殊字符进行编码，例如冒号、正斜杠、问号和井字号；而 encodeURIComponent()则会对它发现的任何非标准字符进行编码。</li>
+<li>decodeURI、decodeURIComponent：对应使用</li>
+</ul>
+</li>
+<li><p>eval()方法：只接受一个参数,即要执行的ECMAScrip(t或JavaScript) 字符串。</p>
+</li>
+<li>Global 对象属性</li>
+<li>window 对象</li>
+</ol>
+</li>
+<li><p>Math 对象</p>
+<ol>
+<li>Math 的对象属性：Math.E Math.LN10 Math.LN2 Math.LOG2E Math.LOG10E Math.PI Math.SQRT1_2 Math.SQRT2</li>
+<li><p><code>min()和max()</code></p>
+<p> 这两个方法经常用于避免多余的循环和在 if 语句中确定一组数的最大值，通过使用 <code>apply()</code>方法</p>
+<pre><code>var values = [1, 2, 3, 4, 5, 6, 7];
+var max = Math.max.apply(Math, values);
+</code></pre></li>
+<li><p>舍入方法</p>
+<ul>
+<li>Math.ceil()</li>
+<li>Math.floor()</li>
+<li>Math.round()</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第6章-面向对象的程序设计"><a href="#第6章-面向对象的程序设计" class="headerlink" title="第6章 面向对象的程序设计"></a>第6章 面向对象的程序设计</h1><ol>
+<li><p>属性类型</p>
+<ol>
+<li><p>数据类型（Object.defineProperty）</p>
+<ul>
+<li>configurable: 表示能否通过 delete 删除</li>
+<li>writable: 表示能否修改</li>
+<li>enumerable: 表示能否通过 for-in 循环返回</li>
+<li>value: 属性的数据值</li>
+</ul>
+</li>
+<li><p>访问器属性（只能通过 Object.defineProperty 定义）</p>
+<ul>
+<li>configurable</li>
+<li>enumerable</li>
+<li>get</li>
+<li>set</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>定义多个属性（Object.defineProperties）</p>
+</li>
+<li>读取属性的特性（Object.getOwnPropertyDescriptor()）</li>
+<li><p>创建对象</p>
+<ol>
+<li><p>工厂模式</p>
+<p> 用函数来封装以特定接口创建对象的细节</p>
+<pre><code>function createPerson(name, age, job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o; 
+}
+</code></pre><p> 工厂模式虽然解决了创建多个相似对象的问题,但却没有解决<strong>对象识别</strong>的问题(即怎样知道一个对象的类型)。</p>
+</li>
+<li><p>构造函数模式</p>
+<p> 之前的例子重写如下：</p>
+<pre><code>function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function(){
+        alert(this.name);
+    }; 
+}
+var person1 = new Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
+var person2 = new Person(&quot;Greg&quot;, 27, &quot;Doctor&quot;);
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<pre><code>    对象的 constructor 属性最初是用来标识对象类型的。创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型。而这正是构造函数模式胜过工厂模式的地方。
+    使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍。虽然可以通过把函数定义转移到构造函数外部来解决这个问题，但丝毫没有封装性可言。
+
+3. 原型模式
+
+    我们创建的每个函数都有一个 prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+        }
+
+        Person.prototype.sayName = function() {
+            console.log(this.name);
+        }
+
+    实例通过使用 hasOwnProperty()方法,可以确认什么时候访问的是实例属性（true）,什么时候访问的是原型属性(false)。
+
+    原型与 in 操作符：有两种方式使用 in 操作符:单独使用和在 for-in 循环中使用。在单独使用时,in 操作符会在通过对象能够访问给定属性时返回 true,无论该属性存在于实例中还是原型中。
+
+    封装 hasPrototypeProperty() 确定该属性到底是存在于对象中,还是存在于原型中。
+
+        function hasPrototypeProperty(object, name){
+            return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+        }
+
+
+
+    Object.keys()和 Object.getOwnPropertyNames()方法都可以用来替代 for-in 循环。
+
+    更简单的原型语法：用一个包含所有属性和方法的对象字面量来重写整个原型对象。
+
+
+
+        function Person(){
+
+        }
+
+
+        Person.prototype = {
+            name: &quot;Nicholas&quot;,
+            age: 29,
+            job: &quot;Software Engineer&quot;,
+            sayName: function () {
+                alert(this.name);
+            }
+        };
+
+
+
+    注意：constructor 属性不再指向 Person 了。除非显示地设置。
+
+    原型的动态性：**重写整个原型对象会出现问题（P156）**
+
+    **原型模式的最大问题是由其共享的本性所导致的。**
+
+4. 组合使用构造函数模式和原型模式
+
+    构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。
+
+
+5. 动态原型模式
+
+    可以通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型。
+
+6. 寄生构造函数模式（感觉像是工厂模式和构造函数模式的结合）
+
+7. 稳妥构造函数模式
+</code></pre><ol>
+<li><p>继承</p>
+<p> 许多 OO 语言都支持两种继承方式:<strong>接口继承</strong>和<strong>实现继承</strong>。接口继承只继承方法签名，而实现继承则继承实际的方法。如前所述，由于函数没有签名, 在 ECMAScript 中无法实现接口继承。<strong>ECMAScript 只支持实现继承</strong>,而且其实现继承主要是依靠<strong>原型链</strong>来实现的。</p>
+</li>
+<li><p>原型链</p>
+<ol>
+<li><p>确定原型和实例的关系</p>
+<ol>
+<li>instanceof 操作符</li>
+<li>isPrototypeOf() 方法</li>
+</ol>
+</li>
+<li><p>原型链的问题</p>
+<ol>
+<li>最主要的问题来自包含引用类型值的原型。包含引用类型值的原型属性会被所有实例共享。</li>
+<li>在创建子类型的实例时,不能向超类型的构造函数中传递参数。（不懂）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>借用构造函数</p>
+</li>
+<li><p>组合继承</p>
+<p> 组合继承(combination inheritance)，有时候也叫做伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。</p>
+</li>
+<li><p>原型式继承</p>
+<pre><code>function object(o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
+}
+</code></pre></li>
+<li><p>寄生式继承</p>
+</li>
+<li>寄生组合式继承（寄生继承部分依旧不懂）</li>
+</ol>
+<h1 id="第7章-函数表达式"><a href="#第7章-函数表达式" class="headerlink" title="第7章 函数表达式"></a>第7章 函数表达式</h1><ol>
+<li>函数声明的重要特征是<strong>函数声明提升</strong>，也是函数声明与函数表达式的区别。</li>
+<li><p><code>arguments.callee</code> 是一个指向正在执行的函数的指针，可以用它来实现对函数的递归调用。递归阶乘函数使用前后：</p>
+<pre><code>function factorial(num) {
+    if(num &lt;= 1) {
+        return 1;
+    } else {
+        return num * factorial(num-1);
+    }
+}
+
+function factorial(num) {
+    if(num &lt;= 1) {
+        return 1;
+    } else {
+        return num * arguments.callee(num - 1);
+    }
+}
+</code></pre></li>
+<li><p><strong>闭包</strong>是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数。因为内部函数的作用域链会包含外部函数。</p>
+</li>
+<li><p>this 对象是在运行时基于函数的执行环境绑定的。两个很典型的例子：</p>
+<pre><code>var name = &quot;The Window&quot;;
+var object = {
+    name : &quot;My Object&quot;,
+    getNameFunc : function(){
+        return function(){
+            return this.name;
+        };
+    } 
+};
+alert(object.getNameFunc()()); //&quot;The Window&quot;
+</code></pre></li>
+</ol>
+<pre><code>var name = &quot;he Window&quot;;
+
+var object = {
+    name : &quot;My Object&quot;,
+    getNameFunc: function() {
+        var that = this;
+        return function() {
+            return that.name;
+        }
+    }
+};
+alert(object.getNameFunc()());  //&quot;My Object&quot; 
+</code></pre><ol>
+<li>模仿块级作用域：匿名函数立即调用</li>
+<li><p>私有变量</p>
+<ol>
+<li><p>特权方法：有权访问私有变量和私有函数的共有方法。缺点是必须使用构造函数模式来达到这个目的。构造函数模式的缺点是每个实例都会创建同样一组新方法，而使用<strong>静态私有变量</strong>来实现特权方法可以避免这个问题</p>
+</li>
+<li><p>静态私有变量</p>
+</li>
+<li>模块模式（单例模式）（不懂）</li>
+</ol>
+</li>
+</ol>
+<h1 id="第8章-BOM"><a href="#第8章-BOM" class="headerlink" title="第8章 BOM"></a>第8章 BOM</h1><ol>
+<li><p>window 对象</p>
+<ol>
+<li><p>双重角色：表示浏览器的一个实例，是通过 JavaScript 访问浏览器窗口的一个接口，又是 ECMAScript 规定的 Global 对象。</p>
+</li>
+<li><p>全局作用域</p>
+<p> 定义全局变量与在 window 对象上直接定义属性差别：全局变量不能通过 <code>delete</code> 操作符删除，而直接在 window 对象上的定义属性可以。</p>
+</li>
+<li><p>尝试访问未声明的变量会抛出错误，但是通过查询 window 对象，可以知道某个可能未声明的变量是否存在。</p>
+</li>
+<li>窗口关系及框架（略）</li>
+<li><p>窗口位置</p>
+<p> screenLeft screenTop screenX screenY </p>
+<p> 移动：moveTo() moveBy()</p>
+</li>
+<li><p>窗口大小</p>
+<p> innerWidth innerHeight outerWidth outerHeight</p>
+<p> document.documentElement.clienWidth(clientHeight)         document.body.clientWidth(Height)</p>
+</li>
+<li><p>导航和打开窗口</p>
+<p> window.open() 导航到一个特定 URL 或者打开一个新的浏览器窗口。</p>
+<p> 调用 close() 方法可以关闭通过 window.open() 打开的弹出窗口。</p>
+</li>
+</ol>
+</li>
+<li><p>location 对象</p>
+<ol>
+<li><p>既是 window 对象的属性，也是 document 对象的属性。window.location 和 document.location 引用的是同一个对象。</p>
+</li>
+<li><p>查询字符串参数 location.search</p>
+</li>
+<li><p>位置操作 window.location 或 location.href</p>
+<p>replace() 方法避免生成新纪录。<br>reload() 重新加载。location.reload(true) 从服务器加载，否则可能从缓存中加载。</p>
+</li>
+</ol>
+</li>
+<li><p>navigator 对象</p>
+</li>
+<li><p>screen 对象</p>
+<p>基本只用来表明客户端的能力，其中包括浏览器窗口外部的显示器的信息。</p>
+</li>
+<li><p>history 对象</p>
+<p>go() back() forward()</p>
+</li>
+</ol>
+<h1 id="第9章-客户端检测"><a href="#第9章-客户端检测" class="headerlink" title="第9章 客户端检测"></a>第9章 客户端检测</h1><ol>
+<li><p>能力检测（又称特性检测）</p>
+<ol>
+<li><p>两个概念</p>
+<ul>
+<li>先检测达成目的的最常用的特性</li>
+<li>必须测试实际要用到的特性。一个特性存在，不一定意味着另一个特性也存在。</li>
+</ul>
+</li>
+<li><p>更可靠的能力检测</p>
+<p> 尽量使用 <code>typeof</code></p>
+</li>
+<li><p>能力检测，不是浏览器检测</p>
+</li>
+</ol>
+</li>
+<li><p>怪癖检测</p>
+</li>
+<li><p>用户代理检测：万不得已的做法</p>
+<ol>
+<li><p>用户代理字符串检测技术</p>
+<ol>
+<li>识别呈现引擎：主要检测五大呈现引擎：IE Gecko Webkit KHTML 和 Opera</li>
+<li>识别浏览器</li>
+<li>识别平台</li>
+<li>识别 Windows 操作系统</li>
+<li>识别移动设备</li>
+<li>识别游戏系统</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/22/2015-4-1-chapter1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/12/22/2015-4-1-chapter1/" itemprop="url">《HTML&&CSS3入门经典》（1）——为WEB结构化文档</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-22T02:01:29+08:00">
+                2015-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>布尔特性：HTML5中存在一些不是由“名称/值”对组成，而只有一个名称组成的特性。这些特性被称为“不二特性”，如“required”或者“checked”</li>
+<li>核心特性：id title class style</li>
+<li><p>构成HTML文档基础的四个主要元素:<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;title&gt;</code>和<code>&lt;body&gt;</code></p>
+<ol>
+<li><code>&lt;html&gt;</code>元素是整个HTML文档的包含元素（containning element）</li>
+<li><code>&lt;head&gt;</code>元素仅仅是其它所有头部元素的容器。每个<code>&lt;head&gt;</code>元素内都应包含一个<code>&lt;title&gt;</code>元素，还可以包含以下元素的任意一种按任意顺序出现的组合：<ul>
+<li><code>&lt;base&gt;</code></li>
+<li><code>&lt;link&gt;</code>：用于链接外部文件，例如样式表：<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot;&gt;</code></li>
+<li><code>&lt;style&gt;</code>：用于在文档内包含CSS规则</li>
+<li><code>&lt;script&gt;</code>：用于在文档内包含脚本</li>
+<li><code>&lt;meta&gt;</code>：包含文档的相关信息</li>
+</ul>
+</li>
+<li><code>&lt;title&gt;</code>：搜索引擎使用其内容帮助建立索引</li>
+<li><code>&lt;body&gt;</code>:包含了实际浏览器主窗口中看到的部分</li>
+<li></li>
+</ol>
+</li>
+<li>关于DOCTYPE：DOCTYPE（即“文档类型”,DOCumentTYPE)，告知浏览器在用户显示文档时应使用何种规则。这些规则称为“模式(mode)”。HTML5将浏览器设置为“严格模式”（strict mode)的DOCTYPE。另一个常见的模式是“兼容模式”(quirks mode)</li>
+<li>文本格式化<ol>
+<li><code>&lt;pre&gt;</code>：预格式化文本，任何位于<code>&lt;pre&gt;</code>开标签和<code>&lt;/pre&gt;</code>闭标签之间的文本都会保持其在源文件中的格式。大多数浏览器默认会使用等宽字体显示这种文本（Courier字体就是一个等宽字体的例子，每个字母占用相同的宽度）。<code>&lt;pre&gt;</code>元素最常用于显示计算机源码。</li>
+</ol>
+</li>
+<li>理解块级元素与行内元素<ul>
+<li>块级（Block-level）元素在屏幕上显示时，就好像在它的首部都有一个换行符</li>
+<li>行内（Inline）元素可以出现在同一行句子中而不必另起一行</li>
+</ul>
+</li>
+<li>新增加的元素<ul>
+<li><code>&lt;header&gt;</code>：题头对于普通的引导或者内容导航等功能来说非常有帮助</li>
+<li><code>&lt;hgroup&gt;</code>:用于组织具有一些逻辑联系的多级标题。</li>
+<li><code>&lt;nav&gt;</code>：代表页面的导航区域</li>
+<li><code>&lt;section&gt;</code></li>
+<li><code>&lt;article&gt;</code></li>
+<li><code>&lt;hr&gt;</code>:在页面创建一条横跨页面的横线</li>
+<li><code>&lt;blockquote&gt;</code>:引用其他来源的一段文章，使用<strong>cite</strong>指明引用内容特性。此外还有一个<code>&lt;q&gt;</code>元素用于较小的引用</li>
+<li><code>&lt;aside&gt;</code>：用于标记文档相关内容，比如醒目引用、边条和广告等</li>
+<li><code>&lt;footer&gt;</code></li>
+<li><code>&lt;address&gt;</code>:用于标记<code>&lt;article&gt;</code>元素或者整个文档的联络信息</li>
+</ul>
+</li>
+<li>使用列表<ul>
+<li>无序列表：<code>&lt;ul&gt;</code></li>
+<li>有序列表：<code>&lt;ol&gt;</code><ul>
+<li>使用<strong>start</strong>特性修改有序列表的起始数字</li>
+<li>使用<strong>reversed</strong>特性实现列表顺序倒数</li>
+<li>使用<strong>type</strong>特性制定序列标记</li>
+</ul>
+</li>
+<li>定义列表：<code>&lt;dl&gt;</code>代表一个描述列表，由0个或多个“术语-描述”（名称/值）组构成。每一组都与一个或多个“术语/名称”（<code>&lt;dt&gt;</code>元素的内容）以及一个或多个“描述/值”（<code>&lt;dd&gt;</code>元素的内容）相关联</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/30/2015-4-1-chapter8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/30/2015-4-1-chapter8/" itemprop="url">《HTML&&CSS3入门经典》（8）——关于层叠样式表的更多介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-30T01:01:29+08:00">
+                2015-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-链接"><a href="#1-链接" class="headerlink" title="1. 链接"></a>1. 链接</h3><ol>
+<li>常用属性<ul>
+<li>color：改变链接颜色</li>
+<li>background-color：高亮显示链接</li>
+<li>text-decoration：控制链接是否带有下划线，也可以用于指定文本带有横穿线、闪烁或上划线  </li>
+</ul>
+</li>
+<li>四个伪类：<ul>
+<li>link：链接的总体样式</li>
+<li>visited：已访问链接的样式</li>
+<li>hover：当链接上有鼠标悬浮时的样式</li>
+<li>active：链接当前为活跃状态（正被单击）时的样式</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-背景"><a href="#2-背景" class="headerlink" title="2. 背景"></a>2. 背景</h3><ol>
+<li>常用属性<ul>
+<li>background-color：指定背景颜色</li>
+<li>background-image：指定一个作为背景的图片。该属性的值以字母url开头，然后是由括号及引号包裹的图片URL。例如<code>body{background-image:url(&quot;images/background.gif&quot;);</code>  </li>
+<li>background-repeat：指定背景图片是否应该重复显示  <ul>
+<li>repeat：默认值，重复图片显示  </li>
+<li>repeat-x：图片会水平重复，横跨页面</li>
+<li>repeat-y：图片会垂直向下重复显示，不会横跨页面重复</li>
+<li>no-repeat：图片只显示一次</li>
+</ul>
+</li>
+<li>background-attachment：指定背景图片应该固定于页面中的一个位置，以及在用户向下滚动页面时是否留在原地<ul>
+<li>fixed：上下滚动液面，图片保持不动</li>
+<li>scroll：图片保持在页面背景中相对位置</li>
+</ul>
+</li>
+<li>background-position：指定图片位置<ul>
+<li>x% y%</li>
+<li>x y</li>
+<li>left</li>
+<li>center</li>
+<li>right</li>
+<li>top</li>
+<li>bottom</li>
+</ul>
+</li>
+<li>background：简写形式，允许指定以上所有属性</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-列表"><a href="#3-列表" class="headerlink" title="3. 列表"></a>3. 列表</h3><ol>
+<li><p>list-style-type：允许控制标记符号的形状或外观<br> 无序列表</p>
+<ul>
+<li>none：无</li>
+<li>disc：实心圆（默认）</li>
+<li>circle：空心圆</li>
+<li><p>square：实心方块  </p>
+<p>有序列表：</p>
+</li>
+<li>decimal：数字</li>
+<li>decimal-leading-zero：数字前加0</li>
+<li>lower-alpha|lower-latin：小写拉丁字符</li>
+<li>upper-alpha|upper-latin：大写拉丁字符</li>
+<li>lower-roman：小写罗马数字</li>
+<li>upper-roman：大写罗马数字</li>
+<li>lower-greek：小写古希腊字母</li>
+<li>armenian：亚美尼亚计数</li>
+<li>georgian：格鲁吉亚计数  </li>
+</ul>
+</li>
+<li>list-style-position：列表项占据多于一行时，标点符号相对于文本应出现的位置<ul>
+<li>inside：符号在文本快内（缩进显示）</li>
+<li>outside：符号位于文本块左侧（默认值）</li>
+</ul>
+</li>
+<li>list-style-image：为标记符号指定图片，属性以url开始</li>
+<li>list-style：上述属性缩略形式。排列顺序：类型、位置、图片</li>
+<li>marker-offset：指定列表中标记符号与文本间的距离</li>
+</ol>
+<h3 id="4-表格"><a href="#4-表格" class="headerlink" title="4. 表格"></a>4. 表格</h3><ol>
+<li>border-collapse：在两表格单元边框接触位置。指定两边框是否都应可见，或者浏览器应只选取其中一个边框进行显示<ul>
+<li>collapse：水平边框压缩，垂直边框彼此紧邻显示</li>
+<li>separate：观察独立规则，给予进一步控制：</li>
+</ul>
+</li>
+<li>border-spacing：指定两表格单元间应显示的空间宽度。提供一个值，同时应用于垂直和水平。提供两个值，前者水平，后者垂直</li>
+<li>empty-cells：指定单元为空时是否应显示边框<ul>
+<li>show：单元为空也显示边框（默认值）</li>
+<li>hide：单元为空，隐藏边框</li>
+<li>inherit：针对嵌套表格</li>
+</ul>
+</li>
+<li>caption-side：指定标题应显示于表格的哪一侧，取值有top、right、bottom、left</li>
+<li>table-layout：强制表格使用指定的尺寸<ul>
+<li>auto：每个表格单元都将与单元中最长不中断字符集和的宽度相同</li>
+<li>fixed</li>
+<li>inherit</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-轮廓（测试无效果）"><a href="#5-轮廓（测试无效果）" class="headerlink" title="5. 轮廓（测试无效果）"></a>5. 轮廓（测试无效果）</h3><ol>
+<li>轮廓与边框两个关键的区别是<ol>
+<li>轮廓不占据空间</li>
+<li>轮廓不必是矩形</li>
+</ol>
+</li>
+<li>轮廓的四个属性：<ul>
+<li>outline-width：指定轮廓的宽度</li>
+<li>outline-style：指定轮廓的线性样式</li>
+<li>outline-color：指定轮廓的颜色</li>
+<li>outline：缩率形式，模式：宽度、样式、颜色</li>
+</ul>
+</li>
+</ol>
+<h3 id="6-focus与-active伪类"><a href="#6-focus与-active伪类" class="headerlink" title="6. :focus与:active伪类"></a>6. :focus与:active伪类</h3><ol>
+<li>:focus伪类能够在一个元素获得焦点时，将额外规则与其关联，使其更加醒目</li>
+<li>:active伪类能够在元素被激活时——如用户单击链接时——对其关联更多样式</li>
+</ol>
+<h3 id="7-生成的内容"><a href="#7-生成的内容" class="headerlink" title="7. 生成的内容"></a>7. 生成的内容</h3><ol>
+<li>:before与:after伪元素：能够在选择器中定义的元素的每个实例之前或之后添加文本</li>
+<li>content属性：<ol>
+<li>计数器</li>
+<li>引号</li>
+</ol>
+</li>
+</ol>
+<h3 id="8-杂项属性"><a href="#8-杂项属性" class="headerlink" title="8. 杂项属性"></a>8. 杂项属性</h3><ol>
+<li>cursor属性：指定向用户显示的鼠标光标类型</li>
+<li>display属性：<ul>
+<li>block：转变为块级元素</li>
+<li>inline：转变为行内元素</li>
+<li>inline-block：转变为行内块</li>
+<li>none：不被显示，不占据任何空间</li>
+</ul>
+</li>
+<li>visibility属性：消失仍然影响布局<ul>
+<li>visible</li>
+<li>hidden</li>
+</ul>
+</li>
+</ol>
+<h3 id="9-额外规则"><a href="#9-额外规则" class="headerlink" title="9. 额外规则"></a>9. 额外规则</h3><ol>
+<li>@impoert规则：模块化的样式表<br> 因阻塞并行下载而带来性能损失</li>
+<li>!important规则</li>
+</ol>
+<h3 id="10-使用CSS定位与布局"><a href="#10-使用CSS定位与布局" class="headerlink" title="10. 使用CSS定位与布局"></a>10. 使用CSS定位与布局</h3><ol>
+<li>正常流：块级元素自顶向下，行内元素自左向右</li>
+<li><p>position属性：</p>
+<ul>
+<li>static：与正常流相同，为默认值</li>
+<li>relative：盒子位置相对在其正常流中的位置出现偏移</li>
+<li>absolute：盒子完全以包含元素左上角为原点的x及y坐标进行定位。特指position属性被设置为relative、absolute或fixed的包含元素</li>
+<li>fixed：以浏览器窗口左上角为原点计算得出，且不随用户滚动窗口而改变位置</li>
+</ul>
+</li>
+<li><p>z-index属性：值是一个数字，值越大越接近元素显示位置的顶部</p>
+</li>
+<li>float属性：当为一个元素指定float属性时，必须设置width属性已指定盒子应该占据的宽度。否则，自动占据包含盒子100%的宽度。</li>
+<li>clear属性：<ul>
+<li>left：具有clear属性的元素在其左手侧不能有任何内容</li>
+<li>right：具有clear属性的元素在其右手侧不能有任何内容</li>
+<li>both：具有clear属性的元素在其左右两侧不能有任何内容</li>
+<li>none：允许两侧出现浮动</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2454,7 +2698,7 @@ socket.onmessage = function(event) {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2465,7 +2709,7 @@ socket.onmessage = function(event) {
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2476,7 +2720,7 @@ socket.onmessage = function(event) {
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
