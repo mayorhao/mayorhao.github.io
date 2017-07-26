@@ -267,6 +267,189 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/21/2016-03-12-javascript-design-pattern-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/03/21/2016-03-12-javascript-design-pattern-1/" itemprop="url">《JavaScript 设计模式与开发指南》笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-21T13:01:29+08:00">
+                2015-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前后花了大约一周时间（2016-03-12——2016-03-19）将《JavaScript 设计模式与开发指南》通读了一遍，对设计模式也有了很基础的人数，外在的主要表现是如何减少过多的 <code>if else</code> 语句，内在则从维护和扩展角度出发。书中各个模式的简单实现代码我会在今后去重现、体会、整理。</p>
+<p>本书笔记分为三个部分，也是按照全书目录三个部分划分的，当前是第一部分<strong>基础部分</strong>，另外两部分分别是：<a href="/2016/03/13/javascript-design-pattern-2.html">《JavaScript 设计模式与开发指南》笔记（二）</a>、<a href="/2016/03/19/javascript-design-pattern-3.html">《JavaScript 设计模式与开发指南》笔记（三）</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ol>
+<li><p>设计模式的定义</p>
+<p> 在面向对象软件设计过程中针对特定问题的简介而优雅的解决方案。</p>
+</li>
+</ol>
+<h1 id="第一部分-基础知识"><a href="#第一部分-基础知识" class="headerlink" title="第一部分 基础知识"></a>第一部分 基础知识</h1><h2 id="第1章-面向对象的-JavaScript"><a href="#第1章-面向对象的-JavaScript" class="headerlink" title="第1章 面向对象的 JavaScript"></a>第1章 面向对象的 JavaScript</h2><ol>
+<li><p>JavaScript 中的原型继承</p>
+<p> 基本规则：</p>
+<pre><code>* 所有的数据都是对象
+* 要得到一个对象，不是通过实例化类，而是找到一个对象作为原型并克隆它
+* 对象会记住它的原型
+* 如果对象无法响应某个请求，它会把这个请求委托给它自己的原型
+</code></pre></li>
+</ol>
+<h2 id="第2章-this、call-和-apply"><a href="#第2章-this、call-和-apply" class="headerlink" title="第2章 this、call 和 apply"></a>第2章 this、call 和 apply</h2><ol>
+<li><p>this</p>
+<ol>
+<li><p>this 的指向，除去不常用的 with 和 eval 情况，实际应用可以分为以下四类</p>
+<pre><code>* 作为对象的方法调用
+* 作为普通函数调用
+* 构造器调用
+* Function.prototype.call 和 Function.prototype.apply 调用
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<h2 id="第3章-闭包和高阶函数"><a href="#第3章-闭包和高阶函数" class="headerlink" title="第3章 闭包和高阶函数"></a>第3章 闭包和高阶函数</h2><ol>
+<li><p>高阶函数</p>
+<ol>
+<li><p>高阶函数是至少满足下列条件之一的函数</p>
+<pre><code>* 函数可以作为参数被传递
+* 函数可以返回值输出
+</code></pre></li>
+</ol>
+</li>
+<li><p>currying（柯里化）</p>
+<p> currying 又称<strong>部分求值</strong>。一个 currying 的函数首先会接受一些函数，接受了这些函数后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存下来。待到函数被真正需要求值的时候，之前传入的所有参数会被一次性用于求值。</p>
+</li>
+<li><p>uncurrying</p>
+</li>
+<li><p>函数节流</p>
+<p> 将即将被执行的函数用 setTimeout 延迟一段时间执行。如果该延迟执行还没完成，则忽略接下来该函数的请求。</p>
+</li>
+<li><p>分时函数</p>
+</li>
+<li>惰性加载函数</li>
+</ol>
+<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a><a href="./2016-03-13-javascript-design-pattern-2.md">第二部分</a></h2><p>最后修改于 2016-03-13</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-21-understand-node-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -367,6 +550,1051 @@
 <hr>
 <p>（完）</p>
 <p>（最后修改于2015-09-23）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-15-chapter11-jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-jQuery基础"><a href="#1-jQuery基础" class="headerlink" title="1. jQuery基础"></a>1. jQuery基础</h3><ol>
+<li>$函数介绍<br>可以使用两种不同的名称访问此函数：jQuery或者$，二者等价。</li>
+<li>链式结构</li>
+<li>使用<code>$(document).ready()</code>以智能方式启动脚本<br>任何需要执行的语句都包含于匿名函数中，并且将在<code>$(document).ready()</code>事件触发时得到执行</li>
+</ol>
+<h3 id="2-jQuery与DOM"><a href="#2-jQuery与DOM" class="headerlink" title="2. jQuery与DOM"></a>2. jQuery与DOM</h3><ol>
+<li>使用jQuery选择元素<br>使用$()及一个CSS选择器选择一个或一组元素</li>
+<li>创建和添加元素<br>创建元素形式如：<br><code>var elem = $(&quot;&lt;h1&gt;&quot;).text(&quot;Good Morning&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>比较灵活的写法还有：<br><code>var elem = &quot;$(&quot;&lt;h1&gt;Good Morning&lt;/h1&gt;&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>更进一步：<br><code>var elem = &quot;$(&quot;&lt;h1 id = &quot;greeting&quot;&gt;Good Morning&quot;&lt;/h1&gt;);</code><br>添加元素形式如：<br><code>$(&quot;#container&quot;).append(elem);</code></li>
+<li>使用jQuery操控元素<ol>
+<li>使用<code>$().addClass()、$().removeClass()、$().hasClass()和$().toggleClass()</code>管理CSS类</li>
+<li>使用<code>$().attr()</code>获取或设置特性</li>
+<li>使用<code>$().css()</code>获取或设置CSS属性</li>
+<li>使用<code>$().html()</code>获取或设置元素的HTML  </li>
+</ol>
+</li>
+<li>基本动画与特效<ol>
+<li>使用<code>$().show()、$().hide()和$().toggle()</code>显示与隐藏元素</li>
+<li>使用<code>$().fadeIn()、$().fadeOut()、$().fadeToggle()</code>动态显示不透明度</li>
+<li>使用<code>$().slideUp()、$().slideDown()和$().slideToggle()</code>创建滑动门效果</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-使用jQuery管理事件"><a href="#3-使用jQuery管理事件" class="headerlink" title="3. 使用jQuery管理事件"></a>3. 使用jQuery管理事件</h3><ol>
+<li>jQuery遗留事件处理<br> <code>$().bind()</code>和<code>$().unbind()</code>，其行为与使用标准的<code>$().on</code>和<code>$().off()</code>完全一致</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-17-resource-learn-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-17-resource-learn-linux/" itemprop="url">Linux学习资源（持续更新）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源/" itemprop="url" rel="index">
+                    <span itemprop="name">资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-《The-Linux-Command-Line》"><a href="#1-《The-Linux-Command-Line》" class="headerlink" title="1. 《The Linux Command Line》"></a>1. 《The Linux Command Line》</h3><p>豆瓣链接：<a href="&quot;http://book.douban.com/subject/6806862/&quot;">The Linux Command Line</a><br>在线阅读：<a href="&quot;https://billie66.github.io/TLCL/book/&quot;">中英文双语版</a>、<a href="&quot;https://billie66.github.io/TLCL/book/zh/&quot;">中文版</a><br>PDF版本：<a href="&quot;http://media.happycasts.net/tlcl-en-cn.pdf&quot;">中英文双语班</a>、<a href="&quot;http://media.happycasts.net/tlcl-cn.pdf&quot;">中文版</a><br>epub版本:<a href="&quot;https://www.gitbook.com/book/billie66/tlcl-cn/details&quot;">中文版</a></p>
+<h3 id="2-美丽新世界：linux-下的惬意生活"><a href="#2-美丽新世界：linux-下的惬意生活" class="headerlink" title="2. 美丽新世界：linux 下的惬意生活"></a>2. 美丽新世界：linux 下的惬意生活</h3><p>Github地址：<a href="&quot;https://github.com/yangyangwithgnu/the_new_world_linux&quot;">单击我</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-22-note-learn-jquery-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>当我在回顾这篇笔记的时候，我记不清楚我是从哪里归纳总结来的，没有提到教程地址，没有第二篇...
+</code></pre><h3 id="1-常见DOM事件"><a href="#1-常见DOM事件" class="headerlink" title="1.常见DOM事件"></a>1.常见DOM事件</h3><ol>
+<li>鼠标事件：click、dblclick、mouseenter、mouseleave</li>
+<li>键盘事件：keypress、keydown、keyup</li>
+<li>表单事件：submit、change、focus、blur</li>
+<li>文档/窗口时间：load、resize、scoll、unload</li>
+</ol>
+<h3 id="2-获取内容和属性"><a href="#2-获取内容和属性" class="headerlink" title="2.获取内容和属性"></a>2.获取内容和属性</h3><ol>
+<li><p>获得内容</p>
+<ul>
+<li>text()——设置或返回所选元素的文本内容</li>
+<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
+<li>val()——设置或返回表单字段的值</li>
+</ul>
+</li>
+<li><p>获取属性-attr()</p>
+</li>
+</ol>
+<h3 id="3-设置内容和属性"><a href="#3-设置内容和属性" class="headerlink" title="3.设置内容和属性"></a>3.设置内容和属性</h3><ol>
+<li><p>设置内容</p>
+<ul>
+<li>text()——设置或返回所选元素的文本内容</li>
+<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
+<li>val()——设置或返回表单字段的值</li>
+</ul>
+</li>
+<li><p>text()、html()以及val()的回调函数  </p>
+<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串</p>
+</li>
+<li><p>设置属性-attr()</p>
+</li>
+<li><p>attr()的回调函数  </p>
+<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。</p>
+</li>
+</ol>
+<h3 id="4-添加元素"><a href="#4-添加元素" class="headerlink" title="4. 添加元素"></a>4. 添加元素</h3><ol>
+<li><p>添加新的HTML内容</p>
+<ul>
+<li>append() - 在被选元素的结尾插入内容</li>
+<li>prepend() - 在被选元素的开头插入内容</li>
+<li>after() - 在被选元素之后插入内容</li>
+<li>before() - 在被选元素之前插入内容</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-删除元素"><a href="#5-删除元素" class="headerlink" title="5. 删除元素"></a>5. 删除元素</h3><ol>
+<li><p>删除元素/内容</p>
+<ul>
+<li>remove()-删除被选元素（及其子元素）</li>
+<li>empty()-从被选元素中删除子元素</li>
+</ul>
+</li>
+<li><p>过滤被删除的元素  </p>
+<p> remove()方法也可接受一个参数，允许您对被删元素进行过滤。empty()则没有对应的方法</p>
+</li>
+</ol>
+<hr>
+<p>（完）</p>
+<p>（最后修改于2015-09-23）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-6-chapter9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-6-chapter9/" itemprop="url">《HTML&&CSS3入门经典》（9）——圆角、动画、自定义字体以及CSS3的更多内容</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>CSS3的模块化方式</li>
+<li><p>成熟的CSS3模块</p>
+<ol>
+<li><p>更强大的CSS3选择器</p>
+<ul>
+<li>特征起始选择器：<code>p[name^=&quot;value&quot;]</code></li>
+<li>特征结束选择器：<code>p[name$=&quot;value&quot;]</code></li>
+<li>特征包含选择器：<code>p[name*=&quot;value&quot;]</code></li>
+<li>根选择器：<code>:root</code></li>
+<li>第n子元素选择器：<code>p:nth-child(n)</code></li>
+<li>倒数第n子元素选择器：<code>p:nth-last-child(n)</code></li>
+<li>第n同类型选择器：<code>p:nth-of-type(n)</code></li>
+<li>倒数第n同类型选择器：<code>p:nth-last-of-type(n)</code></li>
+<li>最后子元素选择器：<code>p:last-child</code></li>
+<li>第一同类型选择器：<code>p:first-of-type</code></li>
+<li>最后同类型选择器：<code>p:last-of-type</code></li>
+<li>唯一子元素选择器：<code>p:only-child</code></li>
+<li>唯一同类型选择器：<code>p:only-of-type</code></li>
+<li>空元素选择器：<code>p:empty</code></li>
+<li>目标选择器：<code>p:target</code></li>
+<li>激活/禁用选择器：<code>input:enabled</code>、<code>input:disabled</code></li>
+<li>选定选择器：<code>input:checked</code></li>
+<li>非选择器：`p:not(“.special”)</li>
+<li>下一兄弟选择器：<code>div~p</code></li>
+</ul>
+</li>
+<li><p>高级颜色可选方案</p>
+<ol>
+<li>通过HSL使用新的更易于理解的数字化颜色值：<br> HSL是RGB的一种替代方案。设置一个介于0到360之间的色调值（0=红色，120=绿色，240=蓝色）然后使用色度或饱和度调整颜色（0%为灰色，100%位全饱和），然后按照需要调整亮度/暗度的量（0%亮度是黑色，100%亮度是白色，50%为正常）</li>
+<li>使用RGBA、HSLA以及opacity属性控制透明度（0完全透明，1完全不透明）<ul>
+<li>RGBA、HSLA在RGB和HSL基础上加上第四个值Alpha Value</li>
+<li>使用标准的opacity属性添加</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>背景及边框模板<br>使用圆角与投影分别使用属性<code>(-webkit-)border-radius</code>和<code>(-webkit-)box-shadow</code>。其中shadow属性可取五个值</p>
+<pre><code>- 投影的水平偏移
+- 投影的垂直偏移
+- 半径的模糊度。值越大，投影边界越模糊
+- 扩散的距离。即投影“流出”多少
+- 投影的颜色
+</code></pre></li>
+<li><p>多列布局模块</p>
+<ol>
+<li>方式一：使用<code>column-count</code>属性</li>
+<li>方式二：使用<code>column-width</code>属性</li>
+</ol>
+</li>
+<li><p>媒体查询：应用在“响应式网页设计”（Responsive Web Design）</p>
+</li>
+</ol>
+</li>
+<li><p>新的以及开发中的模块</p>
+<ol>
+<li>使用@font-face指令自定义字体</li>
+<li>变形、动画以及过渡的高级CSS操控</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-8-chapter6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-4-8-chapter6/" itemprop="url">《HTML&&CSS3入门经典》（6）——表单</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-使用-lt-form-gt-元素创建表单"><a href="#1-使用-lt-form-gt-元素创建表单" class="headerlink" title="1. 使用&lt;form&gt;元素创建表单"></a>1. 使用<code>&lt;form&gt;</code>元素创建表单</h3><ol>
+<li><strong>action</strong>特性：指明表单提交后对数据的处理</li>
+<li><strong>method</strong>特性：表单数据可以通过两种方式发送给服务器，每一种方式对应于一种HTTP方法：<ul>
+<li>get方法，将数据作为URL的一部分发送，默认值</li>
+<li>post方法，将数据隐藏在HTTP头中</li>
+</ul>
+</li>
+<li><strong>id</strong>特性</li>
+<li><strong>name</strong>特性</li>
+<li><strong>enctype</strong>特性：指定浏览器在将数据发送到服务器之前如何对其进行编码。浏览器通常支持三种类型的编码方式：<ol>
+<li>application/x-www-form-urlencoded,是大多数表单使用的标准方法</li>
+<li>multipart/form-data，通常用于访问者需要向服务器上传文件时</li>
+<li>text/plain，以纯文本形式不加修饰地将数据发送至服务器</li>
+</ol>
+</li>
+<li><strong>accept-charset</strong>特性：指定一系列用户能够输入，并且之后服务器可以处理的字符编码</li>
+<li><strong>novalidate</strong>特性：用以指定表单在提交时是否应该进行校验，如果该特性存在，浏览器则不应该在提交前校验表单</li>
+<li><strong>target</strong>特性</li>
+<li><strong>autocomplete</strong>特性：指明浏览器是否应该自动填写表单值</li>
+</ol>
+<h3 id="2-表单控件"><a href="#2-表单控件" class="headerlink" title="2. 表单控件"></a>2. 表单控件</h3><ol>
+<li>文本输入控件<ol>
+<li>单行文本输入控件：<code>&lt;input&gt;</code>元素的type特性值为text</li>
+<li>密码输入控件：<code>&lt;input&gt;</code>元素的type特性值为password</li>
+<li>多行文本输入控件：使用<code>&lt;textarea&gt;</code>元素</li>
+</ol>
+</li>
+<li>新的HTML5输入控件类型与特性<ol>
+<li>使用<strong>placeholder</strong>特性提供示例输入</li>
+<li>使用<strong>autocomplete</strong>特性确保用户隐私与安全</li>
+<li>使用<strong>required</strong>特性确保信息提供</li>
+</ol>
+</li>
+<li>按钮<br>通过三种方式创建按钮：<ul>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>submit、reset或button</strong></li>
+<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>image</strong></li>
+<li>使用<code>&lt;button&gt;</code>元素</li>
+</ul>
+</li>
+<li>复选框<br> 通过<strong>type</strong>特性值为<strong>checkbox</strong>的<code>&lt;input&gt;</code>元素创建。复选框可以单独出现（如是否接受条款与条件），也可以作为复选框组出现（比如希望用户从一个给出的列表中指定其具有的全部技能）</li>
+<li>单选按钮<br> 通过<strong>type</strong>特性值为<strong>radio</strong>的<code>&lt;input&gt;</code>元素创建。<blockquote>
+<p>术语“单选按钮”（radio button)源自于老式收音机（radio）。在一些老式收音机上，在设定好的频道中，一次只能按下一个按钮已选择希望收听的电台，不可以在收音机上同时按下两个按钮，而按下其中一耳光后，另一个则跳起来。</p>
+</blockquote>
+</li>
+<li>选择框<ol>
+<li><code>&lt;select&gt;</code>元素<br> 常用特性：<strong>name、size、multiple</strong><br> 其他特性：<strong>disabled、form、autofocus、required</strong></li>
+<li><code>&lt;option&gt;</code>元素<br> 常用特性：<strong>value、selected、label、disabled</strong></li>
+<li>使用<strong>size</strong>特性创建滚动选择框</li>
+<li>使用<strong>multiple</strong>特性选择多个选项</li>
+<li>使用<code>&lt;optgroup&gt;</code>元素分组选项  </li>
+</ol>
+</li>
+<li>文件选择框<br> 通过<strong>type</strong>特性值为<strong>file</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>隐藏控件<br> 通过<strong>type</strong>特性值为<strong>hidden</strong>的<code>&lt;input&gt;</code>元素创建</li>
+<li>新的HTML5表单元素<ol>
+<li>使用新的<code>&lt;progress&gt;</code>元素跟踪任务完成度</li>
+<li>使用<code>&lt;meter&gt;</code>元素表示一定范围内标量的测量值</li>
+<li>使用<code>&lt;input&gt;</code>元素及新的<code>&lt;datalist&gt;</code>创建自动完成列表<br> 用CSS代码来清楚<code>&lt;datalist&gt;</code>引入的箭头   <blockquote>
+<pre><code>input::-webkit-calendar-picker-indicator {
+    display: none;
+   -webkit-appearance: none;
+ }
+</code></pre></blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-使用-lt-label-gt-元素为控件创建标签"><a href="#3-使用-lt-label-gt-元素为控件创建标签" class="headerlink" title="3. 使用&lt;label&gt;元素为控件创建标签"></a>3. 使用<code>&lt;label&gt;</code>元素为控件创建标签</h3><p><code>&lt;label&gt;</code>元素带有一个叫做<strong>for</strong>的特性，用于指明该标签关联的表单控件。<strong>for</strong>特性的值应该与对应表单控件的id特性值相同</p>
+<h3 id="4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构"><a href="#4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构" class="headerlink" title="4. 使用&lt;fieldset&gt;及&lt;legend&gt;元素组织表单结构"></a>4. 使用<code>&lt;fieldset&gt;</code>及<code>&lt;legend&gt;</code>元素组织表单结构</h3><ol>
+<li><code>&lt;fieldset&gt;</code>元素在表单控件组周围添加边框，以表示它们是相关联元素</li>
+<li><code>&lt;legend&gt;</code>元素允许你为<code>&lt;fieldset&gt;</code>元素指定标题</li>
+</ol>
+<h3 id="5-焦点"><a href="#5-焦点" class="headerlink" title="5. 焦点"></a>5. 焦点</h3><p>元素可通过四种方式获得焦点：  </p>
+<pre><code>1. 使用定点设备，如鼠标  
+2. 使用键盘，通常使用Tab键在此类元素间导航定位，顺序由**“标签遍历顺序”（tabbing order）**指定，特性值tabindex  
+3. **快捷键（access key）**  
+4. `autofocus`属性  
+</code></pre><h3 id="6-disabled与readonly控件"><a href="#6-disabled与readonly控件" class="headerlink" title="6. disabled与readonly控件"></a>6. disabled与readonly控件</h3><ul>
+<li>readonly特性防止用户更改表单控件自身的值，可通过脚本修改。任何readonly控件的名称与值仍将发送至服务器</li>
+<li>disabled特性会禁用表单控件或<code>&lt;fieldset&gt;</code>元素中的表单控件组，从而使用户无法更改，可用脚本重新激活控件。除非控件被重新激活，否则其名称与值不会被发送至服务器</li>
+</ul>
+<h3 id="7-向服务器发送表单数据"><a href="#7-向服务器发送表单数据" class="headerlink" title="7. 向服务器发送表单数据"></a>7. 向服务器发送表单数据</h3><ol>
+<li>HTTP get</li>
+<li>HTTP post</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-1-future-of-code-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/22/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="0-关于《代码的未来》"><a href="#0-关于《代码的未来》" class="headerlink" title="0.关于《代码的未来》"></a>0.关于《代码的未来》</h3><p>作者是Ruby之父松本行弘，内容涉及Go、VoltDB、node.js、CoffeeScript、Dart、MongoDB、摩尔定律、编程语言、多喝、NoSQL等当今备受关注的话题。笔记采用随阅读进度随时补充的策略，我会优先选择我感兴趣的部分，并将我认为有意思或者很重要的观点记录下来。标题代表所在章节即章节名称。</p>
+<h3 id="1-编程的时间和空间"><a href="#1-编程的时间和空间" class="headerlink" title="1.编程的时间和空间"></a>1.编程的时间和空间</h3><ol>
+<li>创造出一种人类和计算机都能够理解的语言（编程语言），并通过这样的语言将人类的意图传达给计算机，这样的行为就叫做编程。</li>
+<li>编程的本质是思考。</li>
+<li>以不变应万变。比如说，算法就能以不变应万变。被称为最古老算法的辗转相除法，是在公元前300年左右被提出的。此外，计算机科学中的大多数基本算法都是在20世纪60年代被提出的。</li>
+<li>摩尔定律的局限。首先是物理定律的局限。LSI是现实世界中物理存在的东西，自然受到物理定律的制约。在这40年里，LSI一直在不断变得更加精密，甚至快要到达量子力学所管辖的地盘了。当LSI的精密化达到这种程度，日常生活中一些从来不必在意的小事，都会变成十分严重的问题。第一个重要的问题是光速。光速约为每秒30万千米，即一秒钟可以绕地球7圈半…然而，CPU的时钟频率已经到达了GHz尺度，比如说，在3GHz的频率下，波形由开到关（即1个时钟周期）的时间内，光只能前进10cm的距离…</li>
+<li>“巴纳姆效应”是一种心理学现象，指的是将一些原本是放之四海而皆准、模棱两可的一般性描述望自己身上套，并认为这些描述对自己是准确的。</li>
+<li>IT未来预测从价格、性能、容量、带宽考虑。</li>
+</ol>
+<h3 id="2-编程语言的过去、现在和未来"><a href="#2-编程语言的过去、现在和未来" class="headerlink" title="2.编程语言的过去、现在和未来"></a>2.编程语言的过去、现在和未来</h3><ol>
+<li>古代编程语言三巨头：FORTRAN、COBOL、Lisp</li>
+<li>编程语言的进化冬季，不是工具和语言本身的简化，而是将通过这些工具和语言所得到的结果（解决方案）更简洁地表达出来。</li>
+<li>DSL（Domain Specific Language 特定领域语言）</li>
+<li>元编程…在单词前面加上meta，表示对自身的描述。例如，描述数据所具有的结构的数据，也就是关于数据本身的数据，被称为元数据（Metadata）…小说中的角色如果知道自己所身处的故事是虚构的，这样的小说就被称为元小说（Metafiction）…像这样获取和变更城区本身信息的功能，被称为反射（Reflection）。</li>
+</ol>
 
           
         
@@ -738,1051 +1966,6 @@ beatles.vocalist = lennon;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-5-1-future-of-code-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-5-1-future-of-code-1/" itemprop="url">《代码的未来》读书笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="0-关于《代码的未来》"><a href="#0-关于《代码的未来》" class="headerlink" title="0.关于《代码的未来》"></a>0.关于《代码的未来》</h3><p>作者是Ruby之父松本行弘，内容涉及Go、VoltDB、node.js、CoffeeScript、Dart、MongoDB、摩尔定律、编程语言、多喝、NoSQL等当今备受关注的话题。笔记采用随阅读进度随时补充的策略，我会优先选择我感兴趣的部分，并将我认为有意思或者很重要的观点记录下来。标题代表所在章节即章节名称。</p>
-<h3 id="1-编程的时间和空间"><a href="#1-编程的时间和空间" class="headerlink" title="1.编程的时间和空间"></a>1.编程的时间和空间</h3><ol>
-<li>创造出一种人类和计算机都能够理解的语言（编程语言），并通过这样的语言将人类的意图传达给计算机，这样的行为就叫做编程。</li>
-<li>编程的本质是思考。</li>
-<li>以不变应万变。比如说，算法就能以不变应万变。被称为最古老算法的辗转相除法，是在公元前300年左右被提出的。此外，计算机科学中的大多数基本算法都是在20世纪60年代被提出的。</li>
-<li>摩尔定律的局限。首先是物理定律的局限。LSI是现实世界中物理存在的东西，自然受到物理定律的制约。在这40年里，LSI一直在不断变得更加精密，甚至快要到达量子力学所管辖的地盘了。当LSI的精密化达到这种程度，日常生活中一些从来不必在意的小事，都会变成十分严重的问题。第一个重要的问题是光速。光速约为每秒30万千米，即一秒钟可以绕地球7圈半…然而，CPU的时钟频率已经到达了GHz尺度，比如说，在3GHz的频率下，波形由开到关（即1个时钟周期）的时间内，光只能前进10cm的距离…</li>
-<li>“巴纳姆效应”是一种心理学现象，指的是将一些原本是放之四海而皆准、模棱两可的一般性描述望自己身上套，并认为这些描述对自己是准确的。</li>
-<li>IT未来预测从价格、性能、容量、带宽考虑。</li>
-</ol>
-<h3 id="2-编程语言的过去、现在和未来"><a href="#2-编程语言的过去、现在和未来" class="headerlink" title="2.编程语言的过去、现在和未来"></a>2.编程语言的过去、现在和未来</h3><ol>
-<li>古代编程语言三巨头：FORTRAN、COBOL、Lisp</li>
-<li>编程语言的进化冬季，不是工具和语言本身的简化，而是将通过这些工具和语言所得到的结果（解决方案）更简洁地表达出来。</li>
-<li>DSL（Domain Specific Language 特定领域语言）</li>
-<li>元编程…在单词前面加上meta，表示对自身的描述。例如，描述数据所具有的结构的数据，也就是关于数据本身的数据，被称为元数据（Metadata）…小说中的角色如果知道自己所身处的故事是虚构的，这样的小说就被称为元小说（Metafiction）…像这样获取和变更城区本身信息的功能，被称为反射（Reflection）。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-8-chapter6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-4-8-chapter6/" itemprop="url">《HTML&&CSS3入门经典》（6）——表单</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-使用-lt-form-gt-元素创建表单"><a href="#1-使用-lt-form-gt-元素创建表单" class="headerlink" title="1. 使用&lt;form&gt;元素创建表单"></a>1. 使用<code>&lt;form&gt;</code>元素创建表单</h3><ol>
-<li><strong>action</strong>特性：指明表单提交后对数据的处理</li>
-<li><strong>method</strong>特性：表单数据可以通过两种方式发送给服务器，每一种方式对应于一种HTTP方法：<ul>
-<li>get方法，将数据作为URL的一部分发送，默认值</li>
-<li>post方法，将数据隐藏在HTTP头中</li>
-</ul>
-</li>
-<li><strong>id</strong>特性</li>
-<li><strong>name</strong>特性</li>
-<li><strong>enctype</strong>特性：指定浏览器在将数据发送到服务器之前如何对其进行编码。浏览器通常支持三种类型的编码方式：<ol>
-<li>application/x-www-form-urlencoded,是大多数表单使用的标准方法</li>
-<li>multipart/form-data，通常用于访问者需要向服务器上传文件时</li>
-<li>text/plain，以纯文本形式不加修饰地将数据发送至服务器</li>
-</ol>
-</li>
-<li><strong>accept-charset</strong>特性：指定一系列用户能够输入，并且之后服务器可以处理的字符编码</li>
-<li><strong>novalidate</strong>特性：用以指定表单在提交时是否应该进行校验，如果该特性存在，浏览器则不应该在提交前校验表单</li>
-<li><strong>target</strong>特性</li>
-<li><strong>autocomplete</strong>特性：指明浏览器是否应该自动填写表单值</li>
-</ol>
-<h3 id="2-表单控件"><a href="#2-表单控件" class="headerlink" title="2. 表单控件"></a>2. 表单控件</h3><ol>
-<li>文本输入控件<ol>
-<li>单行文本输入控件：<code>&lt;input&gt;</code>元素的type特性值为text</li>
-<li>密码输入控件：<code>&lt;input&gt;</code>元素的type特性值为password</li>
-<li>多行文本输入控件：使用<code>&lt;textarea&gt;</code>元素</li>
-</ol>
-</li>
-<li>新的HTML5输入控件类型与特性<ol>
-<li>使用<strong>placeholder</strong>特性提供示例输入</li>
-<li>使用<strong>autocomplete</strong>特性确保用户隐私与安全</li>
-<li>使用<strong>required</strong>特性确保信息提供</li>
-</ol>
-</li>
-<li>按钮<br>通过三种方式创建按钮：<ul>
-<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>submit、reset或button</strong></li>
-<li>使用<code>&lt;input&gt;</code>元素，并且<strong>type</strong>特性的值为<strong>image</strong></li>
-<li>使用<code>&lt;button&gt;</code>元素</li>
-</ul>
-</li>
-<li>复选框<br> 通过<strong>type</strong>特性值为<strong>checkbox</strong>的<code>&lt;input&gt;</code>元素创建。复选框可以单独出现（如是否接受条款与条件），也可以作为复选框组出现（比如希望用户从一个给出的列表中指定其具有的全部技能）</li>
-<li>单选按钮<br> 通过<strong>type</strong>特性值为<strong>radio</strong>的<code>&lt;input&gt;</code>元素创建。<blockquote>
-<p>术语“单选按钮”（radio button)源自于老式收音机（radio）。在一些老式收音机上，在设定好的频道中，一次只能按下一个按钮已选择希望收听的电台，不可以在收音机上同时按下两个按钮，而按下其中一耳光后，另一个则跳起来。</p>
-</blockquote>
-</li>
-<li>选择框<ol>
-<li><code>&lt;select&gt;</code>元素<br> 常用特性：<strong>name、size、multiple</strong><br> 其他特性：<strong>disabled、form、autofocus、required</strong></li>
-<li><code>&lt;option&gt;</code>元素<br> 常用特性：<strong>value、selected、label、disabled</strong></li>
-<li>使用<strong>size</strong>特性创建滚动选择框</li>
-<li>使用<strong>multiple</strong>特性选择多个选项</li>
-<li>使用<code>&lt;optgroup&gt;</code>元素分组选项  </li>
-</ol>
-</li>
-<li>文件选择框<br> 通过<strong>type</strong>特性值为<strong>file</strong>的<code>&lt;input&gt;</code>元素创建</li>
-<li>隐藏控件<br> 通过<strong>type</strong>特性值为<strong>hidden</strong>的<code>&lt;input&gt;</code>元素创建</li>
-<li>新的HTML5表单元素<ol>
-<li>使用新的<code>&lt;progress&gt;</code>元素跟踪任务完成度</li>
-<li>使用<code>&lt;meter&gt;</code>元素表示一定范围内标量的测量值</li>
-<li>使用<code>&lt;input&gt;</code>元素及新的<code>&lt;datalist&gt;</code>创建自动完成列表<br> 用CSS代码来清楚<code>&lt;datalist&gt;</code>引入的箭头   <blockquote>
-<pre><code>input::-webkit-calendar-picker-indicator {
-    display: none;
-   -webkit-appearance: none;
- }
-</code></pre></blockquote>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-使用-lt-label-gt-元素为控件创建标签"><a href="#3-使用-lt-label-gt-元素为控件创建标签" class="headerlink" title="3. 使用&lt;label&gt;元素为控件创建标签"></a>3. 使用<code>&lt;label&gt;</code>元素为控件创建标签</h3><p><code>&lt;label&gt;</code>元素带有一个叫做<strong>for</strong>的特性，用于指明该标签关联的表单控件。<strong>for</strong>特性的值应该与对应表单控件的id特性值相同</p>
-<h3 id="4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构"><a href="#4-使用-lt-fieldset-gt-及-lt-legend-gt-元素组织表单结构" class="headerlink" title="4. 使用&lt;fieldset&gt;及&lt;legend&gt;元素组织表单结构"></a>4. 使用<code>&lt;fieldset&gt;</code>及<code>&lt;legend&gt;</code>元素组织表单结构</h3><ol>
-<li><code>&lt;fieldset&gt;</code>元素在表单控件组周围添加边框，以表示它们是相关联元素</li>
-<li><code>&lt;legend&gt;</code>元素允许你为<code>&lt;fieldset&gt;</code>元素指定标题</li>
-</ol>
-<h3 id="5-焦点"><a href="#5-焦点" class="headerlink" title="5. 焦点"></a>5. 焦点</h3><p>元素可通过四种方式获得焦点：  </p>
-<pre><code>1. 使用定点设备，如鼠标  
-2. 使用键盘，通常使用Tab键在此类元素间导航定位，顺序由**“标签遍历顺序”（tabbing order）**指定，特性值tabindex  
-3. **快捷键（access key）**  
-4. `autofocus`属性  
-</code></pre><h3 id="6-disabled与readonly控件"><a href="#6-disabled与readonly控件" class="headerlink" title="6. disabled与readonly控件"></a>6. disabled与readonly控件</h3><ul>
-<li>readonly特性防止用户更改表单控件自身的值，可通过脚本修改。任何readonly控件的名称与值仍将发送至服务器</li>
-<li>disabled特性会禁用表单控件或<code>&lt;fieldset&gt;</code>元素中的表单控件组，从而使用户无法更改，可用脚本重新激活控件。除非控件被重新激活，否则其名称与值不会被发送至服务器</li>
-</ul>
-<h3 id="7-向服务器发送表单数据"><a href="#7-向服务器发送表单数据" class="headerlink" title="7. 向服务器发送表单数据"></a>7. 向服务器发送表单数据</h3><ol>
-<li>HTTP get</li>
-<li>HTTP post</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-6-chapter9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-4-6-chapter9/" itemprop="url">《HTML&&CSS3入门经典》（9）——圆角、动画、自定义字体以及CSS3的更多内容</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>CSS3的模块化方式</li>
-<li><p>成熟的CSS3模块</p>
-<ol>
-<li><p>更强大的CSS3选择器</p>
-<ul>
-<li>特征起始选择器：<code>p[name^=&quot;value&quot;]</code></li>
-<li>特征结束选择器：<code>p[name$=&quot;value&quot;]</code></li>
-<li>特征包含选择器：<code>p[name*=&quot;value&quot;]</code></li>
-<li>根选择器：<code>:root</code></li>
-<li>第n子元素选择器：<code>p:nth-child(n)</code></li>
-<li>倒数第n子元素选择器：<code>p:nth-last-child(n)</code></li>
-<li>第n同类型选择器：<code>p:nth-of-type(n)</code></li>
-<li>倒数第n同类型选择器：<code>p:nth-last-of-type(n)</code></li>
-<li>最后子元素选择器：<code>p:last-child</code></li>
-<li>第一同类型选择器：<code>p:first-of-type</code></li>
-<li>最后同类型选择器：<code>p:last-of-type</code></li>
-<li>唯一子元素选择器：<code>p:only-child</code></li>
-<li>唯一同类型选择器：<code>p:only-of-type</code></li>
-<li>空元素选择器：<code>p:empty</code></li>
-<li>目标选择器：<code>p:target</code></li>
-<li>激活/禁用选择器：<code>input:enabled</code>、<code>input:disabled</code></li>
-<li>选定选择器：<code>input:checked</code></li>
-<li>非选择器：`p:not(“.special”)</li>
-<li>下一兄弟选择器：<code>div~p</code></li>
-</ul>
-</li>
-<li><p>高级颜色可选方案</p>
-<ol>
-<li>通过HSL使用新的更易于理解的数字化颜色值：<br> HSL是RGB的一种替代方案。设置一个介于0到360之间的色调值（0=红色，120=绿色，240=蓝色）然后使用色度或饱和度调整颜色（0%为灰色，100%位全饱和），然后按照需要调整亮度/暗度的量（0%亮度是黑色，100%亮度是白色，50%为正常）</li>
-<li>使用RGBA、HSLA以及opacity属性控制透明度（0完全透明，1完全不透明）<ul>
-<li>RGBA、HSLA在RGB和HSL基础上加上第四个值Alpha Value</li>
-<li>使用标准的opacity属性添加</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>背景及边框模板<br>使用圆角与投影分别使用属性<code>(-webkit-)border-radius</code>和<code>(-webkit-)box-shadow</code>。其中shadow属性可取五个值</p>
-<pre><code>- 投影的水平偏移
-- 投影的垂直偏移
-- 半径的模糊度。值越大，投影边界越模糊
-- 扩散的距离。即投影“流出”多少
-- 投影的颜色
-</code></pre></li>
-<li><p>多列布局模块</p>
-<ol>
-<li>方式一：使用<code>column-count</code>属性</li>
-<li>方式二：使用<code>column-width</code>属性</li>
-</ol>
-</li>
-<li><p>媒体查询：应用在“响应式网页设计”（Responsive Web Design）</p>
-</li>
-</ol>
-</li>
-<li><p>新的以及开发中的模块</p>
-<ol>
-<li>使用@font-face指令自定义字体</li>
-<li>变形、动画以及过渡的高级CSS操控</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-22-note-learn-jquery-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-4-22-note-learn-jquery-1/" itemprop="url">jQuery学习笔记（1）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>当我在回顾这篇笔记的时候，我记不清楚我是从哪里归纳总结来的，没有提到教程地址，没有第二篇...
-</code></pre><h3 id="1-常见DOM事件"><a href="#1-常见DOM事件" class="headerlink" title="1.常见DOM事件"></a>1.常见DOM事件</h3><ol>
-<li>鼠标事件：click、dblclick、mouseenter、mouseleave</li>
-<li>键盘事件：keypress、keydown、keyup</li>
-<li>表单事件：submit、change、focus、blur</li>
-<li>文档/窗口时间：load、resize、scoll、unload</li>
-</ol>
-<h3 id="2-获取内容和属性"><a href="#2-获取内容和属性" class="headerlink" title="2.获取内容和属性"></a>2.获取内容和属性</h3><ol>
-<li><p>获得内容</p>
-<ul>
-<li>text()——设置或返回所选元素的文本内容</li>
-<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
-<li>val()——设置或返回表单字段的值</li>
-</ul>
-</li>
-<li><p>获取属性-attr()</p>
-</li>
-</ol>
-<h3 id="3-设置内容和属性"><a href="#3-设置内容和属性" class="headerlink" title="3.设置内容和属性"></a>3.设置内容和属性</h3><ol>
-<li><p>设置内容</p>
-<ul>
-<li>text()——设置或返回所选元素的文本内容</li>
-<li>html()——设置或返回所选元素的内容（包括HTML标记）</li>
-<li>val()——设置或返回表单字段的值</li>
-</ul>
-</li>
-<li><p>text()、html()以及val()的回调函数  </p>
-<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串</p>
-</li>
-<li><p>设置属性-attr()</p>
-</li>
-<li><p>attr()的回调函数  </p>
-<p> 回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。</p>
-</li>
-</ol>
-<h3 id="4-添加元素"><a href="#4-添加元素" class="headerlink" title="4. 添加元素"></a>4. 添加元素</h3><ol>
-<li><p>添加新的HTML内容</p>
-<ul>
-<li>append() - 在被选元素的结尾插入内容</li>
-<li>prepend() - 在被选元素的开头插入内容</li>
-<li>after() - 在被选元素之后插入内容</li>
-<li>before() - 在被选元素之前插入内容</li>
-</ul>
-</li>
-</ol>
-<h3 id="5-删除元素"><a href="#5-删除元素" class="headerlink" title="5. 删除元素"></a>5. 删除元素</h3><ol>
-<li><p>删除元素/内容</p>
-<ul>
-<li>remove()-删除被选元素（及其子元素）</li>
-<li>empty()-从被选元素中删除子元素</li>
-</ul>
-</li>
-<li><p>过滤被删除的元素  </p>
-<p> remove()方法也可接受一个参数，允许您对被删元素进行过滤。empty()则没有对应的方法</p>
-</li>
-</ol>
-<hr>
-<p>（完）</p>
-<p>（最后修改于2015-09-23）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-17-resource-learn-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-4-17-resource-learn-linux/" itemprop="url">Linux学习资源（持续更新）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/资源/" itemprop="url" rel="index">
-                    <span itemprop="name">资源</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-《The-Linux-Command-Line》"><a href="#1-《The-Linux-Command-Line》" class="headerlink" title="1. 《The Linux Command Line》"></a>1. 《The Linux Command Line》</h3><p>豆瓣链接：<a href="&quot;http://book.douban.com/subject/6806862/&quot;">The Linux Command Line</a><br>在线阅读：<a href="&quot;https://billie66.github.io/TLCL/book/&quot;">中英文双语版</a>、<a href="&quot;https://billie66.github.io/TLCL/book/zh/&quot;">中文版</a><br>PDF版本：<a href="&quot;http://media.happycasts.net/tlcl-en-cn.pdf&quot;">中英文双语班</a>、<a href="&quot;http://media.happycasts.net/tlcl-cn.pdf&quot;">中文版</a><br>epub版本:<a href="&quot;https://www.gitbook.com/book/billie66/tlcl-cn/details&quot;">中文版</a></p>
-<h3 id="2-美丽新世界：linux-下的惬意生活"><a href="#2-美丽新世界：linux-下的惬意生活" class="headerlink" title="2. 美丽新世界：linux 下的惬意生活"></a>2. 美丽新世界：linux 下的惬意生活</h3><p>Github地址：<a href="&quot;https://github.com/yangyangwithgnu/the_new_world_linux&quot;">单击我</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/22/2015-4-15-chapter11-jquery/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MayorHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MayorHao的秘密小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/22/2015-4-15-chapter11-jquery/" itemprop="url">《HTML&&CSS3入门经典》（11）——使用jQuery</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T13:01:29+08:00">
-                2015-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-jQuery基础"><a href="#1-jQuery基础" class="headerlink" title="1. jQuery基础"></a>1. jQuery基础</h3><ol>
-<li>$函数介绍<br>可以使用两种不同的名称访问此函数：jQuery或者$，二者等价。</li>
-<li>链式结构</li>
-<li>使用<code>$(document).ready()</code>以智能方式启动脚本<br>任何需要执行的语句都包含于匿名函数中，并且将在<code>$(document).ready()</code>事件触发时得到执行</li>
-</ol>
-<h3 id="2-jQuery与DOM"><a href="#2-jQuery与DOM" class="headerlink" title="2. jQuery与DOM"></a>2. jQuery与DOM</h3><ol>
-<li>使用jQuery选择元素<br>使用$()及一个CSS选择器选择一个或一组元素</li>
-<li>创建和添加元素<br>创建元素形式如：<br><code>var elem = $(&quot;&lt;h1&gt;&quot;).text(&quot;Good Morning&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>比较灵活的写法还有：<br><code>var elem = &quot;$(&quot;&lt;h1&gt;Good Morning&lt;/h1&gt;&quot;).attr(&quot;id&quot;,&quot;greeting&quot;);</code><br>更进一步：<br><code>var elem = &quot;$(&quot;&lt;h1 id = &quot;greeting&quot;&gt;Good Morning&quot;&lt;/h1&gt;);</code><br>添加元素形式如：<br><code>$(&quot;#container&quot;).append(elem);</code></li>
-<li>使用jQuery操控元素<ol>
-<li>使用<code>$().addClass()、$().removeClass()、$().hasClass()和$().toggleClass()</code>管理CSS类</li>
-<li>使用<code>$().attr()</code>获取或设置特性</li>
-<li>使用<code>$().css()</code>获取或设置CSS属性</li>
-<li>使用<code>$().html()</code>获取或设置元素的HTML  </li>
-</ol>
-</li>
-<li>基本动画与特效<ol>
-<li>使用<code>$().show()、$().hide()和$().toggle()</code>显示与隐藏元素</li>
-<li>使用<code>$().fadeIn()、$().fadeOut()、$().fadeToggle()</code>动态显示不透明度</li>
-<li>使用<code>$().slideUp()、$().slideDown()和$().slideToggle()</code>创建滑动门效果</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-使用jQuery管理事件"><a href="#3-使用jQuery管理事件" class="headerlink" title="3. 使用jQuery管理事件"></a>3. 使用jQuery管理事件</h3><ol>
-<li>jQuery遗留事件处理<br> <code>$().bind()</code>和<code>$().unbind()</code>，其行为与使用标准的<code>$().on</code>和<code>$().off()</code>完全一致</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1832,7 +2015,7 @@ beatles.vocalist = lennon;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1843,7 +2026,7 @@ beatles.vocalist = lennon;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="函数式编程,javaScript,ES6," />
+  <meta name="keywords" content="ES6,函数式编程,javaScript," />
 
 
 
@@ -94,13 +94,13 @@
 
 
 <meta name="description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
-<meta name="keywords" content="函数式编程,javaScript,ES6">
+<meta name="keywords" content="ES6,函数式编程,javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的函数柯里化">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/06/30/JavaScript的函数柯里化/index.html">
 <meta property="og:site_name" content="MayorHao的秘密小屋">
 <meta property="og:description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
-<meta property="og:updated_time" content="2017-07-03T04:43:53.000Z">
+<meta property="og:updated_time" content="2017-07-26T06:10:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的函数柯里化">
 <meta name="twitter:description" content="引子对我来说，在一年前，柯里化还是一个陌生的名词。如今，函数式编程的概念深入人心，函数的柯里化这个名词更是我们避不开的热词。但不可否认，它是一个很实用的技巧。甚至有国外大神在撰写关于柯里化的文章时，采用的标题借用了英国乐队 Badfinger 歌曲 Without You 中歌词：can’t live if livin’s without you。好了，言归正传。 来源及概念curry化的命名是为">
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/30/JavaScript的函数柯里化/"/>
 
 
 
@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/07/JavaScript的函数柯里化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/JavaScript的函数柯里化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MayorHao">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T02:20:29+08:00">
-                2016-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T02:20:29+08:00">
+                2017-06-30
               </time>
             
 
@@ -360,7 +360,7 @@
 </blockquote>
 <p>说白了就是，柯里化是一种技巧，可以让本来接收多个参数的函数，分步接收参数。它的做法是：每次只接收部分参数，然后返回一个闭包接收剩下的参数。</p>
 <p>####举个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> concat3Words = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> concat3WordsCurrying = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> a+b+c;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(concat3Words(<span class="string">"foo "</span>,<span class="string">"bar "</span>,<span class="string">"baza"</span>));            <span class="comment">// foo bar baza</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>));                  <span class="comment">// [Function]</span></div><div class="line"><span class="built_in">console</span>.log(concat3WordsCurrying(<span class="string">"foo "</span>)(<span class="string">"bar "</span>)(<span class="string">"baza"</span>));  <span class="comment">// foo bar baza</span></div></pre></td></tr></table></figure></p>
-<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用</p>
+<p>这个例子展示了curry化如何通过返回闭包的形式分步接收参数。<br>好了。那，curry到底有什么作用<br><a id="more"></a></p>
 <h3 id="函数curry化的作用"><a href="#函数curry化的作用" class="headerlink" title="函数curry化的作用"></a>函数curry化的作用</h3><h4 id="参数复用，设置默认参数。"><a href="#参数复用，设置默认参数。" class="headerlink" title="参数复用，设置默认参数。"></a>参数复用，设置默认参数。</h4><p>打个比方吧，每天上班我一定需要做地铁，但是下了地铁之后是步行还是骑共享单车就不一定了，而共享单车也有三种选择，ofo，摩拜，优步。<br>我们可以通过代码来实现打印出我每天到底是怎么去上班的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> curried=<span class="function"><span class="keyword">function</span>(<span class="params">defaultway</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">way</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(way!=<span class="string">"walk"</span>)&#123;</div><div class="line">            way=<span class="string">"骑"</span>+way</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"我今天是先坐"</span>+defaultway+<span class="string">"，然后"</span>+way+<span class="string">"到公司的"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这样我们就可以默认先做默认工具(地铁),剩下的可以随意组合了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fn=curried(<span class="string">"地铁"</span>);</div><div class="line">fn(<span class="string">"ofo"</span>); <span class="comment">//我今天是先坐地铁，然后骑ofo到公司的</span></div><div class="line">fn(<span class="string">"优步"</span>)；<span class="comment">//我今天是先坐地铁，然后骑优步到公司的</span></div></pre></td></tr></table></figure></p>
 <p>通用一点的应用是，bind函数我们应该都很熟悉，一个简单的实现是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn,contex</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> fn.apply(contex.arguments);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -400,11 +400,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
             <a href="/tags/函数式编程/" rel="tag"># 函数式编程</a>
           
             <a href="/tags/javaScript/" rel="tag"># javaScript</a>
-          
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
           
         </div>
       
@@ -417,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/15/2016-01-20-javascript-guide-2/" rel="next" title="《JavaScript 权威指南》笔记（二）">
-                <i class="fa fa-chevron-left"></i> 《JavaScript 权威指南》笔记（二）
+              <a href="/2017/06/30/webpack入门/" rel="next" title="【翻译】webpack入门">
+                <i class="fa fa-chevron-left"></i> 【翻译】webpack入门
               </a>
             
           </div>
@@ -427,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/08/2015-09-08-30-days-learn-30-skills/" rel="prev" title="《30天学习30种新技术》">
-                《30天学习30种新技术》 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/03/generator/" rel="prev" title="Generator从陌生到熟悉">
+                Generator从陌生到熟悉 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +501,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -512,7 +512,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

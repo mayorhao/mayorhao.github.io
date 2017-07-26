@@ -1,0 +1,879 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6,javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="搜狐媒体的团队仓促间成立，去年都在快速迭代，以完成功能为主，代码的质量堪忧，急需一个风格统一的规范来给大家参考。正好新同学都入职了，我跟老大商量，团队不如也将aribnb style guide的风格作为统一的规范。昨日开会给同学们讲了下aribnb风格指导，但是有些地方并不适应团队的实情。所以，我抽空整理了一份，一方面将airbnb规范翻译为中文，结合自己的理解和团队的实际，一方面，方便后来的同">
+<meta name="keywords" content="ES6,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜狐前端的代码规范">
+<meta property="og:url" content="http://yoursite.com/2017/07/25/01.jsStandard/index.html">
+<meta property="og:site_name" content="MayorHao的秘密小屋">
+<meta property="og:description" content="搜狐媒体的团队仓促间成立，去年都在快速迭代，以完成功能为主，代码的质量堪忧，急需一个风格统一的规范来给大家参考。正好新同学都入职了，我跟老大商量，团队不如也将aribnb style guide的风格作为统一的规范。昨日开会给同学们讲了下aribnb风格指导，但是有些地方并不适应团队的实情。所以，我抽空整理了一份，一方面将airbnb规范翻译为中文，结合自己的理解和团队的实际，一方面，方便后来的同">
+<meta property="og:updated_time" content="2017-07-26T06:07:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜狐前端的代码规范">
+<meta name="twitter:description" content="搜狐媒体的团队仓促间成立，去年都在快速迭代，以完成功能为主，代码的质量堪忧，急需一个风格统一的规范来给大家参考。正好新同学都入职了，我跟老大商量，团队不如也将aribnb style guide的风格作为统一的规范。昨日开会给同学们讲了下aribnb风格指导，但是有些地方并不适应团队的实情。所以，我抽空整理了一份，一方面将airbnb规范翻译为中文，结合自己的理解和团队的实际，一方面，方便后来的同">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/25/01.jsStandard/"/>
+
+
+
+
+
+  <title>搜狐前端的代码规范 | MayorHao的秘密小屋</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MayorHao的秘密小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小浩少校写字的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章列表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/01.jsStandard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MayorHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MayorHao的秘密小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">搜狐前端的代码规范</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T02:01:29+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工作/" itemprop="url" rel="index">
+                    <span itemprop="name">工作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搜狐媒体的团队仓促间成立，去年都在快速迭代，以完成功能为主，代码的质量堪忧，急需一个风格统一的规范来给大家参考。正好新同学都入职了，我跟老大商量，团队不如也将aribnb style guide的风格作为统一的规范。<br>昨日开会给同学们讲了下aribnb风格指导，但是有些地方并不适应团队的实情。所以，我抽空整理了一份，一方面将airbnb规范翻译为中文，结合自己的理解和团队的实际，一方面，方便后来的同学参阅。现在的进度大概是40%,先放在这里，给大家提点意见。</p>
+<h1 id="搜狐媒体平台前端组代码规范（ES6）"><a href="#搜狐媒体平台前端组代码规范（ES6）" class="headerlink" title="搜狐媒体平台前端组代码规范（ES6）"></a>搜狐媒体平台前端组代码规范（ES6）</h1><p><em>说明：本规范遵循<a href="https://github.com/airbnb/javascript" target="_blank" rel="external">aribnb style guide</a>,组内同学务必遵守,ES6语法可参考<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAscript6入门</a></em></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#命名">命名规范</a></li>
+<li><a href="#变量声明">变量声明</a></li>
+<li><a href="#对象">对象</a></li>
+<li><a href="#数组">数组</a></li>
+<li><a href="#字符串">字符串</a></li>
+<li><a href="#函数">函数</a></li>
+</ol>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><ul>
+<li>不要使用单个字母、拼音或者无意义的单词作为变量名。<ol>
+<li>函数命名<ul>
+<li>普通函数采用动词+名词的方式，如<code>getList，getVersion</code>等</li>
+<li>返回值为bool类型，采用<code>is,has,can</code>开头，如：<code>isAdmin，hasChild</code>；</li>
+</ul>
+</li>
+<li>变量命名，应采用类型前缀+有意义的单词(具体规则待定)，比如：<ul>
+<li>字符串：sXXX，如：<code>sName，sHtml</code>；</li>
+<li>数字：nXXX，如：<code>nPage，nTotal</code>；</li>
+<li>逻辑：bXXX，如：<code>bChecked，·bHasLogin</code>；</li>
+<li>数组：aXXX，如：<code>aList，aGroup</code>；</li>
+<li>正则：rXXX，如：<code>rDomain，rEmail</code></li>
+<li>JQurey实例：$XXX,如<code>$panel,$navBar</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>使用驼峰命名法来命名对象、函数以及变量.</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">let</span> OBject = &#123;&#125;;</div><div class="line"><span class="comment">// not bad ,but not suit our style</span></div><div class="line"><span class="keyword">let</span> this_is_my_object = &#123;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用大写来命名常量，单词之间以’_’隔开.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//good</span></div><div class="line"><span class="keyword">const</span> PI=<span class="number">3.1415</span>;</div><div class="line"><span class="comment">//good</span></div><div class="line"><span class="keyword">const</span> DELETE_ITEM_ACTION=<span class="string">'delete_item'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数、类名首字母大写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">user</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = options.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> bad = <span class="keyword">new</span> user(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'nope'</span>,</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(options) &#123;</div><div class="line">    <span class="keyword">this</span>.name = options.name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> good = <span class="keyword">new</span> User(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'yup'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>私有变量,私有方法前加’_’作为前缀标明</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lady</span>()</span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name,age)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="comment">// 不对外部暴露的属性</span></div><div class="line">        <span class="keyword">this</span>._trueAge = age;</div><div class="line">    &#125;</div><div class="line">    getName()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 不对外暴露该方法，只限内部调用</span></div><div class="line">    _getTrueAge()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._trueAge;</div><div class="line">    &#125;</div><div class="line">    getAge()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._getTrueAge()<span class="number">-20</span>;</div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>有了箭头函数，不要再用变量保存对<code>this</code>的引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 应尽量避免</span></div><div class="line"><span class="keyword">let</span> that = <span class="keyword">this</span>;</div><div class="line"><span class="keyword">let</span> self = <span class="keyword">this</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><a href="#目录">⬆ back to top</a></strong></p>
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><ul>
+<li><p>变量声明采用<code>const</code>和<code>let</code>代替<code>var</code>,用<code>const</code>声明常量，用<code>let</code>声明变量</p>
+<blockquote>
+<p>why？因为const和let可以保证变量不被重复声明。<code>let</code>和<code>const</code>提供了块状作用域。这是以前版本JS所缺失的功能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// const and let only exist in the blocks they are defined in.</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">const</span> b = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// ReferenceError</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// ReferenceError</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>声明变量一定要使用<code>const</code>或者<code>let</code>关键字。否则会声明一个全局变量,污染全局命名空间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">superPower = <span class="keyword">new</span> SuperPower();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> superPower = <span class="keyword">new</span> SuperPower();</div></pre></td></tr></table></figure>
+</li>
+<li><p>多<code>let</code>或者<code>const</code>来声明多条变量,并将<code>let</code>和<code>const</code>声明的变量分好组。</p>
+<blockquote>
+<p>why?想象你以后想再加一个变量，或者给其中一个变量赋上初始值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> items = getItems(),</div><div class="line">    goSportsTeam = <span class="literal">true</span>,</div><div class="line">    dragonball = <span class="string">'z'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> items = getItems();</div><div class="line"><span class="keyword">const</span> goSportsTeam = <span class="literal">true</span>;</div><div class="line"><span class="keyword">const</span> dragonball = <span class="string">'z'</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad </span></div><div class="line"><span class="keyword">let</span> i;</div><div class="line"><span class="keyword">const</span> items = getItems();</div><div class="line"><span class="keyword">let</span> dragonball;</div><div class="line"><span class="keyword">const</span> goSportsTeam = <span class="literal">true</span>;</div><div class="line"><span class="keyword">let</span> len;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> goSportsTeam = <span class="literal">true</span>;</div><div class="line"><span class="keyword">const</span> items = getItems();</div><div class="line"><span class="keyword">let</span> dragonball;</div><div class="line"><span class="keyword">let</span> i;</div><div class="line"><span class="keyword">let</span> length;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>尽量避免变量的连等</p>
+<blockquote>
+<p>why?这样会隐式的声明全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = b = c = <span class="number">1</span>;</div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// throws ReferenceError</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> b = a;</div><div class="line">  <span class="keyword">let</span> c = a;</div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// throws ReferenceError</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// throws ReferenceError</span></div><div class="line"><span class="built_in">console</span>.log(c); <span class="comment">// throws ReferenceError</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>注意<code>const</code>与<code>let</code>没有变量提升，在代码块内，注意暂时性锁区</p>
+<blockquote>
+<p>使用<code>let</code>命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">// TDZ开始</span></div><div class="line">    tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></div><div class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">    tmp = <span class="number">123</span>;</div><div class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p><strong><a href="#目录">⬆ back to top</a></strong></p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li><p>使用字面量来声明对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> item = &#123;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象方法定义，统一使用method缩写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> atom = &#123;</div><div class="line">  <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line"></div><div class="line">  <span class="attr">addValue</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> atom.value + value;</div><div class="line">  &#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> atom = &#123;</div><div class="line">  <span class="attr">value</span>: <span class="number">1</span>,</div><div class="line"></div><div class="line">  addValue(value) &#123;</div><div class="line">    <span class="keyword">return</span> atom.value + value;</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用属性缩写，并且把属性缩写放在对象声明最开头</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> anakinSkywalker = <span class="string">'Anakin Skywalker'</span>;</div><div class="line"><span class="keyword">const</span> lukeSkywalker = <span class="string">'Luke Skywalker'</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> obj = &#123;</div><div class="line">  <span class="attr">episodeOne</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">twoJediWalkIntoACantina</span>: <span class="number">2</span>,</div><div class="line">  lukeSkywalker,</div><div class="line">  <span class="attr">episodeThree</span>: <span class="number">3</span>,</div><div class="line">  <span class="attr">mayTheFourth</span>: <span class="number">4</span>,</div><div class="line">  anakinSkywalker,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> obj = &#123;</div><div class="line">  lukeSkywalker,</div><div class="line">  anakinSkywalker,</div><div class="line">  <span class="attr">episodeOne</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">twoJediWalkIntoACantina</span>: <span class="number">2</span>,</div><div class="line">  <span class="attr">episodeThree</span>: <span class="number">3</span>,</div><div class="line">  <span class="attr">mayTheFourth</span>: <span class="number">4</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象的key不要用引号，key中含有非法字符的情况除外</p>
+<blockquote>
+<p>why 这样提高了代码的可能性，js引擎也更容易优化该段代码</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> bad = &#123;</div><div class="line">  <span class="string">'foo'</span>: <span class="number">3</span>,</div><div class="line">  <span class="string">'bar'</span>: <span class="number">4</span>,</div><div class="line">  <span class="string">'data-blah'</span>: <span class="number">5</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> good = &#123;</div><div class="line">  <span class="attr">foo</span>: <span class="number">3</span>,</div><div class="line">  <span class="attr">bar</span>: <span class="number">4</span>,</div><div class="line">  <span class="string">'data-blah'</span>: <span class="number">5</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li>多使用ES6的对象展开操作符<code>...</code>,来实现对象的浅复制，解构赋值等功能。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// very bad</span></div><div class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</div><div class="line"><span class="keyword">const</span> copy = <span class="built_in">Object</span>.assign(original, &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;); <span class="comment">// this mutates `original` ಠ_ಠ</span></div><div class="line"><span class="keyword">delete</span> copy.a; <span class="comment">// so does this</span></div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</div><div class="line"><span class="keyword">const</span> copy = <span class="built_in">Object</span>.assign(&#123;&#125;, original, &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;); <span class="comment">// copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</span></div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> original = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</div><div class="line"><span class="keyword">const</span> copy = &#123; ...original, <span class="attr">c</span>: <span class="number">3</span> &#125;; <span class="comment">// copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> &#123; a, ...noA &#125; = copy; <span class="comment">// noA =&gt; &#123; b: 2, c: 3 &#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><a href="#目录">⬆ back to top</a></strong></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li><p>在数组末尾插入新元素时，用push方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> someStack = [];</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">someStack[someStack.length] = <span class="string">'abracadabra'</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">someStack.push(<span class="string">'abracadabra'</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>和对象一样，使用数组的展开操作符”…”来拷贝数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> len = items.length;</div><div class="line"><span class="keyword">const</span> itemsCopy = [];</div><div class="line"><span class="keyword">let</span> i;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i += <span class="number">1</span>) &#123;</div><div class="line">  itemsCopy[i] = items[i];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> itemsCopy = [...items];</div></pre></td></tr></table></figure>
+</li>
+<li><p>将类数组对象，例如nodeList HTMLollection等转化为数组时，使用<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="external">Array.from</a></p>
+</li>
+</ul>
+<blockquote>
+<p>是时候该丢弃繁琐的<code>Array.prototype.slice.call</code>了！</p>
+</blockquote>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.foo'</span>);</div><div class="line"><span class="keyword">const</span> nodes = <span class="built_in">Array</span>.from(foo);</div></pre></td></tr></table></figure>
+<ul>
+<li>使用数组方法时，传入的函数callback一定要有返回值。例如Array的reduce，map，filter方法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> flat = &#123;&#125;;</div><div class="line">[[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]].reduce(<span class="function">(<span class="params">memo, item, index</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> flatten = memo.concat(item);</div><div class="line">  flat[index] = flatten;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> flat = &#123;&#125;;</div><div class="line">[[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]].reduce(<span class="function">(<span class="params">memo, item, index</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> flatten = memo.concat(item);</div><div class="line">  flat[index] = flatten;</div><div class="line">  <span class="keyword">return</span> flatten;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line">inbox.filter(<span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> &#123; subject, author &#125; = msg;</div><div class="line">  <span class="keyword">if</span> (subject === <span class="string">'Mockingbird'</span>) &#123;</div><div class="line">    <span class="keyword">return</span> author === <span class="string">'Harper Lee'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line">inbox.filter(<span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> &#123; subject, author &#125; = msg;</div><div class="line">  <span class="keyword">if</span> (subject === <span class="string">'Mockingbird'</span>) &#123;</div><div class="line">    <span class="keyword">return</span> author === <span class="string">'Harper Lee'</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><a href="#目录">⬆ back to top</a></strong></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li>用单引号<code>&#39;&#39;</code>来括起字符串，而不是双引号<code>&quot;&quot;</code>,如果字符串中包含变量或者折行，则应使用模板字符串</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> name = <span class="string">"Capt. Janeway"</span>;</div><div class="line"></div><div class="line"><span class="comment">// bad - template literals should contain interpolation or newlines</span></div><div class="line"><span class="keyword">const</span> name = <span class="string">`Capt. Janeway`</span>;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> name = <span class="string">'Capt. Janeway'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>当字符串是动态构建时，使用模板字符串来代替<code>+</code>号连接<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">'How are you, '</span> + name + <span class="string">'?'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// bad es5推荐此方法，但是兄弟，现在是es6</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [<span class="string">'How are you, '</span>, name, <span class="string">'?'</span>].join();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// bad 空格问题</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">`How are you, <span class="subst">$&#123; name &#125;</span>?`</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">`How are you, <span class="subst">$&#123;name&#125;</span>?`</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong><a href="#目录">⬆ back to top</a></strong></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>使用命名的函数表达式来定义函数。不要使用函数声明，因为变量提升会影响可读性。记得给函数命名，方便在报错的时候定位错误</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li>立即执行函数表达式(IIFE)，统一采用括号包起来的格式<blockquote>
+<p>虽然IIFE有多种写法，但是括号包起来更能够体现它的模块性质。但是，现在module这么方便，IIFE基本用不着了。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// immediately-invoked function expression (IIFE)</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Welcome to the Internet. Please follow me.'</span>);</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<ul>
+<li><p>不要在non-function的块级作用域（<code>if</code>,<code>while</code>,etc)使用函数声明。请使用变量来定义一个函数。</p>
+<blockquote>
+<p>一方面是变量提升，一方面是因为各浏览器对该写法的解析有差异。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad stupid</span></div><div class="line"><span class="keyword">if</span> (currentUser) &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Nope.'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="keyword">let</span> test;</div><div class="line"><span class="keyword">if</span> (currentUser) &#123;</div><div class="line">  test = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Yup.'</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>不要使用<code>arguments</code>来定义一个形参，这会覆盖函数内部的<code>arguments</code>。当然，ES6以后，<code>arguments</code>也不推荐使用了，请用<code>...</code>剩余参数来替换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// bad </span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">name, options, arguments</span>) </span>&#123;</div><div class="line">   <span class="comment">// ...</span></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// good</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">name, options, args</span>) </span>&#123;</div><div class="line">   <span class="comment">// ...</span></div><div class="line"> &#125;</div><div class="line"><span class="comment">// bad</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">const</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">   <span class="keyword">return</span> args.join(<span class="string">''</span>);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// good</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">concatenateAll</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> args.join(<span class="string">''</span>);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用默认参数，并且总是把默认参数放在最后面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// really bad 没有必要这样了</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts</span>) </span>&#123;</div><div class="line">  opts = opts || &#123;&#125;;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts = &#123;&#125;</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">opts = &#123;&#125;, name</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// good</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleThings</span>(<span class="params">name, opts = &#123;&#125;</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>不要使用<code>Function</code>构造函数来创建一个新的<code>function</code></p>
+<blockquote>
+<p>类似于eval(),这是特别脆弱的语法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line"><span class="keyword">var</span> add = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a + b'</span>);</div><div class="line"></div><div class="line"><span class="comment">// still bad</span></div><div class="line"><span class="keyword">var</span> subtract = <span class="built_in">Function</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a - b'</span>);</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>不要重新给函数参数赋值。</p>
+<blockquote>
+<p>重新赋值可能会产生意料之外的错误，尤其是当你访问<code>arguments</code>对象时，并且这样容易产生性能问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// bad</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    a = <span class="number">1</span>;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line"><span class="comment">// good </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> b = a || <span class="number">1</span>;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/03/git-new-remote/" rel="next" title="git如何替换远程仓库">
+                <i class="fa fa-chevron-left"></i> git如何替换远程仓库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="MayorHao" />
+          <p class="site-author-name" itemprop="name">MayorHao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Calm down and Coding on</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搜狐媒体平台前端组代码规范（ES6）"><span class="nav-number">1.</span> <span class="nav-text">搜狐媒体平台前端组代码规范（ES6）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名"><span class="nav-number">1.2.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量声明"><span class="nav-number">1.3.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.4.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.5.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">1.6.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.7.</span> <span class="nav-text">函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MayorHao</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

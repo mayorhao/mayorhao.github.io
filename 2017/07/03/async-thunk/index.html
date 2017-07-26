@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,ES6,异步," />
+  <meta name="keywords" content="ES6,javascript,异步," />
 
 
 
@@ -94,13 +94,13 @@
 
 
 <meta name="description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
-<meta name="keywords" content="javascript,ES6,异步">
+<meta name="keywords" content="ES6,javascript,异步">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什么是thunk函数？">
 <meta property="og:url" content="http://yoursite.com/2017/07/03/async-thunk/index.html">
 <meta property="og:site_name" content="MayorHao的秘密小屋">
 <meta property="og:description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
-<meta property="og:updated_time" content="2017-07-03T04:43:53.000Z">
+<meta property="og:updated_time" content="2017-07-26T06:09:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是thunk函数？">
 <meta name="twitter:description" content="thunk函数是什么？thunk函数起源于一个问题：函数的参数到底应该怎么求值（求值策略）？比方说这样一段代码：123456let x=1;function a(num)&amp;#123;    return num&amp;#125;//那么问题来了，*x+1*的值是什么时候计算的呢？a(x+1) 一种流派是传值调用，即直接结算完x+5，再把值传给函数a,C语言就是这么干的12//相当于f(2) 而另一种流派">
@@ -362,6 +362,7 @@
 <p>查阅资料后这里需要强调下。求值策略。在计算机科学里，并不仅限于函数的传参方式。它决定了变量之间、函数调用时实参和形参之间值是如何传递的。也分为按值传递与按引用传递。但在js中，有大神将其对象的传递方式归纳为按共享传递。该求值策略被用于JS，ruby，python，java等多种语言。该策略与引用传递最大的区别是，对函数形参的赋值，不会影响到实参的值。详细可查阅<a href="http://bosn.me/js/js-call-by-sharing/" target="_blank" rel="external">共享传值</a></p>
 <h3 id="thunk函数是什么？-1"><a href="#thunk函数是什么？-1" class="headerlink" title="thunk函数是什么？"></a>thunk函数是什么？</h3><p>而具体传名调用的实现，一般是通过一个临时的函数来把值计算出来，再传入到函数体中。而这个临时的函数，就叫做Thunk函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">m</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> m*<span class="number">2</span></div><div class="line">&#125;</div><div class="line">f(x+<span class="number">5</span>);</div><div class="line"><span class="comment">//加入thunk函数的版本</span></div><div class="line"><span class="keyword">var</span> thunk=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+<span class="number">5</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">thunk</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> thunk()*<span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
+<a id="more"></a>
 <p>上面代码中，函数f的参数x+5被thunk函数给替换掉了，以后用到x+5，都直接调用thunk就好。</p>
 <blockquote>
 <p>所以Thunk函数就是 “传名调用”的一种实现方式。用来替换传入函数的表达式。</p>
@@ -403,9 +404,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
             <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
             <a href="/tags/异步/" rel="tag"># 异步</a>
           
@@ -420,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/generator/" rel="next" title="Generator从陌生到熟悉">
-                <i class="fa fa-chevron-left"></i> Generator从陌生到熟悉
+              <a href="/2017/07/03/async-await/" rel="next" title="async-await模式">
+                <i class="fa fa-chevron-left"></i> async-await模式
               </a>
             
           </div>
@@ -430,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/03/async-await/" rel="prev" title="async-await模式">
-                async-await模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/03/git-new-remote/" rel="prev" title="git如何替换远程仓库">
+                git如何替换远程仓库 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,7 +505,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -515,7 +516,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
